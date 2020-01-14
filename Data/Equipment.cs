@@ -10,7 +10,7 @@ namespace EO3EquipmentEdit.Data
   /// <summary>
   /// Represents an equippable item in EO3.
   /// </summary>
-  class Equipment
+  public class Equipment
   {
     /// <summary>
     /// A pointer to the loaded equipitemnametable.tbl.
@@ -134,6 +134,7 @@ namespace EO3EquipmentEdit.Data
     /// </summary>
     public enum EquipmentTypes
     {
+      Dummy       = 0x0,
       Sword       = 0x1,
       Katana      = 0x2,
       Dagger      = 0x3,
@@ -349,7 +350,14 @@ namespace EO3EquipmentEdit.Data
 
     public override string ToString()
     {
-      return Name;
+      if (Type != EquipmentTypes.Dummy)
+      {
+        return string.Format("{0} ({1})", Name, EquipmentNamesSingular[Type]);
+      }
+      else
+      {
+        return Name;
+      }
     }
   }
 }
