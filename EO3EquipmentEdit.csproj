@@ -5,9 +5,10 @@
     <ProjectGuid>{7ECDFBD2-55C9-40A6-8A30-2927ABD76D8B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>WindowsApplication</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AssemblyName>EO3EquipmentEdit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -19,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -28,11 +30,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>EO3EquipmentEdit</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OriginTablets">
+      <HintPath>..\OriginTablets\bin\Release\OriginTablets.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -43,37 +49,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
-    <None Include=".git\config" />
-    <None Include=".git\description" />
-    <None Include=".git\HEAD" />
-    <None Include=".git\hooks\applypatch-msg.sample" />
-    <None Include=".git\hooks\commit-msg.sample" />
-    <None Include=".git\hooks\fsmonitor-watchman.sample" />
-    <None Include=".git\hooks\post-update.sample" />
-    <None Include=".git\hooks\pre-applypatch.sample" />
-    <None Include=".git\hooks\pre-commit.sample" />
-    <None Include=".git\hooks\pre-push.sample" />
-    <None Include=".git\hooks\pre-rebase.sample" />
-    <None Include=".git\hooks\pre-receive.sample" />
-    <None Include=".git\hooks\prepare-commit-msg.sample" />
-    <None Include=".git\hooks\update.sample" />
-    <None Include=".git\index" />
-    <None Include=".git\info\exclude" />
-    <None Include=".git\logs\HEAD" />
-    <None Include=".git\logs\refs\heads\master" />
-    <None Include=".git\logs\refs\remotes\origin\HEAD" />
-    <None Include=".git\objects\pack\pack-e497281bcdc7e29882b1a10ae5787f8b6bae486f.idx" />
-    <None Include=".git\objects\pack\pack-e497281bcdc7e29882b1a10ae5787f8b6bae486f.pack" />
-    <None Include=".git\packed-refs" />
-    <None Include=".git\refs\heads\master" />
-    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include="app.config" />
     <None Include="README.md" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include=".git\objects\info\" />
-    <Folder Include=".git\refs\tags\" />
-    <Folder Include=".vs\EO3EquipmentEdit\v16\" />
+    <Compile Include="Data\DamageType.cs" />
+    <Compile Include="Data\Equipment.cs" />
+    <Compile Include="Data\PlayerClasses.cs" />
+    <Compile Include="Data\StatBlock.cs" />
+    <Compile Include="Entrypoint.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
