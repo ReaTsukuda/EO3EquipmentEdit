@@ -15,27 +15,35 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// A pointer to the loaded equipitemnametable.tbl.
     /// </summary>
-    private Table EquipmentNames;
+    readonly Table EquipmentNames;
 
     /// <summary>
     /// A pointer to the loaded equipitemexpbattle.mbm.
     /// </summary>
-    private MBM EquipmentDescriptions;
+    readonly MBM EquipmentDescriptions;
 
     /// <summary>
     /// Where this equipment is in the internal table.
     /// </summary>
-    private int Index;
+    readonly int Index;
 
     /// <summary>
     /// This equipment's name.
     /// </summary>
-    public string Name => EquipmentNames[Index];
+    public string Name
+    {
+      get => EquipmentNames[Index];
+      set => EquipmentNames[Index] = value;
+    }
 
     /// <summary>
     /// This equipment's description.
     /// </summary>
-    public string Description => EquipmentDescriptions[Index];
+    public string Description
+    {
+      get => EquipmentDescriptions[Index];
+      set => EquipmentDescriptions[Index] = value;
+    }
 
     /// <summary>
     /// What type of equipment this item is.
@@ -352,14 +360,7 @@ namespace EO3EquipmentEdit.Data
 
     public override string ToString()
     {
-      if (Type != EquipmentTypes.Dummy)
-      {
-        return string.Format("{0} ({1})", Name, EquipmentNamesSingular[Type]);
-      }
-      else
-      {
-        return Name;
-      }
+      return Name;
     }
   }
 }

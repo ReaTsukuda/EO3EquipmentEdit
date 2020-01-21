@@ -1,0 +1,3446 @@
+[
+  {
+    "Character": " ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "`",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "。",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": ",",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": ".",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "・",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": ":",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": ";",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "?",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "!",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "゛",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "゜",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "`",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "｀",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "¨",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "＾",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "￣",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "＿",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ヽ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ヾ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ゝ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ゞ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "〃",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "仝",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "々",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "〆",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "〇",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ー",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "―",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "‐",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "／",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "＼",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "～",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "∥",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "｜",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "…",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "‥",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "‘",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "'",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "“",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "”",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "（",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "）",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "〔",
+    "LeftBound": 5,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "〕",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "［",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "］",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "｛",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "｝",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "〈",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "〉",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "《",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "》",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "「",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "」",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "『",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "』",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "【",
+    "LeftBound": 5,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "】",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "+",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "-",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "±",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "×",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "÷",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "＝",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "≠",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "＜",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "＞",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "≦",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "≧",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "∞",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∴",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "♂",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "♀",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "°",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "′",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "″",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "℃",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "￥",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "$",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "￠",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "￡",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "%",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "#",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "&",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "*",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "＠",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "§",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "☆",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "★",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "○",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "●",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "◎",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "◇",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "◆",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "□",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "■",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "△",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "▲",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "▽",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "▼",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "※",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "〒",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "→",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "←",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "↑",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "↓",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "〓",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∈",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "∋",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "⊆",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "⊇",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "⊂",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "⊃",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "∪",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "∩",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "∧",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∨",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "￢",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "⇒",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "⇔",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∀",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∃",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "∠",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "⊥",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "⌒",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∂",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "∇",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "≡",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "≒",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "≪",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "≫",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "√",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∽",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∝",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "∵",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "∫",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "∬",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Å",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "‰",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "♯",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "♭",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "♪",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "†",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "‡",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "¶",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "◯",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "0",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "1",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "2",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "3",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "4",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "5",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "6",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "7",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "8",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "9",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "A",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "B",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "C",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "D",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "E",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "F",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "G",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "H",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "I",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "J",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "K",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "L",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "M",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "N",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "O",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "P",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "Q",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "R",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "S",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "T",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "U",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "V",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "W",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "X",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "Y",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "Z",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "a",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "b",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "c",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "d",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "e",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "f",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "g",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "h",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "i",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "j",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "k",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "l",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 2,
+    "Height": 10
+  },
+  {
+    "Character": "m",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "n",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "o",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "p",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "q",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "r",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "s",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "t",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 4,
+    "Height": 10
+  },
+  {
+    "Character": "u",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "v",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "w",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "x",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "y",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "z",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ぁ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "あ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぃ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "い",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぅ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "う",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ぇ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "え",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぉ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "お",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "か",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "が",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "き",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぎ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "く",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ぐ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "け",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "げ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "こ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ご",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "さ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ざ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "し",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "じ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "す",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ず",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "せ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぜ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "そ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぞ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "た",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "だ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ち",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ぢ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "っ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "つ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "づ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "て",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "で",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "と",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ど",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "な",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "に",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぬ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ね",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "の",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "は",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ば",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぱ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ひ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "び",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぴ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ふ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぶ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぷ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "へ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "べ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぺ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ほ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぼ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ぽ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ま",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "み",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "む",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "め",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "も",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ゃ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "や",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゅ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ゆ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ょ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "よ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ら",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "り",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "る",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "れ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ろ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゎ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "わ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゐ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゑ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "を",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ん",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ァ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ア",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ィ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "イ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ゥ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ウ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ェ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "エ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ォ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "オ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "カ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ガ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "キ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ギ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ク",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "グ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ケ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゲ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "コ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ゴ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "サ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ザ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "シ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ジ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ス",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ズ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "セ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゼ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ソ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ゾ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "タ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ダ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "チ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヂ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ッ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ツ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヅ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "テ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "デ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ト",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ド",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ナ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ニ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ヌ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ネ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ノ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ハ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "バ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "パ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヒ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ビ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ピ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "フ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ブ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "プ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヘ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ベ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ペ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ホ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ボ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ポ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "マ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ミ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ム",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "メ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "モ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ャ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ヤ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ュ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ユ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ョ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ヨ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ラ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "リ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ル",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "レ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ロ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ヮ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ワ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ヰ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヱ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヲ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ン",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヴ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "ヵ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ヶ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "Α",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Β",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Γ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "Δ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Ε",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Ζ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Η",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Θ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ι",
+    "LeftBound": 4,
+    "UpperBound": 0,
+    "Width": 1,
+    "Height": 10
+  },
+  {
+    "Character": "Κ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Λ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Μ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Ν",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ξ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ο",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Π",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Ρ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Σ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Τ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Υ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Φ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Χ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ψ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ω",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "α",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "β",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "γ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "δ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ε",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "ζ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "η",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "θ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ι",
+    "LeftBound": 3,
+    "UpperBound": 0,
+    "Width": 3,
+    "Height": 10
+  },
+  {
+    "Character": "κ",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "λ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "μ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ν",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ξ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ο",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "π",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ρ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "σ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "τ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "υ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "φ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "χ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ψ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ω",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "А",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Б",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "В",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Г",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "Д",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "Е",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Ё",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Ж",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "З",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "И",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Й",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "К",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Л",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "М",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Н",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "О",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "П",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Р",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "С",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Т",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "У",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ф",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Х",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ц",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ч",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Ш",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Щ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "Ъ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "Ы",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "Ь",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "Э",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "Ю",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "Я",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "а",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "б",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "в",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "г",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "д",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "е",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ё",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ж",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "з",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "и",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "й",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "к",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "л",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "м",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "н",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "о",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "п",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "р",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "с",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "т",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "у",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ф",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 9,
+    "Height": 10
+  },
+  {
+    "Character": "х",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ц",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ч",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ш",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "щ",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "ъ",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ы",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 7,
+    "Height": 10
+  },
+  {
+    "Character": "ь",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+  {
+    "Character": "э",
+    "LeftBound": 1,
+    "UpperBound": 0,
+    "Width": 6,
+    "Height": 10
+  },
+  {
+    "Character": "ю",
+    "LeftBound": 0,
+    "UpperBound": 0,
+    "Width": 8,
+    "Height": 10
+  },
+  {
+    "Character": "я",
+    "LeftBound": 2,
+    "UpperBound": 0,
+    "Width": 5,
+    "Height": 10
+  },
+]
