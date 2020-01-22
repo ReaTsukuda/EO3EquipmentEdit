@@ -169,6 +169,7 @@ namespace EO3EquipmentEdit.Data
     public static readonly Dictionary<EquipmentTypes, string> EquipmentNamesSingular
       = new Dictionary<EquipmentTypes, string>()
     {
+      { EquipmentTypes.Dummy, "Dummy" },
       { EquipmentTypes.Sword, "Sword" },
       { EquipmentTypes.Katana, "Katana" },
       { EquipmentTypes.Dagger, "Dagger" },
@@ -195,6 +196,7 @@ namespace EO3EquipmentEdit.Data
     public static readonly Dictionary<EquipmentTypes, string> EquipmentNamesPlural
       = new Dictionary<EquipmentTypes, string>()
     {
+      { EquipmentTypes.Dummy, "Dummies" },
       { EquipmentTypes.Sword, "Swords" },
       { EquipmentTypes.Katana, "Katanas" },
       { EquipmentTypes.Dagger, "Daggers" },

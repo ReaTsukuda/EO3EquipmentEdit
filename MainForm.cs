@@ -1,15 +1,14 @@
-﻿using System;
+﻿using EO3EquipmentEdit.Data;
+using EO3EquipmentEdit.TextPreview;
+using OriginTablets.Types;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using EO3EquipmentEdit.Data;
-using OriginTablets.Types;
-using EO3EquipmentEdit.TextPreview;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace EO3EquipmentEdit
 {
@@ -78,36 +77,31 @@ namespace EO3EquipmentEdit
 
       // Form preparation.
       InitializeComponent();
-      AddEquipmentTypesToFilter();
-      AddEquipmentTypesToTypeDropdown();
-      PopulateEquipmentList(null, null);
-
       // Assign event handlers to various form element events.
-      // Both of these have that handler set, since changing the
-      // filter's type nulls out the selected index on the list.
-      includeDummyItems.CheckedChanged += PopulateEquipmentList;
-      equipmentTypeFilter.SelectedIndexChanged += PopulateEquipmentList;
+      SetIncludeDummyCheckboxEventHandlers();
+      SetEquipmentTypeFilterEventHandlers();
       SetEquipmentListEventHandlers();
-      itemName.TextChanged += UpdateItemNameAndPreviewOnEquipmentNameChanged;
+      SetItemNameEntryEventHandlers();
+      SetItemTypeDropdownEventHandlers();
       SetATKDEFEntryEventHandlers();
-
+      SetStatBonusEventHandlers();
+      SetPriceEntryEventHandlers();
       // Load the fonts.
       Font8px = Newtonsoft.Json.JsonConvert.DeserializeObject(
-        string.Join("", System.IO.File.ReadAllLines("Resources/Font/Font8x8.eo3font.json")), 
-        typeof(EO3Font)) 
+        string.Join("", File.ReadAllLines("Resources/Font/Font8x8.eo3font.json")),
+        typeof(EO3Font))
         as EO3Font;
       Font8px.TexturePath = "Resources/Font/Font8x8.eo3font.png";
       Font10px = Newtonsoft.Json.JsonConvert.DeserializeObject(
-        string.Join("", System.IO.File.ReadAllLines("Resources/Font/Font10x10.eo3font.json")),
+        string.Join("", File.ReadAllLines("Resources/Font/Font10x10.eo3font.json")),
         typeof(EO3Font))
         as EO3Font;
       Font10px.TexturePath = "Resources/Font/Font10x10.eo3font.png";
       Font12px = Newtonsoft.Json.JsonConvert.DeserializeObject(
-        string.Join("", System.IO.File.ReadAllLines("Resources/Font/Font12x12.eo3font.json")),
+        string.Join("", File.ReadAllLines("Resources/Font/Font12x12.eo3font.json")),
         typeof(EO3Font))
         as EO3Font;
       Font12px.TexturePath = "Resources/Font/Font12x12.eo3font.png";
-
       // Create the item name preview. This is done here instead of in Designer because
       // we need to pass the preview the font it needs at construction time. Safety and all that.
       namePreview = new ItemNamePreview(Font10px);
@@ -116,6 +110,10 @@ namespace EO3EquipmentEdit
       int previewY = (namePreviewPanel.Height / 2) - (namePreview.Height / 2);
       namePreview.Location = new Point(previewX, previewY);
       namePreviewPanel.Controls.Add(namePreview);
+      // Further form preparation.
+      AddEquipmentTypesToFilter();
+      AddEquipmentTypesToTypeDropdown();
+      PopulateEquipmentList(null, null);
     }
 
     /// <summary>
@@ -128,6 +126,8 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateItemTypeDropdownOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += SetATKDEFLabelsBasedOnIfEquipmentIsAWeapon;
       equipmentList.SelectedIndexChanged += SetATKDEFValuesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateStatBonusValuesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdatePriceOnEquipmentChanged;
     }
 
     /// <summary>
@@ -140,6 +140,7 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged -= UpdateItemTypeDropdownOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= SetATKDEFLabelsBasedOnIfEquipmentIsAWeapon;
       equipmentList.SelectedIndexChanged -= SetATKDEFValuesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateStatBonusValuesOnEquipmentChanged;
     }
 
     /// <summary>
@@ -158,6 +159,116 @@ namespace EO3EquipmentEdit
     {
       physicalEntry.ValueChanged -= UpdateEquipmentATKDEFValues;
       magicEntry.ValueChanged -= UpdateEquipmentATKDEFValues;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the "include dummy" checkbox.
+    /// </summary>
+    private void SetIncludeDummyCheckboxEventHandlers()
+    {
+      includeDummyItems.CheckedChanged += PopulateEquipmentList;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the "include dummy" checkbox.
+    /// </summary>
+    private void RemoveIncludeDummyCheckboxEventHandlers()
+    {
+      includeDummyItems.CheckedChanged -= PopulateEquipmentList;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the equipment type filter.
+    /// </summary>
+    private void SetEquipmentTypeFilterEventHandlers()
+    {
+      equipmentTypeFilter.SelectedIndexChanged += PopulateEquipmentList;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the equipment type filter.
+    /// </summary>
+    private void RemoveEquipmentTypeFilterEventHandlers()
+    {
+      equipmentTypeFilter.SelectedIndexChanged -= PopulateEquipmentList;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the item name entry;
+    /// </summary>
+    private void SetItemNameEntryEventHandlers()
+    {
+      itemName.TextChanged += UpdateItemNameAndPreviewOnEquipmentNameChanged;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the item name entry;
+    /// </summary>
+    private void RemoveItemNameEntryEventHandlers()
+    {
+      itemName.TextChanged -= UpdateItemNameAndPreviewOnEquipmentNameChanged;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the item type dropdown.
+    /// </summary>
+    private void SetItemTypeDropdownEventHandlers()
+    {
+      itemType.SelectedIndexChanged += UpdateItemTypeOnDropdownChanged;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the item type dropdown.
+    /// </summary>
+    private void RemoveItemTypeDropdownEventHandlers()
+    {
+      itemType.SelectedIndexChanged -= UpdateItemTypeOnDropdownChanged;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the stat bonus entries.
+    /// </summary>
+    private void SetStatBonusEventHandlers()
+    {
+      HPEntry.ValueChanged += UpdateEquipmentHPBonusOnEntryChanged;
+      TPEntry.ValueChanged += UpdateEquipmentTPBonusOnEntryChanged;
+      STREntry.ValueChanged += UpdateEquipmentSTRBonusOnEntryChanged;
+      TECEntry.ValueChanged += UpdateEquipmentTECBonusOnEntryChanged;
+      VITEntry.ValueChanged += UpdateEquipmentVITBonusOnEntryChanged;
+      WISEntry.ValueChanged += UpdateEquipmentAGIBonusOnEntryChanged;
+      AGIEntry.ValueChanged += UpdateEquipmentAGIBonusOnEntryChanged;
+      LUCEntry.ValueChanged += UpdateEquipmentLUCBonusOnEntryChanged;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the stat bonus entries.
+    /// </summary>
+    private void RemoveStatBonusEventHandlers()
+    {
+      HPEntry.ValueChanged -= UpdateEquipmentHPBonusOnEntryChanged;
+      TPEntry.ValueChanged -= UpdateEquipmentTPBonusOnEntryChanged;
+      STREntry.ValueChanged -= UpdateEquipmentSTRBonusOnEntryChanged;
+      TECEntry.ValueChanged -= UpdateEquipmentTECBonusOnEntryChanged;
+      VITEntry.ValueChanged -= UpdateEquipmentVITBonusOnEntryChanged;
+      WISEntry.ValueChanged -= UpdateEquipmentAGIBonusOnEntryChanged;
+      AGIEntry.ValueChanged -= UpdateEquipmentAGIBonusOnEntryChanged;
+      LUCEntry.ValueChanged -= UpdateEquipmentLUCBonusOnEntryChanged;
+    }
+
+    /// <summary>
+    /// Registers all of the event handlers for the price entry.
+    /// </summary>
+    private void SetPriceEntryEventHandlers()
+    {
+
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the price entry.
+    /// </summary>
+    private void RemovePriceEntryEventHandlers()
+    {
+
     }
 
     /// <summary>
@@ -190,12 +301,14 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void AddEquipmentTypesToFilter()
     {
+      RemoveEquipmentTypeFilterEventHandlers();
       equipmentTypeFilter.Items.Add("All equipment");
-      foreach (string singularName in Equipment.EquipmentNamesPlural.Values)
+      foreach (string singularName in Equipment.EquipmentNamesPlural.Values.Skip(1))
       {
         equipmentTypeFilter.Items.Add(singularName);
       }
       equipmentTypeFilter.SelectedIndex = 0;
+      SetEquipmentTypeFilterEventHandlers();
     }
 
     /// <summary>
@@ -295,6 +408,7 @@ namespace EO3EquipmentEdit
       // with the list we've filtered down to.
       equipmentList.Items.Clear();
       equipmentList.Items.AddRange(qualifyingEquipment.ToArray());
+      equipmentList.SelectedIndex = 0;
     }
 
     /// <summary>
@@ -316,21 +430,16 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void EnableOrDisableElementsBasedOnEquipmentListStatus(object sender, EventArgs eventArgs)
     {
-      if (SelectedEquipment != null)
-      {
-        // Name box.
-        itemName.Enabled = true;
-        // Item type selector.
-        itemType.Enabled = true;
-      }
-      else
-      {
-        // Name box.
-        itemName.Text = string.Empty;
-        itemName.Enabled = false;
-        // Item type selector.
-        itemType.Enabled = false;
-      }
+      bool enabled = SelectedEquipment != null;
+      nameLabel.Enabled = enabled;
+      itemName.Enabled = enabled;
+      typeLabel.Enabled = enabled;
+      itemType.Enabled = enabled;
+      ATKDEFEntryPanel.Enabled = enabled;
+      statBonusGroup.Enabled = enabled;
+      priceTable.Enabled = enabled;
+      classGroup.Enabled = enabled;
+      flags.Enabled = enabled;
     }
 
     /// <summary>
@@ -368,9 +477,22 @@ namespace EO3EquipmentEdit
     {
       if (SelectedEquipment != null)
       {
-        // TODO: Remove event handlers tied to itemType before we do this.
-        itemType.SelectedIndex = (int)SelectedEquipment.Type - 1;
-        // TODO: Restore the event handlers we temporarily disabled.
+        RemoveEquipmentTypeFilterEventHandlers();
+        itemType.SelectedIndex = (int)SelectedEquipment.Type;
+        SetEquipmentTypeFilterEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Sets the selected item's type when the type dropdown is changed.
+    /// </summary>
+    private void UpdateItemTypeOnDropdownChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveItemTypeDropdownEventHandlers();
+        SelectedEquipment.Type = SelectedEquipmentType;
+        SetItemTypeDropdownEventHandlers();
       }
     }
     
@@ -401,7 +523,7 @@ namespace EO3EquipmentEdit
     {
       if (SelectedEquipment != null)
       {
-        // TODO: Temporarily disable applicable handlers for the ATK/DEF entries, so we don't trip them here.
+        RemoveATKDEFEntryEventHandlers();
         if (SelectedEquipment.IsWeapon == true)
         {
           physicalEntry.Value = SelectedEquipment.ATK;
@@ -412,7 +534,7 @@ namespace EO3EquipmentEdit
           physicalEntry.Value = SelectedEquipment.DEF;
           magicEntry.Value = SelectedEquipment.MDF;
         }
-        // TODO: Re-enable the handlers we disabled above.
+        SetATKDEFEntryEventHandlers();
       }
     }
 
@@ -433,6 +555,127 @@ namespace EO3EquipmentEdit
           SelectedEquipment.DEF = (int)physicalEntry.Value;
           SelectedEquipment.MDF = (int)magicEntry.Value;
         }
+      }
+    }
+
+    /// <summary>
+    /// Sets the stat bonus entries' values when the equipment is changed.
+    /// </summary>
+    private void UpdateStatBonusValuesOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveStatBonusEventHandlers();
+        HPEntry.Value = SelectedEquipment.StatBonuses.HP;
+        TPEntry.Value = SelectedEquipment.StatBonuses.TP;
+        STREntry.Value = SelectedEquipment.StatBonuses.STR;
+        TECEntry.Value = SelectedEquipment.StatBonuses.TEC;
+        VITEntry.Value = SelectedEquipment.StatBonuses.VIT;
+        WISEntry.Value = SelectedEquipment.StatBonuses.WIS;
+        AGIEntry.Value = SelectedEquipment.StatBonuses.AGI;
+        LUCEntry.Value = SelectedEquipment.StatBonuses.LUC;
+        SetStatBonusEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's HP bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentHPBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.HP = (int)HPEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's TP bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentTPBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.TP = (int)TPEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's STR bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentSTRBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.STR = (int)STREntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's TEC bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentTECBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.TEC = (int)TECEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's VIT bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentVITBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.VIT = (int)VITEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's WIS bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentWISBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.WIS = (int)WISEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's AGI bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentAGIBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.AGI = (int)AGIEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equpiment's LUC bonus when that entry is changed.
+    /// </summary>
+    private void UpdateEquipmentLUCBonusOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.StatBonuses.LUC = (int)LUCEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the price entry's value when the equipment is changed.
+    /// </summary>
+    private void UpdatePriceOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemovePriceEntryEventHandlers();
+        priceEntry.Value = SelectedEquipment.Price;
+        SetPriceEntryEventHandlers();
       }
     }
   }
