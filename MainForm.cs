@@ -260,7 +260,7 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void SetPriceEntryEventHandlers()
     {
-
+      priceEntry.ValueChanged += SetPriceOnPriceEntryValueChanged;
     }
 
     /// <summary>
@@ -268,7 +268,7 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void RemovePriceEntryEventHandlers()
     {
-
+      priceEntry.ValueChanged -= SetPriceOnPriceEntryValueChanged;
     }
 
     /// <summary>
@@ -676,6 +676,17 @@ namespace EO3EquipmentEdit
         RemovePriceEntryEventHandlers();
         priceEntry.Value = SelectedEquipment.Price;
         SetPriceEntryEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Sets the currently selected item's price when the price entry's value is changed.
+    /// </summary>
+    private void SetPriceOnPriceEntryValueChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Price = (int)priceEntry.Value;
       }
     }
   }

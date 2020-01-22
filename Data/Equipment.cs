@@ -134,7 +134,7 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// How much the item costs to buy.
     /// </summary>
-    public int Price { get; }
+    public int Price { get; set; }
 
     /// <summary>
     /// Represents the different equipment types in EO3. 
