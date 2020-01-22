@@ -141,6 +141,9 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateFarmerCanEquipOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateShogunCanEquipOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateYggdroidCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateConsumesMaterialsOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateGoldIconOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateStarterEquipmentOnEquipmentChanged;
     }
 
     /// <summary>
@@ -320,6 +323,26 @@ namespace EO3EquipmentEdit
       farmer.CheckedChanged -= UpdateEquipmentCanEquipWhenFarmerCheckedChange;
       shogun.CheckedChanged -= UpdateEquipmentCanEquipWhenShogunCheckedChange;
       yggdroid.CheckedChanged -= UpdateEquipmentCanEquipWhenYggdroidCheckedChange;
+    }
+
+    /// <summary>
+    /// Sets all of the event handlers for the various flag checkboxes.
+    /// </summary>
+    private void SetFlagsEventHandlers()
+    {
+      consumesMaterials.CheckedChanged += UpdateEquipmentConsumesMaterialsOnCheckedChanged;
+      goldIcon.CheckedChanged += UpdateEquipmentGoldIconOnCheckedChanged;
+      starterEquipment.CheckedChanged += UpdateEquipmentStarterOnCheckedChanged;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the various flag checkboxes.
+    /// </summary>
+    private void RemoveFlagsEventHandlers()
+    {
+      consumesMaterials.CheckedChanged -= UpdateEquipmentConsumesMaterialsOnCheckedChanged;
+      goldIcon.CheckedChanged -= UpdateEquipmentGoldIconOnCheckedChanged;
+      starterEquipment.CheckedChanged -= UpdateEquipmentStarterOnCheckedChanged;
     }
 
     /// <summary>
@@ -1026,6 +1049,78 @@ namespace EO3EquipmentEdit
       if (SelectedEquipment != null)
       {
         SelectedEquipment.ClassesThatCanEquip.Yggdroid = yggdroid.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates the consumes materials checkbox based on the current equipment's flags.
+    /// </summary>
+    private void UpdateConsumesMaterialsOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveFlagsEventHandlers();
+        consumesMaterials.Checked = SelectedEquipment.Flags.CanSellOut;
+        SetFlagsEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the gold icon checkbox based on the current equipment's flags.
+    /// </summary>
+    private void UpdateGoldIconOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveFlagsEventHandlers();
+        goldIcon.Checked = SelectedEquipment.Flags.Rare;
+        SetFlagsEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the starter equipment checkbox based on the current equipment's flags.
+    /// </summary>
+    private void UpdateStarterEquipmentOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveFlagsEventHandlers();
+        starterEquipment.Checked = SelectedEquipment.Flags.Starter;
+        SetFlagsEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's consumes materials flag when the checkbox is changed.
+    /// </summary>
+    private void UpdateEquipmentConsumesMaterialsOnCheckedChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Flags.CanSellOut = consumesMaterials.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's gold icon flag when the checkbox is changed.
+    /// </summary>
+    private void UpdateEquipmentGoldIconOnCheckedChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Flags.Rare = goldIcon.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's starter equipment flag when the checkbox is changed.
+    /// </summary>
+    private void UpdateEquipmentStarterOnCheckedChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Flags.Starter = starterEquipment.Checked;
       }
     }
   }

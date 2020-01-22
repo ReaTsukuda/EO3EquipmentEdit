@@ -64,6 +64,9 @@
       this.WISLabel = new System.Windows.Forms.Label();
       this.AGILabel = new System.Windows.Forms.Label();
       this.LUCLabel = new System.Windows.Forms.Label();
+      this.priceTable = new System.Windows.Forms.TableLayoutPanel();
+      this.priceEntry = new System.Windows.Forms.NumericUpDown();
+      this.priceLabel = new System.Windows.Forms.Label();
       this.classGroup = new System.Windows.Forms.GroupBox();
       this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
       this.princess = new System.Windows.Forms.CheckBox();
@@ -79,12 +82,9 @@
       this.shogun = new System.Windows.Forms.CheckBox();
       this.yggdroid = new System.Windows.Forms.CheckBox();
       this.flags = new System.Windows.Forms.FlowLayoutPanel();
-      this.requiresRestock = new System.Windows.Forms.CheckBox();
+      this.consumesMaterials = new System.Windows.Forms.CheckBox();
       this.goldIcon = new System.Windows.Forms.CheckBox();
       this.starterEquipment = new System.Windows.Forms.CheckBox();
-      this.priceTable = new System.Windows.Forms.TableLayoutPanel();
-      this.priceLabel = new System.Windows.Forms.Label();
-      this.priceEntry = new System.Windows.Forms.NumericUpDown();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
       this.nameAndTypeLayout.SuspendLayout();
@@ -101,11 +101,11 @@
       ((System.ComponentModel.ISupportInitialize)(this.STREntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.TPEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.HPEntry)).BeginInit();
+      this.priceTable.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).BeginInit();
       this.classGroup.SuspendLayout();
       this.flowLayoutPanel1.SuspendLayout();
       this.flags.SuspendLayout();
-      this.priceTable.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).BeginInit();
       this.SuspendLayout();
       // 
       // menu
@@ -265,7 +265,7 @@
       this.physicalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.physicalLabel.Location = new System.Drawing.Point(3, 0);
       this.physicalLabel.Name = "physicalLabel";
-      this.physicalLabel.Size = new System.Drawing.Size(38, 23);
+      this.physicalLabel.Size = new System.Drawing.Size(37, 23);
       this.physicalLabel.TabIndex = 0;
       this.physicalLabel.Text = "PATK";
       this.physicalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -276,7 +276,7 @@
       this.magicLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.magicLabel.Location = new System.Drawing.Point(3, 23);
       this.magicLabel.Name = "magicLabel";
-      this.magicLabel.Size = new System.Drawing.Size(38, 24);
+      this.magicLabel.Size = new System.Drawing.Size(37, 24);
       this.magicLabel.TabIndex = 1;
       this.magicLabel.Text = "MATK";
       this.magicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,7 +284,7 @@
       // physicalEntry
       // 
       this.physicalEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.physicalEntry.Location = new System.Drawing.Point(47, 3);
+      this.physicalEntry.Location = new System.Drawing.Point(46, 3);
       this.physicalEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -298,7 +298,7 @@
       // magicEntry
       // 
       this.magicEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.magicEntry.Location = new System.Drawing.Point(47, 26);
+      this.magicEntry.Location = new System.Drawing.Point(46, 26);
       this.magicEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -556,6 +556,45 @@
       this.LUCLabel.Text = "LUC";
       this.LUCLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
+      // priceTable
+      // 
+      this.priceTable.ColumnCount = 2;
+      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+      this.priceTable.Controls.Add(this.priceEntry, 1, 0);
+      this.priceTable.Controls.Add(this.priceLabel, 0, 0);
+      this.priceTable.Location = new System.Drawing.Point(269, 3);
+      this.priceTable.Name = "priceTable";
+      this.priceTable.RowCount = 1;
+      this.priceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.priceTable.Size = new System.Drawing.Size(164, 23);
+      this.priceTable.TabIndex = 9;
+      // 
+      // priceEntry
+      // 
+      this.priceEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.priceEntry.Location = new System.Drawing.Point(44, 3);
+      this.priceEntry.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+      this.priceEntry.Name = "priceEntry";
+      this.priceEntry.Size = new System.Drawing.Size(117, 20);
+      this.priceEntry.TabIndex = 9;
+      this.priceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // priceLabel
+      // 
+      this.priceLabel.AutoSize = true;
+      this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.priceLabel.Location = new System.Drawing.Point(3, 0);
+      this.priceLabel.Name = "priceLabel";
+      this.priceLabel.Size = new System.Drawing.Size(35, 23);
+      this.priceLabel.TabIndex = 0;
+      this.priceLabel.Text = "Price";
+      this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
       // classGroup
       // 
       this.classGroup.Controls.Add(this.flowLayoutPanel1);
@@ -723,7 +762,7 @@
       // flags
       // 
       this.flags.AutoSize = true;
-      this.flags.Controls.Add(this.requiresRestock);
+      this.flags.Controls.Add(this.consumesMaterials);
       this.flags.Controls.Add(this.goldIcon);
       this.flags.Controls.Add(this.starterEquipment);
       this.flags.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -732,15 +771,15 @@
       this.flags.Size = new System.Drawing.Size(125, 69);
       this.flags.TabIndex = 8;
       // 
-      // requiresRestock
+      // consumesMaterials
       // 
-      this.requiresRestock.AutoSize = true;
-      this.requiresRestock.Location = new System.Drawing.Point(3, 3);
-      this.requiresRestock.Name = "requiresRestock";
-      this.requiresRestock.Size = new System.Drawing.Size(119, 17);
-      this.requiresRestock.TabIndex = 0;
-      this.requiresRestock.Text = "Consumes materials";
-      this.requiresRestock.UseVisualStyleBackColor = true;
+      this.consumesMaterials.AutoSize = true;
+      this.consumesMaterials.Location = new System.Drawing.Point(3, 3);
+      this.consumesMaterials.Name = "consumesMaterials";
+      this.consumesMaterials.Size = new System.Drawing.Size(119, 17);
+      this.consumesMaterials.TabIndex = 0;
+      this.consumesMaterials.Text = "Consumes materials";
+      this.consumesMaterials.UseVisualStyleBackColor = true;
       // 
       // goldIcon
       // 
@@ -761,45 +800,6 @@
       this.starterEquipment.TabIndex = 2;
       this.starterEquipment.Text = "Starter equipment";
       this.starterEquipment.UseVisualStyleBackColor = true;
-      // 
-      // priceTable
-      // 
-      this.priceTable.ColumnCount = 2;
-      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-      this.priceTable.Controls.Add(this.priceEntry, 1, 0);
-      this.priceTable.Controls.Add(this.priceLabel, 0, 0);
-      this.priceTable.Location = new System.Drawing.Point(269, 3);
-      this.priceTable.Name = "priceTable";
-      this.priceTable.RowCount = 1;
-      this.priceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.priceTable.Size = new System.Drawing.Size(164, 23);
-      this.priceTable.TabIndex = 9;
-      // 
-      // priceLabel
-      // 
-      this.priceLabel.AutoSize = true;
-      this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.priceLabel.Location = new System.Drawing.Point(3, 0);
-      this.priceLabel.Name = "priceLabel";
-      this.priceLabel.Size = new System.Drawing.Size(35, 23);
-      this.priceLabel.TabIndex = 0;
-      this.priceLabel.Text = "Price";
-      this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
-      // priceEntry
-      // 
-      this.priceEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.priceEntry.Location = new System.Drawing.Point(44, 3);
-      this.priceEntry.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-      this.priceEntry.Name = "priceEntry";
-      this.priceEntry.Size = new System.Drawing.Size(117, 20);
-      this.priceEntry.TabIndex = 9;
-      this.priceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
       // MainForm
       // 
@@ -832,15 +832,15 @@
       ((System.ComponentModel.ISupportInitialize)(this.STREntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.TPEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.HPEntry)).EndInit();
+      this.priceTable.ResumeLayout(false);
+      this.priceTable.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).EndInit();
       this.classGroup.ResumeLayout(false);
       this.classGroup.PerformLayout();
       this.flowLayoutPanel1.ResumeLayout(false);
       this.flowLayoutPanel1.PerformLayout();
       this.flags.ResumeLayout(false);
       this.flags.PerformLayout();
-      this.priceTable.ResumeLayout(false);
-      this.priceTable.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -898,7 +898,7 @@
     private System.Windows.Forms.CheckBox shogun;
     private System.Windows.Forms.CheckBox yggdroid;
     private System.Windows.Forms.FlowLayoutPanel flags;
-    private System.Windows.Forms.CheckBox requiresRestock;
+    private System.Windows.Forms.CheckBox consumesMaterials;
     private System.Windows.Forms.CheckBox goldIcon;
     private System.Windows.Forms.CheckBox starterEquipment;
     private System.Windows.Forms.TableLayoutPanel priceTable;
