@@ -339,9 +339,9 @@ namespace EO3EquipmentEdit.Data
         Zodiac = (classBitfield & 64) == 64,
         Wildling = (classBitfield & 128) == 128,
         Arbalist = (classBitfield & 256) == 256,
-        Farmer = (classBitfield & 1024) == 1024,
-        Shogun = (classBitfield & 2048) == 2048,
-        Yggdroid = (classBitfield & 4096) == 4096,
+        Farmer = (classBitfield & 512) == 512,
+        Shogun = (classBitfield & 1024) == 1024,
+        Yggdroid = (classBitfield & 2048) == 2048,
       };
       int flagsBitfiled = input.ReadUInt16();
       Flags = new EquipmentFlags()

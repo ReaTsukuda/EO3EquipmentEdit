@@ -31,18 +31,18 @@ namespace EO3EquipmentEdit.Data
       get
       {
         ushort result = 0;
-        if (Princess == true) { result += 2 ^ 1; }
-        if (Gladiator == true) { result += 2 ^ 2; }
-        if (Hoplite == true) { result += 2 ^ 3; }
-        if (Buccaneer == true) { result += 2 ^ 4; }
-        if (Ninja == true) { result += 2 ^ 5; }
-        if (Monk == true) { result += 2 ^ 6; }
-        if (Zodiac == true) { result += 2 ^ 7; }
-        if (Wildling == true) { result += 2 ^ 8; }
-        if (Arbalist == true) { result += 2 ^ 9; }
-        if (Farmer == true) { result += 2 ^ 10; }
-        if (Shogun == true) { result += 2 ^ 11; }
-        if (Yggdroid == true) { result += 2 ^ 12; }
+        if (Princess == true) { result += (ushort)Math.Pow(2, 0); }
+        if (Gladiator == true) { result += (ushort)Math.Pow(2, 1); }
+        if (Hoplite == true) { result += (ushort)Math.Pow(2, 2); }
+        if (Buccaneer == true) { result += (ushort)Math.Pow(2, 3); }
+        if (Ninja == true) { result += (ushort)Math.Pow(2, 4); }
+        if (Monk == true) { result += (ushort)Math.Pow(2, 5); }
+        if (Zodiac == true) { result += (ushort)Math.Pow(2, 6); }
+        if (Wildling == true) { result += (ushort)Math.Pow(2, 7); }
+        if (Arbalist == true) { result += (ushort)Math.Pow(2, 8); }
+        if (Farmer == true) { result += (ushort)Math.Pow(2, 9); }
+        if (Shogun == true) { result += (ushort)Math.Pow(2, 10); }
+        if (Yggdroid == true) { result += (ushort)Math.Pow(2, 11); }
         return result;
       }
     }

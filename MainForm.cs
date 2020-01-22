@@ -86,6 +86,7 @@ namespace EO3EquipmentEdit
       SetATKDEFEntryEventHandlers();
       SetStatBonusEventHandlers();
       SetPriceEntryEventHandlers();
+      SetCanEquipEventHandlers();
       // Load the fonts.
       Font8px = Newtonsoft.Json.JsonConvert.DeserializeObject(
         string.Join("", File.ReadAllLines("Resources/Font/Font8x8.eo3font.json")),
@@ -128,6 +129,18 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += SetATKDEFValuesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateStatBonusValuesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdatePriceOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdatePrincessCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateGladiatorCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateHopliteCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateBuccaneerCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateNinjaCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateMonkCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateZodiacCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateWildlingCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateArbalistCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateFarmerCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateShogunCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateYggdroidCanEquipOnEquipmentChanged;
     }
 
     /// <summary>
@@ -269,6 +282,44 @@ namespace EO3EquipmentEdit
     private void RemovePriceEntryEventHandlers()
     {
       priceEntry.ValueChanged -= SetPriceOnPriceEntryValueChanged;
+    }
+
+    /// <summary>
+    /// Sets all of the event handlers for the various can equip checkboxes.
+    /// </summary>
+    private void SetCanEquipEventHandlers()
+    {
+      princess.CheckedChanged += UpdateEquipmentCanEquipWhenPrincessCheckedChange;
+      gladiator.CheckedChanged += UpdateEquipmentCanEquipWhenGladiatorCheckedChange;
+      hoplite.CheckedChanged += UpdateEquipmentCanEquipWhenHopliteCheckedChange;
+      buccaneer.CheckedChanged += UpdateEquipmentCanEquipWhenBuccaneerCheckedChange;
+      ninja.CheckedChanged += UpdateEquipmentCanEquipWhenNinjaCheckedChange;
+      monk.CheckedChanged += UpdateEquipmentCanEquipWhenMonkCheckedChange;
+      zodiac.CheckedChanged += UpdateEquipmentCanEquipWhenZodiacCheckedChange;
+      wildling.CheckedChanged += UpdateEquipmentCanEquipWhenWildlingCheckedChange;
+      arbalist.CheckedChanged += UpdateEquipmentCanEquipWhenArbalistCheckedChange;
+      farmer.CheckedChanged += UpdateEquipmentCanEquipWhenFarmerCheckedChange;
+      shogun.CheckedChanged += UpdateEquipmentCanEquipWhenShogunCheckedChange;
+      yggdroid.CheckedChanged += UpdateEquipmentCanEquipWhenYggdroidCheckedChange;
+    }
+
+    /// <summary>
+    /// Removes all of the event handlers for the various can equip checkboxes.
+    /// </summary>
+    private void RemoveCanEquipEventHandlers()
+    {
+      princess.CheckedChanged -= UpdateEquipmentCanEquipWhenPrincessCheckedChange;
+      gladiator.CheckedChanged -= UpdateEquipmentCanEquipWhenGladiatorCheckedChange;
+      hoplite.CheckedChanged -= UpdateEquipmentCanEquipWhenHopliteCheckedChange;
+      buccaneer.CheckedChanged -= UpdateEquipmentCanEquipWhenBuccaneerCheckedChange;
+      ninja.CheckedChanged -= UpdateEquipmentCanEquipWhenNinjaCheckedChange;
+      monk.CheckedChanged -= UpdateEquipmentCanEquipWhenMonkCheckedChange;
+      zodiac.CheckedChanged -= UpdateEquipmentCanEquipWhenZodiacCheckedChange;
+      wildling.CheckedChanged -= UpdateEquipmentCanEquipWhenWildlingCheckedChange;
+      arbalist.CheckedChanged -= UpdateEquipmentCanEquipWhenArbalistCheckedChange;
+      farmer.CheckedChanged -= UpdateEquipmentCanEquipWhenFarmerCheckedChange;
+      shogun.CheckedChanged -= UpdateEquipmentCanEquipWhenShogunCheckedChange;
+      yggdroid.CheckedChanged -= UpdateEquipmentCanEquipWhenYggdroidCheckedChange;
     }
 
     /// <summary>
@@ -687,6 +738,294 @@ namespace EO3EquipmentEdit
       if (SelectedEquipment != null)
       {
         SelectedEquipment.Price = (int)priceEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the Princess can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdatePrincessCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        princess.Checked = SelectedEquipment.ClassesThatCanEquip.Princess;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Gladiator can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateGladiatorCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        gladiator.Checked = SelectedEquipment.ClassesThatCanEquip.Gladiator;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Hoplite can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateHopliteCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        hoplite.Checked = SelectedEquipment.ClassesThatCanEquip.Hoplite;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Buccaneer can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateBuccaneerCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        buccaneer.Checked = SelectedEquipment.ClassesThatCanEquip.Buccaneer;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Ninja can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateNinjaCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        ninja.Checked = SelectedEquipment.ClassesThatCanEquip.Ninja;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Monk can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateMonkCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        monk.Checked = SelectedEquipment.ClassesThatCanEquip.Monk;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Zodiac can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateZodiacCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        zodiac.Checked = SelectedEquipment.ClassesThatCanEquip.Zodiac;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Wildling can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateWildlingCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        wildling.Checked = SelectedEquipment.ClassesThatCanEquip.Wildling;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Arbalist can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateArbalistCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        arbalist.Checked = SelectedEquipment.ClassesThatCanEquip.Arbalist;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Farmer can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateFarmerCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        farmer.Checked = SelectedEquipment.ClassesThatCanEquip.Farmer;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Shogun can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateShogunCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        shogun.Checked = SelectedEquipment.ClassesThatCanEquip.Shogun;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the Yggdroid can equip checkbox when the selected equipment is changed.
+    /// </summary>
+    private void UpdateYggdroidCanEquipOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveCanEquipEventHandlers();
+        yggdroid.Checked = SelectedEquipment.ClassesThatCanEquip.Yggdroid;
+        SetCanEquipEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Princesses can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenPrincessCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Princess = princess.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Gladiators can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenGladiatorCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Gladiator = gladiator.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Hoplites can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenHopliteCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Hoplite = hoplite.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Buccaneers can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenBuccaneerCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Buccaneer = buccaneer.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Ninjas can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenNinjaCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Ninja = ninja.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Monks can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenMonkCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Monk = monk.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Zodiacs can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenZodiacCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Zodiac = zodiac.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Wildlings can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenWildlingCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Wildling = wildling.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Arbalists can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenArbalistCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Arbalist = arbalist.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Farmers can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenFarmerCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Farmer = farmer.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Shoguns can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenShogunCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Shogun = shogun.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Updates whether or not Yggdroids can equip the current selected item, based on the status of its checkbox.
+    /// </summary>
+    private void UpdateEquipmentCanEquipWhenYggdroidCheckedChange(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ClassesThatCanEquip.Yggdroid = yggdroid.Checked;
       }
     }
   }

@@ -67,17 +67,17 @@
       this.classGroup = new System.Windows.Forms.GroupBox();
       this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
       this.princess = new System.Windows.Forms.CheckBox();
-      this.checkBox1 = new System.Windows.Forms.CheckBox();
-      this.checkBox2 = new System.Windows.Forms.CheckBox();
-      this.checkBox3 = new System.Windows.Forms.CheckBox();
-      this.checkBox4 = new System.Windows.Forms.CheckBox();
-      this.checkBox5 = new System.Windows.Forms.CheckBox();
-      this.checkBox6 = new System.Windows.Forms.CheckBox();
-      this.checkBox7 = new System.Windows.Forms.CheckBox();
-      this.checkBox8 = new System.Windows.Forms.CheckBox();
-      this.checkBox9 = new System.Windows.Forms.CheckBox();
-      this.checkBox10 = new System.Windows.Forms.CheckBox();
-      this.checkBox11 = new System.Windows.Forms.CheckBox();
+      this.gladiator = new System.Windows.Forms.CheckBox();
+      this.hoplite = new System.Windows.Forms.CheckBox();
+      this.buccaneer = new System.Windows.Forms.CheckBox();
+      this.ninja = new System.Windows.Forms.CheckBox();
+      this.monk = new System.Windows.Forms.CheckBox();
+      this.zodiac = new System.Windows.Forms.CheckBox();
+      this.wildling = new System.Windows.Forms.CheckBox();
+      this.arbalist = new System.Windows.Forms.CheckBox();
+      this.farmer = new System.Windows.Forms.CheckBox();
+      this.shogun = new System.Windows.Forms.CheckBox();
+      this.yggdroid = new System.Windows.Forms.CheckBox();
       this.flags = new System.Windows.Forms.FlowLayoutPanel();
       this.requiresRestock = new System.Windows.Forms.CheckBox();
       this.goldIcon = new System.Windows.Forms.CheckBox();
@@ -570,17 +570,17 @@
       // 
       this.flowLayoutPanel1.AutoSize = true;
       this.flowLayoutPanel1.Controls.Add(this.princess);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox1);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox2);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox3);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox4);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox5);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox6);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox7);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox8);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox9);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox10);
-      this.flowLayoutPanel1.Controls.Add(this.checkBox11);
+      this.flowLayoutPanel1.Controls.Add(this.gladiator);
+      this.flowLayoutPanel1.Controls.Add(this.hoplite);
+      this.flowLayoutPanel1.Controls.Add(this.buccaneer);
+      this.flowLayoutPanel1.Controls.Add(this.ninja);
+      this.flowLayoutPanel1.Controls.Add(this.monk);
+      this.flowLayoutPanel1.Controls.Add(this.zodiac);
+      this.flowLayoutPanel1.Controls.Add(this.wildling);
+      this.flowLayoutPanel1.Controls.Add(this.arbalist);
+      this.flowLayoutPanel1.Controls.Add(this.farmer);
+      this.flowLayoutPanel1.Controls.Add(this.shogun);
+      this.flowLayoutPanel1.Controls.Add(this.yggdroid);
       this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
@@ -599,126 +599,126 @@
       this.princess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       this.princess.UseVisualStyleBackColor = true;
       // 
-      // checkBox1
+      // gladiator
       // 
-      this.checkBox1.AutoSize = true;
-      this.checkBox1.Location = new System.Drawing.Point(3, 26);
-      this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Size = new System.Drawing.Size(68, 17);
-      this.checkBox1.TabIndex = 13;
-      this.checkBox1.Text = "Gladiator";
-      this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox1.UseVisualStyleBackColor = true;
+      this.gladiator.AutoSize = true;
+      this.gladiator.Location = new System.Drawing.Point(3, 26);
+      this.gladiator.Name = "gladiator";
+      this.gladiator.Size = new System.Drawing.Size(68, 17);
+      this.gladiator.TabIndex = 13;
+      this.gladiator.Text = "Gladiator";
+      this.gladiator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.gladiator.UseVisualStyleBackColor = true;
       // 
-      // checkBox2
+      // hoplite
       // 
-      this.checkBox2.AutoSize = true;
-      this.checkBox2.Location = new System.Drawing.Point(3, 49);
-      this.checkBox2.Name = "checkBox2";
-      this.checkBox2.Size = new System.Drawing.Size(59, 17);
-      this.checkBox2.TabIndex = 14;
-      this.checkBox2.Text = "Hoplite";
-      this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox2.UseVisualStyleBackColor = true;
+      this.hoplite.AutoSize = true;
+      this.hoplite.Location = new System.Drawing.Point(3, 49);
+      this.hoplite.Name = "hoplite";
+      this.hoplite.Size = new System.Drawing.Size(59, 17);
+      this.hoplite.TabIndex = 14;
+      this.hoplite.Text = "Hoplite";
+      this.hoplite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.hoplite.UseVisualStyleBackColor = true;
       // 
-      // checkBox3
+      // buccaneer
       // 
-      this.checkBox3.AutoSize = true;
-      this.checkBox3.Location = new System.Drawing.Point(3, 72);
-      this.checkBox3.Name = "checkBox3";
-      this.checkBox3.Size = new System.Drawing.Size(78, 17);
-      this.checkBox3.TabIndex = 15;
-      this.checkBox3.Text = "Buccaneer";
-      this.checkBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox3.UseVisualStyleBackColor = true;
+      this.buccaneer.AutoSize = true;
+      this.buccaneer.Location = new System.Drawing.Point(3, 72);
+      this.buccaneer.Name = "buccaneer";
+      this.buccaneer.Size = new System.Drawing.Size(78, 17);
+      this.buccaneer.TabIndex = 15;
+      this.buccaneer.Text = "Buccaneer";
+      this.buccaneer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.buccaneer.UseVisualStyleBackColor = true;
       // 
-      // checkBox4
+      // ninja
       // 
-      this.checkBox4.AutoSize = true;
-      this.checkBox4.Location = new System.Drawing.Point(3, 95);
-      this.checkBox4.Name = "checkBox4";
-      this.checkBox4.Size = new System.Drawing.Size(50, 17);
-      this.checkBox4.TabIndex = 16;
-      this.checkBox4.Text = "Ninja";
-      this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox4.UseVisualStyleBackColor = true;
+      this.ninja.AutoSize = true;
+      this.ninja.Location = new System.Drawing.Point(3, 95);
+      this.ninja.Name = "ninja";
+      this.ninja.Size = new System.Drawing.Size(50, 17);
+      this.ninja.TabIndex = 16;
+      this.ninja.Text = "Ninja";
+      this.ninja.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.ninja.UseVisualStyleBackColor = true;
       // 
-      // checkBox5
+      // monk
       // 
-      this.checkBox5.AutoSize = true;
-      this.checkBox5.Location = new System.Drawing.Point(3, 118);
-      this.checkBox5.Name = "checkBox5";
-      this.checkBox5.Size = new System.Drawing.Size(53, 17);
-      this.checkBox5.TabIndex = 17;
-      this.checkBox5.Text = "Monk";
-      this.checkBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox5.UseVisualStyleBackColor = true;
+      this.monk.AutoSize = true;
+      this.monk.Location = new System.Drawing.Point(3, 118);
+      this.monk.Name = "monk";
+      this.monk.Size = new System.Drawing.Size(53, 17);
+      this.monk.TabIndex = 17;
+      this.monk.Text = "Monk";
+      this.monk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.monk.UseVisualStyleBackColor = true;
       // 
-      // checkBox6
+      // zodiac
       // 
-      this.checkBox6.AutoSize = true;
-      this.checkBox6.Location = new System.Drawing.Point(87, 3);
-      this.checkBox6.Name = "checkBox6";
-      this.checkBox6.Size = new System.Drawing.Size(59, 17);
-      this.checkBox6.TabIndex = 18;
-      this.checkBox6.Text = "Zodiac";
-      this.checkBox6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox6.UseVisualStyleBackColor = true;
+      this.zodiac.AutoSize = true;
+      this.zodiac.Location = new System.Drawing.Point(87, 3);
+      this.zodiac.Name = "zodiac";
+      this.zodiac.Size = new System.Drawing.Size(59, 17);
+      this.zodiac.TabIndex = 18;
+      this.zodiac.Text = "Zodiac";
+      this.zodiac.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.zodiac.UseVisualStyleBackColor = true;
       // 
-      // checkBox7
+      // wildling
       // 
-      this.checkBox7.AutoSize = true;
-      this.checkBox7.Location = new System.Drawing.Point(87, 26);
-      this.checkBox7.Name = "checkBox7";
-      this.checkBox7.Size = new System.Drawing.Size(63, 17);
-      this.checkBox7.TabIndex = 19;
-      this.checkBox7.Text = "Wildling";
-      this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox7.UseVisualStyleBackColor = true;
+      this.wildling.AutoSize = true;
+      this.wildling.Location = new System.Drawing.Point(87, 26);
+      this.wildling.Name = "wildling";
+      this.wildling.Size = new System.Drawing.Size(63, 17);
+      this.wildling.TabIndex = 19;
+      this.wildling.Text = "Wildling";
+      this.wildling.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.wildling.UseVisualStyleBackColor = true;
       // 
-      // checkBox8
+      // arbalist
       // 
-      this.checkBox8.AutoSize = true;
-      this.checkBox8.Location = new System.Drawing.Point(87, 49);
-      this.checkBox8.Name = "checkBox8";
-      this.checkBox8.Size = new System.Drawing.Size(60, 17);
-      this.checkBox8.TabIndex = 20;
-      this.checkBox8.Text = "Arbalist";
-      this.checkBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox8.UseVisualStyleBackColor = true;
+      this.arbalist.AutoSize = true;
+      this.arbalist.Location = new System.Drawing.Point(87, 49);
+      this.arbalist.Name = "arbalist";
+      this.arbalist.Size = new System.Drawing.Size(60, 17);
+      this.arbalist.TabIndex = 20;
+      this.arbalist.Text = "Arbalist";
+      this.arbalist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.arbalist.UseVisualStyleBackColor = true;
       // 
-      // checkBox9
+      // farmer
       // 
-      this.checkBox9.AutoSize = true;
-      this.checkBox9.Location = new System.Drawing.Point(87, 72);
-      this.checkBox9.Name = "checkBox9";
-      this.checkBox9.Size = new System.Drawing.Size(58, 17);
-      this.checkBox9.TabIndex = 21;
-      this.checkBox9.Text = "Farmer";
-      this.checkBox9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox9.UseVisualStyleBackColor = true;
+      this.farmer.AutoSize = true;
+      this.farmer.Location = new System.Drawing.Point(87, 72);
+      this.farmer.Name = "farmer";
+      this.farmer.Size = new System.Drawing.Size(58, 17);
+      this.farmer.TabIndex = 21;
+      this.farmer.Text = "Farmer";
+      this.farmer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.farmer.UseVisualStyleBackColor = true;
       // 
-      // checkBox10
+      // shogun
       // 
-      this.checkBox10.AutoSize = true;
-      this.checkBox10.Location = new System.Drawing.Point(87, 95);
-      this.checkBox10.Name = "checkBox10";
-      this.checkBox10.Size = new System.Drawing.Size(63, 17);
-      this.checkBox10.TabIndex = 22;
-      this.checkBox10.Text = "Shogun";
-      this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox10.UseVisualStyleBackColor = true;
+      this.shogun.AutoSize = true;
+      this.shogun.Location = new System.Drawing.Point(87, 95);
+      this.shogun.Name = "shogun";
+      this.shogun.Size = new System.Drawing.Size(63, 17);
+      this.shogun.TabIndex = 22;
+      this.shogun.Text = "Shogun";
+      this.shogun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.shogun.UseVisualStyleBackColor = true;
       // 
-      // checkBox11
+      // yggdroid
       // 
-      this.checkBox11.AutoSize = true;
-      this.checkBox11.Location = new System.Drawing.Point(87, 118);
-      this.checkBox11.Name = "checkBox11";
-      this.checkBox11.Size = new System.Drawing.Size(68, 17);
-      this.checkBox11.TabIndex = 23;
-      this.checkBox11.Text = "Yggdroid";
-      this.checkBox11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.checkBox11.UseVisualStyleBackColor = true;
+      this.yggdroid.AutoSize = true;
+      this.yggdroid.Location = new System.Drawing.Point(87, 118);
+      this.yggdroid.Name = "yggdroid";
+      this.yggdroid.Size = new System.Drawing.Size(68, 17);
+      this.yggdroid.TabIndex = 23;
+      this.yggdroid.Text = "Yggdroid";
+      this.yggdroid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.yggdroid.UseVisualStyleBackColor = true;
       // 
       // flags
       // 
@@ -886,17 +886,17 @@
     private System.Windows.Forms.GroupBox classGroup;
     private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     private System.Windows.Forms.CheckBox princess;
-    private System.Windows.Forms.CheckBox checkBox1;
-    private System.Windows.Forms.CheckBox checkBox2;
-    private System.Windows.Forms.CheckBox checkBox3;
-    private System.Windows.Forms.CheckBox checkBox4;
-    private System.Windows.Forms.CheckBox checkBox5;
-    private System.Windows.Forms.CheckBox checkBox6;
-    private System.Windows.Forms.CheckBox checkBox7;
-    private System.Windows.Forms.CheckBox checkBox8;
-    private System.Windows.Forms.CheckBox checkBox9;
-    private System.Windows.Forms.CheckBox checkBox10;
-    private System.Windows.Forms.CheckBox checkBox11;
+    private System.Windows.Forms.CheckBox gladiator;
+    private System.Windows.Forms.CheckBox hoplite;
+    private System.Windows.Forms.CheckBox buccaneer;
+    private System.Windows.Forms.CheckBox ninja;
+    private System.Windows.Forms.CheckBox monk;
+    private System.Windows.Forms.CheckBox zodiac;
+    private System.Windows.Forms.CheckBox wildling;
+    private System.Windows.Forms.CheckBox arbalist;
+    private System.Windows.Forms.CheckBox farmer;
+    private System.Windows.Forms.CheckBox shogun;
+    private System.Windows.Forms.CheckBox yggdroid;
     private System.Windows.Forms.FlowLayoutPanel flags;
     private System.Windows.Forms.CheckBox requiresRestock;
     private System.Windows.Forms.CheckBox goldIcon;
