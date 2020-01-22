@@ -233,9 +233,24 @@ namespace EO3EquipmentEdit.Data
       public bool Rare { get; set; }
 
       /// <summary>
-      /// 0x80. Whehter or not the item is stocked at Napier's Firm at the start of the game.
+      /// 0x80. Whether or not the item is stocked at Napier's Firm at the start of the game.
       /// </summary>
       public bool Starter { get; set; }
+
+      /// <summary>
+      /// The bitfield representation of these flags.
+      /// </summary>
+      public ushort Bitfield
+      {
+        get
+        {
+          ushort result = 0;
+          result += (ushort)(CanSellOut == true ? 0x1 : 0x0);
+          result += (ushort)(Rare == true ? 0x20 : 0x0);
+          result += (ushort)(Starter == true ? 0x80 : 0x0);
+          return result;
+        }
+      }
     }
 
     /// <summary>
@@ -358,6 +373,54 @@ namespace EO3EquipmentEdit.Data
       }
       Price = input.ReadInt32();
       input.ReadInt32(); // "Sell price." Dummy column in EO3.
+    }
+
+    /// <summary>
+    /// Writes the equipment to a file. To be used when writing the equipment table.
+    /// </summary>
+    /// <param name="writer">The BinaryWriter for the total table.</param>
+    public void WriteToFile(BinaryWriter writer)
+    {
+      writer.Write((byte)Type);
+      writer.Write((byte)Accuracy);
+      writer.Write(DamageType.Bitfield);
+      writer.Write((short)ATK);
+      writer.Write((short)DEF);
+      writer.Write((short)MAT);
+      writer.Write((short)MDF);
+      // 0xE bytes we skipped previously.
+      for (int alwaysZeroIndex = 0; alwaysZeroIndex < 0xE; alwaysZeroIndex += 1)
+      {
+        writer.Write((byte)0x0);
+      }
+      writer.Write((byte)StatBonuses.HP);
+      writer.Write((byte)StatBonuses.TP);
+      writer.Write((byte)StatBonuses.STR);
+      writer.Write((byte)StatBonuses.VIT);
+      writer.Write((byte)StatBonuses.AGI);
+      writer.Write((byte)StatBonuses.LUC);
+      writer.Write((byte)StatBonuses.TEC);
+      writer.Write((byte)StatBonuses.WIS);
+      writer.Write((ushort)Speed);
+      short isWeapon = (short)(IsWeapon == true ? 1 : 0);
+      writer.Write(isWeapon);
+      writer.Write(ClassesThatCanEquip.Bitfield);
+      writer.Write(Flags.Bitfield);
+      writer.Write((byte)ForgeSlots);
+      int forgesWritten = 0;
+      foreach (ForgeTypes forge in Forges)
+      {
+        writer.Write((byte)forge);
+        forgesWritten += 1;
+      }
+      // Write empty forges.
+      for (int emptyForgeIndex = forgesWritten; emptyForgeIndex < MaximumAmountOfForges; emptyForgeIndex += 1)
+      {
+        writer.Write((byte)0x0);
+      }
+      writer.Write(Price);
+      // Dummied-out sell price.
+      writer.Write(0x0);
     }
 
     public override string ToString()

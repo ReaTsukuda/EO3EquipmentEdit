@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace EO3EquipmentEdit
 {
@@ -17,7 +18,7 @@ namespace EO3EquipmentEdit
     /// <summary>
     /// The list of equipment items from the loaded table.
     /// </summary>
-    readonly BindingList<Equipment> EquipmentTable;
+    readonly List<Equipment> EquipmentTable;
 
     /// <summary>
     /// The Table containing equipment names.
@@ -70,7 +71,7 @@ namespace EO3EquipmentEdit
     public MainForm(List<Equipment> equipment, Table equipmentNames, MBM equipmentDescriptions)
     {
       // Data preparation.
-      EquipmentTable = new BindingList<Equipment>(equipment);
+      EquipmentTable = equipment;
       EquipmentNames = equipmentNames;
       EquipmentDescriptions = equipmentDescriptions;
       CheckDataLengths();
@@ -1121,6 +1122,22 @@ namespace EO3EquipmentEdit
       if (SelectedEquipment != null)
       {
         SelectedEquipment.Flags.Starter = starterEquipment.Checked;
+      }
+    }
+
+    /// <summary>
+    /// The event handler for the File -> Save menu item being clicked.
+    /// </summary>
+    private void FileSaveClicked(object sender, EventArgs eventArgs)
+    {
+      using (var openDialog = new CommonOpenFileDialog())
+      {
+        openDialog.IsFolderPicker = true;
+        openDialog.AllowNonFileSystemItems = true;
+        if (openDialog.ShowDialog() == CommonFileDialogResult.Ok)
+        {
+          DataIO.WriteEquipmentData(openDialog.FileName, EquipmentTable, EquipmentNames, EquipmentDescriptions);
+        }
       }
     }
   }

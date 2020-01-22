@@ -69,5 +69,25 @@ namespace EO3EquipmentEdit.Data
     /// that attacking asleep targets gives.
     /// </summary>
     public bool NoPenalty { get; set; }
+
+    /// <summary>
+    /// The bitfield representation of a damage type.
+    /// </summary>
+    public ushort Bitfield
+    {
+      get
+      {
+        int result = 0;
+        result += Cut == true ? 1 : 0;
+        result += Bash == true ? 2 : 0;
+        result += Stab == true ? 4 : 0;
+        result += Fire == true ? 8 : 0;
+        result += Ice == true ? 16 : 0;
+        result += Volt == true ? 32 : 0;
+        result += Almighty == true ? 64 : 0;
+        result += NoPenalty == true ? 128 : 0;
+        return (ushort)result;
+      }
+    }
   }
 }

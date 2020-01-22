@@ -85,6 +85,10 @@
       this.consumesMaterials = new System.Windows.Forms.CheckBox();
       this.goldIcon = new System.Windows.Forms.CheckBox();
       this.starterEquipment = new System.Windows.Forms.CheckBox();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.menu.SuspendLayout();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
       this.nameAndTypeLayout.SuspendLayout();
@@ -110,6 +114,8 @@
       // 
       // menu
       // 
+      this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
       this.menu.Location = new System.Drawing.Point(0, 0);
       this.menu.Name = "menu";
       this.menu.Size = new System.Drawing.Size(800, 24);
@@ -801,6 +807,28 @@
       this.starterEquipment.Text = "Starter equipment";
       this.starterEquipment.UseVisualStyleBackColor = true;
       // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.exitToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "File";
+      // 
+      // saveToolStripMenuItem
+      // 
+      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.saveToolStripMenuItem.Text = "Save";
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.FileSaveClicked);
+      // 
+      // exitToolStripMenuItem
+      // 
+      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+      this.exitToolStripMenuItem.Text = "Exit";
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -811,6 +839,8 @@
       this.MainMenuStrip = this.menu;
       this.Name = "MainForm";
       this.Text = "MainForm";
+      this.menu.ResumeLayout(false);
+      this.menu.PerformLayout();
       this.formLayout.ResumeLayout(false);
       this.formLayout.PerformLayout();
       this.equipmentSelectionControls.ResumeLayout(false);
@@ -904,5 +934,8 @@
     private System.Windows.Forms.TableLayoutPanel priceTable;
     private System.Windows.Forms.NumericUpDown priceEntry;
     private System.Windows.Forms.Label priceLabel;
+    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
   }
 }
