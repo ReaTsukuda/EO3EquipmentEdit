@@ -88,6 +88,7 @@ namespace EO3EquipmentEdit
       SetStatBonusEventHandlers();
       SetPriceEntryEventHandlers();
       SetCanEquipEventHandlers();
+      SetAccuracyEventHandlers();
       // Load the fonts.
       Font8px = Newtonsoft.Json.JsonConvert.DeserializeObject(
         string.Join("", File.ReadAllLines("Resources/Font/Font8x8.eo3font.json")),
@@ -123,7 +124,6 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void SetEquipmentListEventHandlers()
     {
-      equipmentList.SelectedIndexChanged += EnableOrDisableElementsBasedOnEquipmentListStatus;
       equipmentList.SelectedIndexChanged += SetNameControlsOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateItemTypeDropdownOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += SetATKDEFLabelsBasedOnIfEquipmentIsAWeapon;
@@ -145,6 +145,7 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateConsumesMaterialsOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateGoldIconOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateStarterEquipmentOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateAccuracyEntryOnEquipmentChanged;
     }
 
     /// <summary>
@@ -152,12 +153,28 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void RemoveEquipmentListEventHandlers()
     {
-      equipmentList.SelectedIndexChanged -= EnableOrDisableElementsBasedOnEquipmentListStatus;
       equipmentList.SelectedIndexChanged -= SetNameControlsOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateItemTypeDropdownOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= SetATKDEFLabelsBasedOnIfEquipmentIsAWeapon;
       equipmentList.SelectedIndexChanged -= SetATKDEFValuesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateStatBonusValuesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdatePriceOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdatePrincessCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateGladiatorCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateHopliteCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateBuccaneerCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateNinjaCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateMonkCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateZodiacCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateWildlingCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateArbalistCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateFarmerCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateShogunCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateYggdroidCanEquipOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateConsumesMaterialsOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateGoldIconOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateStarterEquipmentOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateAccuracyEntryOnEquipmentChanged;
     }
 
     /// <summary>
@@ -347,6 +364,22 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Registers the event handlers for accuracy stuff.
+    /// </summary>
+    private void SetAccuracyEventHandlers()
+    {
+      accuracyEntry.ValueChanged += UpdateEquipmentAccuracyOnEntryChanged;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for accuracy stuff.
+    /// </summary>
+    private void RemoveAccuracyEventHandlers()
+    {
+      accuracyEntry.ValueChanged -= UpdateEquipmentAccuracyOnEntryChanged;
+    }
+
+    /// <summary>
     /// This function ensures that, if the equipment name table and/or description file are shorter than
     /// the actual equipment table, they have dummy entries added to them, to remove the need to check for
     /// that later in the program.
@@ -498,23 +531,6 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndex = indexBeforeRefresh;
       // We need to re-enable event handlers before returning from this.
       SetEquipmentListEventHandlers();
-    }
-
-    /// <summary>
-    /// Enables or disables various input elements based on if the equipment list is null or not.
-    /// </summary>
-    private void EnableOrDisableElementsBasedOnEquipmentListStatus(object sender, EventArgs eventArgs)
-    {
-      bool enabled = SelectedEquipment != null;
-      nameLabel.Enabled = enabled;
-      itemName.Enabled = enabled;
-      typeLabel.Enabled = enabled;
-      itemType.Enabled = enabled;
-      ATKDEFEntryPanel.Enabled = enabled;
-      statBonusGroup.Enabled = enabled;
-      priceTable.Enabled = enabled;
-      classGroup.Enabled = enabled;
-      flags.Enabled = enabled;
     }
 
     /// <summary>
@@ -1138,6 +1154,30 @@ namespace EO3EquipmentEdit
         {
           DataIO.WriteEquipmentData(openDialog.FileName, EquipmentTable, EquipmentNames, EquipmentDescriptions);
         }
+      }
+    }
+
+    /// <summary>
+    /// Updates the accuracy entry's value to the selected equipment's accuracy.
+    /// </summary>
+    private void UpdateAccuracyEntryOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveAccuracyEventHandlers();
+        accuracyEntry.Value = SelectedEquipment.Accuracy;
+        SetAccuracyEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's accuracy value when the entry is changed.
+    /// </summary>
+    private void UpdateEquipmentAccuracyOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Accuracy = (int)accuracyEntry.Value;
       }
     }
   }

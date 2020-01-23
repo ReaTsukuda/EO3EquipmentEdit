@@ -30,22 +30,31 @@
     private void InitializeComponent()
     {
       this.menu = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.formLayout = new System.Windows.Forms.FlowLayoutPanel();
       this.equipmentSelectionControls = new System.Windows.Forms.TableLayoutPanel();
       this.equipmentList = new System.Windows.Forms.ListBox();
       this.equipmentTypeFilter = new System.Windows.Forms.ComboBox();
       this.includeDummyItems = new System.Windows.Forms.CheckBox();
-      this.nameAndTypeLayout = new System.Windows.Forms.TableLayoutPanel();
+      this.nameLayout = new System.Windows.Forms.TableLayoutPanel();
       this.nameLabel = new System.Windows.Forms.Label();
       this.itemName = new System.Windows.Forms.TextBox();
+      this.namePreviewPanel = new System.Windows.Forms.Panel();
+      this.nameAndTypeLayout = new System.Windows.Forms.TableLayoutPanel();
+      this.label1 = new System.Windows.Forms.Label();
       this.typeLabel = new System.Windows.Forms.Label();
       this.itemType = new System.Windows.Forms.ComboBox();
-      this.namePreviewPanel = new System.Windows.Forms.Panel();
-      this.ATKDEFEntryPanel = new System.Windows.Forms.TableLayoutPanel();
+      this.label2 = new System.Windows.Forms.Label();
+      this.accuracyEntry = new System.Windows.Forms.NumericUpDown();
+      this.speedEntry = new System.Windows.Forms.NumericUpDown();
       this.physicalLabel = new System.Windows.Forms.Label();
       this.magicLabel = new System.Windows.Forms.Label();
       this.physicalEntry = new System.Windows.Forms.NumericUpDown();
       this.magicEntry = new System.Windows.Forms.NumericUpDown();
+      this.priceLabel = new System.Windows.Forms.Label();
+      this.priceEntry = new System.Windows.Forms.NumericUpDown();
       this.statBonusGroup = new System.Windows.Forms.GroupBox();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.LUCEntry = new System.Windows.Forms.NumericUpDown();
@@ -64,9 +73,16 @@
       this.WISLabel = new System.Windows.Forms.Label();
       this.AGILabel = new System.Windows.Forms.Label();
       this.LUCLabel = new System.Windows.Forms.Label();
-      this.priceTable = new System.Windows.Forms.TableLayoutPanel();
-      this.priceEntry = new System.Windows.Forms.NumericUpDown();
-      this.priceLabel = new System.Windows.Forms.Label();
+      this.damageTypePanel = new System.Windows.Forms.GroupBox();
+      this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+      this.cut = new System.Windows.Forms.CheckBox();
+      this.stab = new System.Windows.Forms.CheckBox();
+      this.bash = new System.Windows.Forms.CheckBox();
+      this.fire = new System.Windows.Forms.CheckBox();
+      this.ice = new System.Windows.Forms.CheckBox();
+      this.volt = new System.Windows.Forms.CheckBox();
+      this.almighty = new System.Windows.Forms.CheckBox();
+      this.noPenalty = new System.Windows.Forms.CheckBox();
       this.classGroup = new System.Windows.Forms.GroupBox();
       this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
       this.princess = new System.Windows.Forms.CheckBox();
@@ -85,16 +101,16 @@
       this.consumesMaterials = new System.Windows.Forms.CheckBox();
       this.goldIcon = new System.Windows.Forms.CheckBox();
       this.starterEquipment = new System.Windows.Forms.CheckBox();
-      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menu.SuspendLayout();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
+      this.nameLayout.SuspendLayout();
       this.nameAndTypeLayout.SuspendLayout();
-      this.ATKDEFEntryPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.accuracyEntry)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.speedEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.physicalEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.magicEntry)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).BeginInit();
       this.statBonusGroup.SuspendLayout();
       this.tableLayoutPanel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LUCEntry)).BeginInit();
@@ -105,8 +121,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.STREntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.TPEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.HPEntry)).BeginInit();
-      this.priceTable.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).BeginInit();
+      this.damageTypePanel.SuspendLayout();
+      this.tableLayoutPanel2.SuspendLayout();
       this.classGroup.SuspendLayout();
       this.flowLayoutPanel1.SuspendLayout();
       this.flags.SuspendLayout();
@@ -122,21 +138,43 @@
       this.menu.TabIndex = 0;
       this.menu.Text = "menuStrip1";
       // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.exitToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "File";
+      // 
+      // saveToolStripMenuItem
+      // 
+      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+      this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.saveToolStripMenuItem.Text = "Save";
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.FileSaveClicked);
+      // 
+      // exitToolStripMenuItem
+      // 
+      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.exitToolStripMenuItem.Text = "Exit";
+      // 
       // formLayout
       // 
       this.formLayout.Controls.Add(this.equipmentSelectionControls);
-      this.formLayout.Controls.Add(this.nameAndTypeLayout);
+      this.formLayout.Controls.Add(this.nameLayout);
       this.formLayout.Controls.Add(this.namePreviewPanel);
-      this.formLayout.Controls.Add(this.ATKDEFEntryPanel);
+      this.formLayout.Controls.Add(this.nameAndTypeLayout);
       this.formLayout.Controls.Add(this.statBonusGroup);
-      this.formLayout.Controls.Add(this.priceTable);
+      this.formLayout.Controls.Add(this.damageTypePanel);
       this.formLayout.Controls.Add(this.classGroup);
       this.formLayout.Controls.Add(this.flags);
       this.formLayout.Dock = System.Windows.Forms.DockStyle.Fill;
       this.formLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.formLayout.Location = new System.Drawing.Point(0, 24);
       this.formLayout.Name = "formLayout";
-      this.formLayout.Size = new System.Drawing.Size(800, 379);
+      this.formLayout.Size = new System.Drawing.Size(800, 454);
       this.formLayout.TabIndex = 5;
       // 
       // equipmentSelectionControls
@@ -154,7 +192,7 @@
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.equipmentSelectionControls.Size = new System.Drawing.Size(131, 372);
+      this.equipmentSelectionControls.Size = new System.Drawing.Size(131, 450);
       this.equipmentSelectionControls.TabIndex = 1;
       // 
       // equipmentList
@@ -162,7 +200,7 @@
       this.equipmentList.FormattingEnabled = true;
       this.equipmentList.Location = new System.Drawing.Point(3, 53);
       this.equipmentList.Name = "equipmentList";
-      this.equipmentList.Size = new System.Drawing.Size(124, 316);
+      this.equipmentList.Size = new System.Drawing.Size(124, 394);
       this.equipmentList.TabIndex = 8;
       // 
       // equipmentTypeFilter
@@ -184,22 +222,19 @@
       this.includeDummyItems.Text = "Include dummy items";
       this.includeDummyItems.UseVisualStyleBackColor = true;
       // 
-      // nameAndTypeLayout
+      // nameLayout
       // 
-      this.nameAndTypeLayout.ColumnCount = 2;
-      this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.nameAndTypeLayout.Controls.Add(this.nameLabel, 0, 0);
-      this.nameAndTypeLayout.Controls.Add(this.itemName, 1, 0);
-      this.nameAndTypeLayout.Controls.Add(this.typeLabel, 0, 1);
-      this.nameAndTypeLayout.Controls.Add(this.itemType, 1, 1);
-      this.nameAndTypeLayout.Location = new System.Drawing.Point(140, 3);
-      this.nameAndTypeLayout.Name = "nameAndTypeLayout";
-      this.nameAndTypeLayout.RowCount = 2;
-      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.nameAndTypeLayout.Size = new System.Drawing.Size(123, 54);
-      this.nameAndTypeLayout.TabIndex = 2;
+      this.nameLayout.ColumnCount = 2;
+      this.nameLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.04F));
+      this.nameLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.96F));
+      this.nameLayout.Controls.Add(this.nameLabel, 0, 0);
+      this.nameLayout.Controls.Add(this.itemName, 1, 0);
+      this.nameLayout.Location = new System.Drawing.Point(140, 3);
+      this.nameLayout.Name = "nameLayout";
+      this.nameLayout.RowCount = 1;
+      this.nameLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameLayout.Size = new System.Drawing.Size(123, 24);
+      this.nameLayout.TabIndex = 10;
       // 
       // nameLabel
       // 
@@ -207,26 +242,73 @@
       this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.nameLabel.Location = new System.Drawing.Point(3, 0);
       this.nameLabel.Name = "nameLabel";
-      this.nameLabel.Size = new System.Drawing.Size(35, 26);
+      this.nameLabel.Size = new System.Drawing.Size(37, 26);
       this.nameLabel.TabIndex = 0;
       this.nameLabel.Text = "Name";
       this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // itemName
       // 
-      this.itemName.Enabled = false;
-      this.itemName.Location = new System.Drawing.Point(44, 3);
+      this.itemName.Location = new System.Drawing.Point(46, 3);
       this.itemName.Name = "itemName";
-      this.itemName.Size = new System.Drawing.Size(79, 20);
+      this.itemName.Size = new System.Drawing.Size(74, 20);
       this.itemName.TabIndex = 1;
+      // 
+      // namePreviewPanel
+      // 
+      this.namePreviewPanel.Location = new System.Drawing.Point(140, 33);
+      this.namePreviewPanel.Name = "namePreviewPanel";
+      this.namePreviewPanel.Size = new System.Drawing.Size(123, 20);
+      this.namePreviewPanel.TabIndex = 3;
+      // 
+      // nameAndTypeLayout
+      // 
+      this.nameAndTypeLayout.ColumnCount = 2;
+      this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.nameAndTypeLayout.Controls.Add(this.label1, 0, 2);
+      this.nameAndTypeLayout.Controls.Add(this.typeLabel, 0, 1);
+      this.nameAndTypeLayout.Controls.Add(this.itemType, 1, 1);
+      this.nameAndTypeLayout.Controls.Add(this.label2, 0, 3);
+      this.nameAndTypeLayout.Controls.Add(this.accuracyEntry, 1, 2);
+      this.nameAndTypeLayout.Controls.Add(this.speedEntry, 1, 3);
+      this.nameAndTypeLayout.Controls.Add(this.physicalLabel, 0, 4);
+      this.nameAndTypeLayout.Controls.Add(this.magicLabel, 0, 5);
+      this.nameAndTypeLayout.Controls.Add(this.physicalEntry, 1, 4);
+      this.nameAndTypeLayout.Controls.Add(this.magicEntry, 1, 5);
+      this.nameAndTypeLayout.Controls.Add(this.priceLabel, 0, 6);
+      this.nameAndTypeLayout.Controls.Add(this.priceEntry, 1, 6);
+      this.nameAndTypeLayout.Location = new System.Drawing.Point(140, 59);
+      this.nameAndTypeLayout.Name = "nameAndTypeLayout";
+      this.nameAndTypeLayout.RowCount = 7;
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.nameAndTypeLayout.Size = new System.Drawing.Size(123, 156);
+      this.nameAndTypeLayout.TabIndex = 2;
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label1.Location = new System.Drawing.Point(3, 27);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(38, 26);
+      this.label1.TabIndex = 4;
+      this.label1.Text = "Acc.";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // typeLabel
       // 
       this.typeLabel.AutoSize = true;
       this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.typeLabel.Location = new System.Drawing.Point(3, 26);
+      this.typeLabel.Location = new System.Drawing.Point(3, 0);
       this.typeLabel.Name = "typeLabel";
-      this.typeLabel.Size = new System.Drawing.Size(35, 28);
+      this.typeLabel.Size = new System.Drawing.Size(38, 27);
       this.typeLabel.TabIndex = 2;
       this.typeLabel.Text = "Type";
       this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,43 +318,63 @@
       this.itemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.itemType.Enabled = false;
       this.itemType.FormattingEnabled = true;
-      this.itemType.Location = new System.Drawing.Point(44, 29);
+      this.itemType.Location = new System.Drawing.Point(47, 3);
       this.itemType.Name = "itemType";
-      this.itemType.Size = new System.Drawing.Size(79, 21);
+      this.itemType.Size = new System.Drawing.Size(75, 21);
       this.itemType.TabIndex = 3;
       // 
-      // namePreviewPanel
+      // label2
       // 
-      this.namePreviewPanel.Location = new System.Drawing.Point(140, 63);
-      this.namePreviewPanel.Name = "namePreviewPanel";
-      this.namePreviewPanel.Size = new System.Drawing.Size(123, 20);
-      this.namePreviewPanel.TabIndex = 3;
+      this.label2.AutoSize = true;
+      this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label2.Location = new System.Drawing.Point(3, 53);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(38, 26);
+      this.label2.TabIndex = 6;
+      this.label2.Text = "Speed";
+      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // ATKDEFEntryPanel
+      // accuracyEntry
       // 
-      this.ATKDEFEntryPanel.ColumnCount = 2;
-      this.ATKDEFEntryPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.77236F));
-      this.ATKDEFEntryPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.22765F));
-      this.ATKDEFEntryPanel.Controls.Add(this.physicalLabel, 0, 0);
-      this.ATKDEFEntryPanel.Controls.Add(this.magicLabel, 0, 1);
-      this.ATKDEFEntryPanel.Controls.Add(this.physicalEntry, 1, 0);
-      this.ATKDEFEntryPanel.Controls.Add(this.magicEntry, 1, 1);
-      this.ATKDEFEntryPanel.Location = new System.Drawing.Point(140, 89);
-      this.ATKDEFEntryPanel.Name = "ATKDEFEntryPanel";
-      this.ATKDEFEntryPanel.RowCount = 2;
-      this.ATKDEFEntryPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.ATKDEFEntryPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.ATKDEFEntryPanel.Size = new System.Drawing.Size(123, 47);
-      this.ATKDEFEntryPanel.TabIndex = 4;
+      this.accuracyEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.accuracyEntry.Location = new System.Drawing.Point(47, 30);
+      this.accuracyEntry.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+      this.accuracyEntry.Name = "accuracyEntry";
+      this.accuracyEntry.Size = new System.Drawing.Size(73, 20);
+      this.accuracyEntry.TabIndex = 5;
+      this.accuracyEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // speedEntry
+      // 
+      this.speedEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.speedEntry.Location = new System.Drawing.Point(47, 56);
+      this.speedEntry.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+      this.speedEntry.Minimum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            -2147483648});
+      this.speedEntry.Name = "speedEntry";
+      this.speedEntry.Size = new System.Drawing.Size(73, 20);
+      this.speedEntry.TabIndex = 7;
+      this.speedEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
       // physicalLabel
       // 
       this.physicalLabel.AutoSize = true;
       this.physicalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.physicalLabel.Location = new System.Drawing.Point(3, 0);
+      this.physicalLabel.Location = new System.Drawing.Point(3, 79);
       this.physicalLabel.Name = "physicalLabel";
-      this.physicalLabel.Size = new System.Drawing.Size(37, 23);
-      this.physicalLabel.TabIndex = 0;
+      this.physicalLabel.Size = new System.Drawing.Size(38, 26);
+      this.physicalLabel.TabIndex = 8;
       this.physicalLabel.Text = "PATK";
       this.physicalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
@@ -280,17 +382,17 @@
       // 
       this.magicLabel.AutoSize = true;
       this.magicLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.magicLabel.Location = new System.Drawing.Point(3, 23);
+      this.magicLabel.Location = new System.Drawing.Point(3, 105);
       this.magicLabel.Name = "magicLabel";
-      this.magicLabel.Size = new System.Drawing.Size(37, 24);
-      this.magicLabel.TabIndex = 1;
+      this.magicLabel.Size = new System.Drawing.Size(38, 26);
+      this.magicLabel.TabIndex = 9;
       this.magicLabel.Text = "MATK";
       this.magicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // physicalEntry
       // 
       this.physicalEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.physicalEntry.Location = new System.Drawing.Point(46, 3);
+      this.physicalEntry.Location = new System.Drawing.Point(47, 82);
       this.physicalEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -298,13 +400,13 @@
             0});
       this.physicalEntry.Name = "physicalEntry";
       this.physicalEntry.Size = new System.Drawing.Size(73, 20);
-      this.physicalEntry.TabIndex = 2;
+      this.physicalEntry.TabIndex = 10;
       this.physicalEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
       // magicEntry
       // 
       this.magicEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.magicEntry.Location = new System.Drawing.Point(46, 26);
+      this.magicEntry.Location = new System.Drawing.Point(47, 108);
       this.magicEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -312,14 +414,39 @@
             0});
       this.magicEntry.Name = "magicEntry";
       this.magicEntry.Size = new System.Drawing.Size(73, 20);
-      this.magicEntry.TabIndex = 3;
+      this.magicEntry.TabIndex = 11;
       this.magicEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // priceLabel
+      // 
+      this.priceLabel.AutoSize = true;
+      this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.priceLabel.Location = new System.Drawing.Point(3, 131);
+      this.priceLabel.Name = "priceLabel";
+      this.priceLabel.Size = new System.Drawing.Size(38, 25);
+      this.priceLabel.TabIndex = 12;
+      this.priceLabel.Text = "Price";
+      this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // priceEntry
+      // 
+      this.priceEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.priceEntry.Location = new System.Drawing.Point(47, 134);
+      this.priceEntry.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+      this.priceEntry.Name = "priceEntry";
+      this.priceEntry.Size = new System.Drawing.Size(73, 20);
+      this.priceEntry.TabIndex = 13;
+      this.priceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
       // statBonusGroup
       // 
       this.statBonusGroup.Controls.Add(this.tableLayoutPanel1);
       this.statBonusGroup.Enabled = false;
-      this.statBonusGroup.Location = new System.Drawing.Point(140, 142);
+      this.statBonusGroup.Location = new System.Drawing.Point(140, 221);
       this.statBonusGroup.Name = "statBonusGroup";
       this.statBonusGroup.Size = new System.Drawing.Size(123, 228);
       this.statBonusGroup.TabIndex = 5;
@@ -562,51 +689,126 @@
       this.LUCLabel.Text = "LUC";
       this.LUCLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // priceTable
+      // damageTypePanel
       // 
-      this.priceTable.ColumnCount = 2;
-      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.priceTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-      this.priceTable.Controls.Add(this.priceEntry, 1, 0);
-      this.priceTable.Controls.Add(this.priceLabel, 0, 0);
-      this.priceTable.Location = new System.Drawing.Point(269, 3);
-      this.priceTable.Name = "priceTable";
-      this.priceTable.RowCount = 1;
-      this.priceTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.priceTable.Size = new System.Drawing.Size(164, 23);
-      this.priceTable.TabIndex = 9;
+      this.damageTypePanel.Controls.Add(this.tableLayoutPanel2);
+      this.damageTypePanel.Location = new System.Drawing.Point(269, 3);
+      this.damageTypePanel.Name = "damageTypePanel";
+      this.damageTypePanel.Size = new System.Drawing.Size(164, 90);
+      this.damageTypePanel.TabIndex = 11;
+      this.damageTypePanel.TabStop = false;
+      this.damageTypePanel.Text = "Damage Type";
       // 
-      // priceEntry
+      // tableLayoutPanel2
       // 
-      this.priceEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.priceEntry.Location = new System.Drawing.Point(44, 3);
-      this.priceEntry.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-      this.priceEntry.Name = "priceEntry";
-      this.priceEntry.Size = new System.Drawing.Size(117, 20);
-      this.priceEntry.TabIndex = 9;
-      this.priceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      this.tableLayoutPanel2.ColumnCount = 3;
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.tableLayoutPanel2.Controls.Add(this.cut, 0, 0);
+      this.tableLayoutPanel2.Controls.Add(this.stab, 1, 0);
+      this.tableLayoutPanel2.Controls.Add(this.bash, 2, 0);
+      this.tableLayoutPanel2.Controls.Add(this.fire, 0, 1);
+      this.tableLayoutPanel2.Controls.Add(this.ice, 1, 1);
+      this.tableLayoutPanel2.Controls.Add(this.volt, 2, 1);
+      this.tableLayoutPanel2.Controls.Add(this.almighty, 0, 2);
+      this.tableLayoutPanel2.Controls.Add(this.noPenalty, 1, 2);
+      this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
+      this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+      this.tableLayoutPanel2.RowCount = 3;
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(158, 71);
+      this.tableLayoutPanel2.TabIndex = 0;
       // 
-      // priceLabel
+      // cut
       // 
-      this.priceLabel.AutoSize = true;
-      this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.priceLabel.Location = new System.Drawing.Point(3, 0);
-      this.priceLabel.Name = "priceLabel";
-      this.priceLabel.Size = new System.Drawing.Size(35, 23);
-      this.priceLabel.TabIndex = 0;
-      this.priceLabel.Text = "Price";
-      this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.cut.AutoSize = true;
+      this.cut.Location = new System.Drawing.Point(3, 3);
+      this.cut.Name = "cut";
+      this.cut.Size = new System.Drawing.Size(42, 17);
+      this.cut.TabIndex = 0;
+      this.cut.Text = "Cut";
+      this.cut.UseVisualStyleBackColor = true;
+      // 
+      // stab
+      // 
+      this.stab.AutoSize = true;
+      this.stab.Location = new System.Drawing.Point(57, 3);
+      this.stab.Name = "stab";
+      this.stab.Size = new System.Drawing.Size(48, 17);
+      this.stab.TabIndex = 1;
+      this.stab.Text = "Stab";
+      this.stab.UseVisualStyleBackColor = true;
+      // 
+      // bash
+      // 
+      this.bash.AutoSize = true;
+      this.bash.Location = new System.Drawing.Point(111, 3);
+      this.bash.Name = "bash";
+      this.bash.Size = new System.Drawing.Size(50, 17);
+      this.bash.TabIndex = 2;
+      this.bash.Text = "Bash";
+      this.bash.UseVisualStyleBackColor = true;
+      // 
+      // fire
+      // 
+      this.fire.AutoSize = true;
+      this.fire.Location = new System.Drawing.Point(3, 26);
+      this.fire.Name = "fire";
+      this.fire.Size = new System.Drawing.Size(43, 17);
+      this.fire.TabIndex = 3;
+      this.fire.Text = "Fire";
+      this.fire.UseVisualStyleBackColor = true;
+      // 
+      // ice
+      // 
+      this.ice.AutoSize = true;
+      this.ice.Location = new System.Drawing.Point(57, 26);
+      this.ice.Name = "ice";
+      this.ice.Size = new System.Drawing.Size(41, 17);
+      this.ice.TabIndex = 4;
+      this.ice.Text = "Ice";
+      this.ice.UseVisualStyleBackColor = true;
+      // 
+      // volt
+      // 
+      this.volt.AutoSize = true;
+      this.volt.Location = new System.Drawing.Point(111, 26);
+      this.volt.Name = "volt";
+      this.volt.Size = new System.Drawing.Size(44, 17);
+      this.volt.TabIndex = 5;
+      this.volt.Text = "Volt";
+      this.volt.UseVisualStyleBackColor = true;
+      // 
+      // almighty
+      // 
+      this.almighty.AutoSize = true;
+      this.almighty.Location = new System.Drawing.Point(3, 49);
+      this.almighty.Name = "almighty";
+      this.almighty.Size = new System.Drawing.Size(48, 17);
+      this.almighty.TabIndex = 6;
+      this.almighty.Text = "Almi.";
+      this.almighty.UseVisualStyleBackColor = true;
+      // 
+      // noPenalty
+      // 
+      this.noPenalty.AutoSize = true;
+      this.noPenalty.Location = new System.Drawing.Point(57, 49);
+      this.noPenalty.Name = "noPenalty";
+      this.noPenalty.Size = new System.Drawing.Size(47, 17);
+      this.noPenalty.TabIndex = 7;
+      this.noPenalty.Text = "N.P.";
+      this.noPenalty.UseVisualStyleBackColor = true;
       // 
       // classGroup
       // 
       this.classGroup.Controls.Add(this.flowLayoutPanel1);
-      this.classGroup.Location = new System.Drawing.Point(269, 32);
+      this.classGroup.Location = new System.Drawing.Point(269, 99);
       this.classGroup.Name = "classGroup";
-      this.classGroup.Size = new System.Drawing.Size(164, 164);
+      this.classGroup.Size = new System.Drawing.Size(164, 163);
       this.classGroup.TabIndex = 7;
       this.classGroup.TabStop = false;
       this.classGroup.Text = "Classes That Can Equip This";
@@ -630,7 +832,7 @@
       this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
       this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-      this.flowLayoutPanel1.Size = new System.Drawing.Size(158, 145);
+      this.flowLayoutPanel1.Size = new System.Drawing.Size(158, 144);
       this.flowLayoutPanel1.TabIndex = 0;
       // 
       // princess
@@ -772,7 +974,7 @@
       this.flags.Controls.Add(this.goldIcon);
       this.flags.Controls.Add(this.starterEquipment);
       this.flags.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-      this.flags.Location = new System.Drawing.Point(269, 202);
+      this.flags.Location = new System.Drawing.Point(269, 268);
       this.flags.Name = "flags";
       this.flags.Size = new System.Drawing.Size(125, 69);
       this.flags.TabIndex = 8;
@@ -807,33 +1009,11 @@
       this.starterEquipment.Text = "Starter equipment";
       this.starterEquipment.UseVisualStyleBackColor = true;
       // 
-      // fileToolStripMenuItem
-      // 
-      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.exitToolStripMenuItem});
-      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-      this.fileToolStripMenuItem.Text = "File";
-      // 
-      // saveToolStripMenuItem
-      // 
-      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-      this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.saveToolStripMenuItem.Text = "Save";
-      this.saveToolStripMenuItem.Click += new System.EventHandler(this.FileSaveClicked);
-      // 
-      // exitToolStripMenuItem
-      // 
-      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-      this.exitToolStripMenuItem.Text = "Exit";
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 403);
+      this.ClientSize = new System.Drawing.Size(800, 478);
       this.Controls.Add(this.formLayout);
       this.Controls.Add(this.menu);
       this.MainMenuStrip = this.menu;
@@ -845,12 +1025,15 @@
       this.formLayout.PerformLayout();
       this.equipmentSelectionControls.ResumeLayout(false);
       this.equipmentSelectionControls.PerformLayout();
+      this.nameLayout.ResumeLayout(false);
+      this.nameLayout.PerformLayout();
       this.nameAndTypeLayout.ResumeLayout(false);
       this.nameAndTypeLayout.PerformLayout();
-      this.ATKDEFEntryPanel.ResumeLayout(false);
-      this.ATKDEFEntryPanel.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.accuracyEntry)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.speedEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.physicalEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.magicEntry)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).EndInit();
       this.statBonusGroup.ResumeLayout(false);
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel1.PerformLayout();
@@ -862,9 +1045,9 @@
       ((System.ComponentModel.ISupportInitialize)(this.STREntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.TPEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.HPEntry)).EndInit();
-      this.priceTable.ResumeLayout(false);
-      this.priceTable.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).EndInit();
+      this.damageTypePanel.ResumeLayout(false);
+      this.tableLayoutPanel2.ResumeLayout(false);
+      this.tableLayoutPanel2.PerformLayout();
       this.classGroup.ResumeLayout(false);
       this.classGroup.PerformLayout();
       this.flowLayoutPanel1.ResumeLayout(false);
@@ -885,16 +1068,9 @@
     private System.Windows.Forms.ComboBox equipmentTypeFilter;
     private System.Windows.Forms.CheckBox includeDummyItems;
     private System.Windows.Forms.TableLayoutPanel nameAndTypeLayout;
-    private System.Windows.Forms.Label nameLabel;
-    private System.Windows.Forms.TextBox itemName;
     private System.Windows.Forms.Label typeLabel;
     private System.Windows.Forms.ComboBox itemType;
     private System.Windows.Forms.Panel namePreviewPanel;
-    private System.Windows.Forms.TableLayoutPanel ATKDEFEntryPanel;
-    private System.Windows.Forms.Label physicalLabel;
-    private System.Windows.Forms.Label magicLabel;
-    private System.Windows.Forms.NumericUpDown physicalEntry;
-    private System.Windows.Forms.NumericUpDown magicEntry;
     private System.Windows.Forms.GroupBox statBonusGroup;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     private System.Windows.Forms.Label HPLabel;
@@ -931,11 +1107,31 @@
     private System.Windows.Forms.CheckBox consumesMaterials;
     private System.Windows.Forms.CheckBox goldIcon;
     private System.Windows.Forms.CheckBox starterEquipment;
-    private System.Windows.Forms.TableLayoutPanel priceTable;
-    private System.Windows.Forms.NumericUpDown priceEntry;
-    private System.Windows.Forms.Label priceLabel;
     private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.NumericUpDown accuracyEntry;
+    private System.Windows.Forms.TableLayoutPanel nameLayout;
+    private System.Windows.Forms.Label nameLabel;
+    private System.Windows.Forms.TextBox itemName;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.NumericUpDown speedEntry;
+    private System.Windows.Forms.Label physicalLabel;
+    private System.Windows.Forms.Label magicLabel;
+    private System.Windows.Forms.NumericUpDown physicalEntry;
+    private System.Windows.Forms.NumericUpDown magicEntry;
+    private System.Windows.Forms.GroupBox damageTypePanel;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+    private System.Windows.Forms.CheckBox cut;
+    private System.Windows.Forms.CheckBox stab;
+    private System.Windows.Forms.CheckBox bash;
+    private System.Windows.Forms.CheckBox fire;
+    private System.Windows.Forms.CheckBox ice;
+    private System.Windows.Forms.CheckBox volt;
+    private System.Windows.Forms.CheckBox almighty;
+    private System.Windows.Forms.CheckBox noPenalty;
+    private System.Windows.Forms.NumericUpDown priceEntry;
+    private System.Windows.Forms.Label priceLabel;
   }
 }
