@@ -61,24 +61,24 @@ namespace EO3EquipmentEdit.Data
     public DamageType DamageType { get; set; }
 
     /// <summary>
-    /// The item's ATK value.
+    /// The item's PATK value.
     /// </summary>
-    public int ATK { get; set; }
+    public int PATK { get; set; }
 
     /// <summary>
-    /// The item's DEF value.
+    /// The item's PDEF value.
     /// </summary>
-    public int DEF { get; set; }
+    public int PDEF { get; set; }
 
     /// <summary>
-    /// The item's MAT value.
+    /// The item's MATK value.
     /// </summary>
-    public int MAT { get; set; }
+    public int MATK { get; set; }
 
     /// <summary>
-    /// The item's MDF value.
+    /// The item's MDEF value.
     /// </summary>
-    public int MDF { get; set; }
+    public int MDEF { get; set; }
 
     /// <summary>
     /// The numeric stat bonuses that the item gives.
@@ -283,19 +283,63 @@ namespace EO3EquipmentEdit.Data
       Volt      = 0x16,
       Petrify   = 0x17,
       Death     = 0x18,
+      Invalid   = 0x19, // Don't use this.
       HP        = 0x1A,
       TP        = 0x1B,
       Cut       = 0x1C,
-      Bash      = 0x1D,
-      Stab      = 0x1E,
+      Stab      = 0x1D,
+      Bash      = 0x1E,
       Speed     = 0x1F,
       Limit     = 0x20
     }
 
+    public static readonly Dictionary<ForgeTypes, string> ForgeTypeStrings
+      = new Dictionary<ForgeTypes, string>()
+    {
+        { ForgeTypes.None, "None" },
+        { ForgeTypes.ATK, "ATK" },
+        { ForgeTypes.Hit, "Accuracy" },
+        { ForgeTypes.Blind, "Blind" },
+        { ForgeTypes.Sleep, "Sleep" },
+        { ForgeTypes.STR, "STR" },
+        { ForgeTypes.TEC, "TEC" },
+        { ForgeTypes.VIT, "VIT" },
+        { ForgeTypes.AGI, "AGI" },
+        { ForgeTypes.LUC, "LUC" },
+        { ForgeTypes.Poison, "Poison" },
+        { ForgeTypes.Berserk, "Berserk" },
+        { ForgeTypes.Paralyze, "Paralysis" },
+        { ForgeTypes.WIS, "WIS" },
+        { ForgeTypes.Plague, "Plague" },
+        { ForgeTypes.Curse, "Curse" },
+        { ForgeTypes.HeadBind, "Head bind" },
+        { ForgeTypes.ArmBind, "Arm bind" },
+        { ForgeTypes.LegBind, "Leg bind" },
+        { ForgeTypes.Crit, "Crit" },
+        { ForgeTypes.Fire, "Fire" },
+        { ForgeTypes.Ice, "Ice" },
+        { ForgeTypes.Volt, "Volt" },
+        { ForgeTypes.Petrify, "Petrify" },
+        { ForgeTypes.Death, "Death" },
+        { ForgeTypes.Invalid, "DON'T" },
+        { ForgeTypes.HP, "HP" },
+        { ForgeTypes.TP, "TP" },
+        { ForgeTypes.Cut, "Cut" },
+        { ForgeTypes.Stab, "Stab" },
+        { ForgeTypes.Bash, "Bash" },
+        { ForgeTypes.Speed, "Speed" },
+        { ForgeTypes.Limit, "Limit" },
+    };
+
     /// <summary>
-    /// The maximum number of forge slots that can be on equipment.
+    /// The maximum number of forge slots that can be on equipment, data-wise.
     /// </summary>
-    public static readonly int MaximumAmountOfForges = 9;
+    public static readonly int ForgeDataMaximum = 9;
+
+    /// <summary>
+    /// The maximum number of forge slots we allow on equipment, as part of the game design.
+    /// </summary>
+    public static readonly int ForgeMaximum = 6;
 
     /// <summary>
     /// Constructor for creating an Equipment object from equipitemtable.tbl.
@@ -323,10 +367,10 @@ namespace EO3EquipmentEdit.Data
         Almighty = (damageTypeBitfield & 64) == 64,
         NoPenalty = (damageTypeBitfield & 128) == 128,
       };
-      ATK = input.ReadInt16();
-      DEF = input.ReadInt16();
-      MAT = input.ReadInt16();
-      MDF = input.ReadInt16();
+      PATK = input.ReadInt16();
+      PDEF = input.ReadInt16();
+      MATK = input.ReadInt16();
+      MDEF = input.ReadInt16();
       // Skip 0xE unnecessary bytes.
       input.ReadBytes(0xE);
       StatBonuses = new StatBlock()
@@ -366,10 +410,20 @@ namespace EO3EquipmentEdit.Data
         Starter = (flagsBitfiled & 0x80) == 0x80
       };
       ForgeSlots = input.ReadByte();
+      // Cap forge slots to the game design maximum. This takes care of having to manually adjust vanilla table entries.
+      if (ForgeSlots > ForgeMaximum)
+      {
+        ForgeSlots = ForgeMaximum;
+      }
       Forges = new List<ForgeTypes>();
-      for (int forgeIndex = 0; forgeIndex < MaximumAmountOfForges; forgeIndex += 1)
+      for (int forgeIndex = 0; forgeIndex < ForgeDataMaximum; forgeIndex += 1)
       {
         Forges.Add((ForgeTypes)input.ReadByte());
+      }
+      // Zero out the final three forge slots, to make sure we don't end up with stray forges from the original data.
+      for (int forgeIndex = ForgeMaximum; forgeIndex < ForgeDataMaximum; forgeIndex += 1)
+      {
+        Forges[forgeIndex] = ForgeTypes.None;
       }
       Price = input.ReadInt32();
       input.ReadInt32(); // "Sell price." Dummy column in EO3.
@@ -384,10 +438,10 @@ namespace EO3EquipmentEdit.Data
       writer.Write((byte)Type);
       writer.Write((byte)Accuracy);
       writer.Write(DamageType.Bitfield);
-      writer.Write((short)ATK);
-      writer.Write((short)DEF);
-      writer.Write((short)MAT);
-      writer.Write((short)MDF);
+      writer.Write((short)PATK);
+      writer.Write((short)PDEF);
+      writer.Write((short)MATK);
+      writer.Write((short)MDEF);
       // 0xE bytes we skipped previously.
       for (int alwaysZeroIndex = 0; alwaysZeroIndex < 0xE; alwaysZeroIndex += 1)
       {
@@ -407,16 +461,9 @@ namespace EO3EquipmentEdit.Data
       writer.Write(ClassesThatCanEquip.Bitfield);
       writer.Write(Flags.Bitfield);
       writer.Write((byte)ForgeSlots);
-      int forgesWritten = 0;
       foreach (ForgeTypes forge in Forges)
       {
         writer.Write((byte)forge);
-        forgesWritten += 1;
-      }
-      // Write empty forges.
-      for (int emptyForgeIndex = forgesWritten; emptyForgeIndex < MaximumAmountOfForges; emptyForgeIndex += 1)
-      {
-        writer.Write((byte)0x0);
       }
       writer.Write(Price);
       // Dummied-out sell price.
