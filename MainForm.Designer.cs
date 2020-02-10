@@ -106,13 +106,21 @@
       this.starterEquipment = new System.Windows.Forms.CheckBox();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-      this.forge0 = new System.Windows.Forms.ComboBox();
-      this.forge1 = new System.Windows.Forms.ComboBox();
-      this.forge2 = new System.Windows.Forms.ComboBox();
-      this.forge3 = new System.Windows.Forms.ComboBox();
       this.forge4 = new System.Windows.Forms.ComboBox();
       this.forge5 = new System.Windows.Forms.ComboBox();
+      this.forge2 = new System.Windows.Forms.ComboBox();
+      this.forge3 = new System.Windows.Forms.ComboBox();
+      this.forge0 = new System.Windows.Forms.ComboBox();
+      this.forge1 = new System.Windows.Forms.ComboBox();
       this.descriptionPanel = new System.Windows.Forms.FlowLayoutPanel();
+      this.unlockRequirementsGroupBox = new System.Windows.Forms.GroupBox();
+      this.unlockRequirementsPanel = new System.Windows.Forms.TableLayoutPanel();
+      this.firstRequirement = new System.Windows.Forms.ComboBox();
+      this.secondRequirement = new System.Windows.Forms.ComboBox();
+      this.thirdRequirement = new System.Windows.Forms.ComboBox();
+      this.firstRequirementAmount = new System.Windows.Forms.NumericUpDown();
+      this.secondRequirementAmount = new System.Windows.Forms.NumericUpDown();
+      this.thirdRequirementAmount = new System.Windows.Forms.NumericUpDown();
       this.menu.SuspendLayout();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
@@ -141,6 +149,11 @@
       this.flags.SuspendLayout();
       this.groupBox1.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
+      this.unlockRequirementsGroupBox.SuspendLayout();
+      this.unlockRequirementsPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.thirdRequirementAmount)).BeginInit();
       this.SuspendLayout();
       // 
       // menu
@@ -189,6 +202,7 @@
       this.formLayout.Controls.Add(this.flags);
       this.formLayout.Controls.Add(this.groupBox1);
       this.formLayout.Controls.Add(this.descriptionPanel);
+      this.formLayout.Controls.Add(this.unlockRequirementsGroupBox);
       this.formLayout.Dock = System.Windows.Forms.DockStyle.Fill;
       this.formLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.formLayout.Location = new System.Drawing.Point(0, 24);
@@ -1096,23 +1110,23 @@
       this.tableLayoutPanel3.Size = new System.Drawing.Size(158, 82);
       this.tableLayoutPanel3.TabIndex = 0;
       // 
-      // forge0
+      // forge4
       // 
-      this.forge0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.forge0.FormattingEnabled = true;
-      this.forge0.Location = new System.Drawing.Point(3, 3);
-      this.forge0.Name = "forge0";
-      this.forge0.Size = new System.Drawing.Size(73, 21);
-      this.forge0.TabIndex = 2;
+      this.forge4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge4.FormattingEnabled = true;
+      this.forge4.Location = new System.Drawing.Point(3, 57);
+      this.forge4.Name = "forge4";
+      this.forge4.Size = new System.Drawing.Size(73, 21);
+      this.forge4.TabIndex = 6;
       // 
-      // forge1
+      // forge5
       // 
-      this.forge1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.forge1.FormattingEnabled = true;
-      this.forge1.Location = new System.Drawing.Point(82, 3);
-      this.forge1.Name = "forge1";
-      this.forge1.Size = new System.Drawing.Size(73, 21);
-      this.forge1.TabIndex = 3;
+      this.forge5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge5.FormattingEnabled = true;
+      this.forge5.Location = new System.Drawing.Point(82, 57);
+      this.forge5.Name = "forge5";
+      this.forge5.Size = new System.Drawing.Size(73, 21);
+      this.forge5.TabIndex = 7;
       // 
       // forge2
       // 
@@ -1132,23 +1146,23 @@
       this.forge3.Size = new System.Drawing.Size(73, 21);
       this.forge3.TabIndex = 5;
       // 
-      // forge4
+      // forge0
       // 
-      this.forge4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.forge4.FormattingEnabled = true;
-      this.forge4.Location = new System.Drawing.Point(3, 57);
-      this.forge4.Name = "forge4";
-      this.forge4.Size = new System.Drawing.Size(73, 21);
-      this.forge4.TabIndex = 6;
+      this.forge0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge0.FormattingEnabled = true;
+      this.forge0.Location = new System.Drawing.Point(3, 3);
+      this.forge0.Name = "forge0";
+      this.forge0.Size = new System.Drawing.Size(73, 21);
+      this.forge0.TabIndex = 2;
       // 
-      // forge5
+      // forge1
       // 
-      this.forge5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.forge5.FormattingEnabled = true;
-      this.forge5.Location = new System.Drawing.Point(82, 57);
-      this.forge5.Name = "forge5";
-      this.forge5.Size = new System.Drawing.Size(73, 21);
-      this.forge5.TabIndex = 7;
+      this.forge1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge1.FormattingEnabled = true;
+      this.forge1.Location = new System.Drawing.Point(82, 3);
+      this.forge1.Name = "forge1";
+      this.forge1.Size = new System.Drawing.Size(73, 21);
+      this.forge1.TabIndex = 3;
       // 
       // descriptionPanel
       // 
@@ -1157,6 +1171,109 @@
       this.descriptionPanel.Name = "descriptionPanel";
       this.descriptionPanel.Size = new System.Drawing.Size(0, 0);
       this.descriptionPanel.TabIndex = 14;
+      // 
+      // unlockRequirementsGroupBox
+      // 
+      this.unlockRequirementsGroupBox.Controls.Add(this.unlockRequirementsPanel);
+      this.unlockRequirementsGroupBox.Location = new System.Drawing.Point(439, 9);
+      this.unlockRequirementsGroupBox.Name = "unlockRequirementsGroupBox";
+      this.unlockRequirementsGroupBox.Size = new System.Drawing.Size(237, 100);
+      this.unlockRequirementsGroupBox.TabIndex = 15;
+      this.unlockRequirementsGroupBox.TabStop = false;
+      this.unlockRequirementsGroupBox.Text = "Unlock Requirements";
+      // 
+      // unlockRequirementsPanel
+      // 
+      this.unlockRequirementsPanel.ColumnCount = 2;
+      this.unlockRequirementsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+      this.unlockRequirementsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+      this.unlockRequirementsPanel.Controls.Add(this.thirdRequirementAmount, 1, 2);
+      this.unlockRequirementsPanel.Controls.Add(this.secondRequirementAmount, 1, 1);
+      this.unlockRequirementsPanel.Controls.Add(this.firstRequirement, 0, 0);
+      this.unlockRequirementsPanel.Controls.Add(this.secondRequirement, 0, 1);
+      this.unlockRequirementsPanel.Controls.Add(this.thirdRequirement, 0, 2);
+      this.unlockRequirementsPanel.Controls.Add(this.firstRequirementAmount, 1, 0);
+      this.unlockRequirementsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.unlockRequirementsPanel.Location = new System.Drawing.Point(3, 16);
+      this.unlockRequirementsPanel.Name = "unlockRequirementsPanel";
+      this.unlockRequirementsPanel.RowCount = 3;
+      this.unlockRequirementsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.unlockRequirementsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.unlockRequirementsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.unlockRequirementsPanel.Size = new System.Drawing.Size(231, 81);
+      this.unlockRequirementsPanel.TabIndex = 0;
+      // 
+      // firstRequirement
+      // 
+      this.firstRequirement.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.firstRequirement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.firstRequirement.FormattingEnabled = true;
+      this.firstRequirement.Location = new System.Drawing.Point(3, 3);
+      this.firstRequirement.Name = "firstRequirement";
+      this.firstRequirement.Size = new System.Drawing.Size(178, 21);
+      this.firstRequirement.TabIndex = 0;
+      // 
+      // secondRequirement
+      // 
+      this.secondRequirement.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.secondRequirement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.secondRequirement.FormattingEnabled = true;
+      this.secondRequirement.Location = new System.Drawing.Point(3, 30);
+      this.secondRequirement.Name = "secondRequirement";
+      this.secondRequirement.Size = new System.Drawing.Size(178, 21);
+      this.secondRequirement.TabIndex = 1;
+      // 
+      // thirdRequirement
+      // 
+      this.thirdRequirement.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.thirdRequirement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.thirdRequirement.FormattingEnabled = true;
+      this.thirdRequirement.Location = new System.Drawing.Point(3, 57);
+      this.thirdRequirement.Name = "thirdRequirement";
+      this.thirdRequirement.Size = new System.Drawing.Size(178, 21);
+      this.thirdRequirement.TabIndex = 2;
+      // 
+      // firstRequirementAmount
+      // 
+      this.firstRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.firstRequirementAmount.Location = new System.Drawing.Point(187, 3);
+      this.firstRequirementAmount.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+      this.firstRequirementAmount.Name = "firstRequirementAmount";
+      this.firstRequirementAmount.Size = new System.Drawing.Size(41, 20);
+      this.firstRequirementAmount.TabIndex = 3;
+      this.firstRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // secondRequirementAmount
+      // 
+      this.secondRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.secondRequirementAmount.Location = new System.Drawing.Point(187, 30);
+      this.secondRequirementAmount.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+      this.secondRequirementAmount.Name = "secondRequirementAmount";
+      this.secondRequirementAmount.Size = new System.Drawing.Size(41, 20);
+      this.secondRequirementAmount.TabIndex = 4;
+      this.secondRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // thirdRequirementAmount
+      // 
+      this.thirdRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.thirdRequirementAmount.Location = new System.Drawing.Point(187, 57);
+      this.thirdRequirementAmount.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+      this.thirdRequirementAmount.Name = "thirdRequirementAmount";
+      this.thirdRequirementAmount.Size = new System.Drawing.Size(41, 20);
+      this.thirdRequirementAmount.TabIndex = 5;
+      this.thirdRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
       // MainForm
       // 
@@ -1208,6 +1325,11 @@
       this.flags.PerformLayout();
       this.groupBox1.ResumeLayout(false);
       this.tableLayoutPanel3.ResumeLayout(false);
+      this.unlockRequirementsGroupBox.ResumeLayout(false);
+      this.unlockRequirementsPanel.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.thirdRequirementAmount)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1299,5 +1421,13 @@
     private System.Windows.Forms.ComboBox forge0;
     private System.Windows.Forms.ComboBox forge1;
     private System.Windows.Forms.FlowLayoutPanel descriptionPanel;
+    private System.Windows.Forms.GroupBox unlockRequirementsGroupBox;
+    private System.Windows.Forms.TableLayoutPanel unlockRequirementsPanel;
+    private System.Windows.Forms.NumericUpDown thirdRequirementAmount;
+    private System.Windows.Forms.NumericUpDown secondRequirementAmount;
+    private System.Windows.Forms.ComboBox firstRequirement;
+    private System.Windows.Forms.ComboBox secondRequirement;
+    private System.Windows.Forms.ComboBox thirdRequirement;
+    private System.Windows.Forms.NumericUpDown firstRequirementAmount;
   }
 }

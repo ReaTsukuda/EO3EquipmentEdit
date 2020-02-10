@@ -115,6 +115,8 @@ namespace EO3EquipmentEdit
       // Create the item description preview.
       descriptionPreview = new ItemDescriptionPreview(Font12px);
       descriptionPanel.Controls.Add(descriptionPreview);
+      // Auto-size the unlock requirements group box to match the description preview.
+      unlockRequirementsPanel.Width = descriptionPanel.Width;
       // Eliminate the spacing bug with flow layout panels by inserting a dummy panel.
       var sizeDummy = new Panel
       {
@@ -449,6 +451,22 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void SetForgeAmountEventHandlers()
     {
+      forgeCountEntry.ValueChanged += SetOpenForgeSlotsOnValueChanged;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for the forge amount entry.
+    /// </summary>
+    private void RemoveForgeAmountEventHandlers()
+    {
+      forgeCountEntry.ValueChanged -= SetOpenForgeSlotsOnValueChanged;
+    }
+
+    /// <summary>
+    /// Registers the event handlers for the forge dropdowns.
+    /// </summary>
+    private void SetForgeEventHandlers()
+    {
       forge0.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
       forge1.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
       forge2.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
@@ -458,9 +476,9 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Removes the event handlers for the forge amount entry.
+    /// Removes the event handlers for the forge dropdowns.
     /// </summary>
-    private void RemoveForgeAmountEventHandlers()
+    private void RemoveForgeEventHandlers()
     {
       forge0.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
       forge1.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
@@ -468,20 +486,6 @@ namespace EO3EquipmentEdit
       forge3.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
       forge4.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
       forge5.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
-    }
-
-    /// <summary>
-    /// Registers the event handlers for the forge dropdowns.
-    /// </summary>
-    private void SetForgeEventHandlers()
-    {
-    }
-
-    /// <summary>
-    /// Removes the event handlers for the forge dropdowns.
-    /// </summary>
-    private void RemoveForgeEventHandlers()
-    {
     }
 
     /// <summary>
@@ -1447,6 +1451,17 @@ namespace EO3EquipmentEdit
       // is higher.
       if (forgeCountEntry.Value > newMaximum) { forgeCountEntry.Value = newMaximum; }
       forgeCountEntry.Maximum = newMaximum;
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's open forge slots when the entry's value is changed.
+    /// </summary>
+    private void SetOpenForgeSlotsOnValueChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.ForgeSlots = (int)forgeCountEntry.Value;
+      }
     }
 
     /// <summary>
