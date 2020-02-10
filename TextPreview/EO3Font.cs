@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EO3EquipmentEdit.TextPreview
 {
@@ -18,6 +16,7 @@ namespace EO3EquipmentEdit.TextPreview
     private readonly int LineSpacing = 0;
 
     private string _TexturePath;
+
     /// <summary>
     /// Where the font's texture is stored.
     /// </summary>
@@ -37,6 +36,7 @@ namespace EO3EquipmentEdit.TextPreview
         }
       }
     }
+
     /// <summary>
     /// The bitmap that contains the actual glyph pixels for the font.
     /// </summary>

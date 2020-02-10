@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using EO3EquipmentEdit.Data;
+using System;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EO3EquipmentEdit.Data;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace EO3EquipmentEdit.TextPreview
 {
@@ -17,7 +11,7 @@ namespace EO3EquipmentEdit.TextPreview
     /// <summary>
     /// The font to use.
     /// </summary>
-    readonly new EO3Font Font;
+    private new readonly EO3Font Font;
 
     private Equipment _Equipment;
 
@@ -36,8 +30,8 @@ namespace EO3EquipmentEdit.TextPreview
     }
 
     /// <summary>
-    /// Gets a version of the equipment's description that replaces linebreak
-    /// control codes with linebreaks, and strips all other control codes.
+    /// Gets a version of the equipment's description that replaces linebreak control codes with
+    /// linebreaks, and strips all other control codes.
     /// </summary>
     private string DescriptionPreviewText => Regex.Replace(
         _Equipment.Description
@@ -56,7 +50,8 @@ namespace EO3EquipmentEdit.TextPreview
     private Rectangle BackgroundArea = new Rectangle(0, 0, 234, 40);
 
     /// <summary>
-    /// The color of the area of the text box that text should not go into, because that's where forges are.
+    /// The color of the area of the text box that text should not go into, because that's where
+    /// forges are.
     /// </summary>
     private SolidBrush RedZoneBrush = new SolidBrush(Color.Red);
 

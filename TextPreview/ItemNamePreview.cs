@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace EO3EquipmentEdit.TextPreview
 {
   public partial class ItemNamePreview : PictureBox
   {
-    readonly new EO3Font Font;
+    private new readonly EO3Font Font;
 
     private string _Text;
 
@@ -29,7 +22,7 @@ namespace EO3EquipmentEdit.TextPreview
         Image = Font.GetString(_Text);
       }
     }
-    
+
     /// <summary>
     /// The only constructor you should use for ItemNamePreview.
     /// </summary>

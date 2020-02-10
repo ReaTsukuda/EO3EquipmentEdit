@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using EO3EquipmentEdit.Data;
-using OriginTablets.Types;
+﻿using EO3EquipmentEdit.Data;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using OriginTablets.Types;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 
 namespace EO3EquipmentEdit
 {
-  static class Entrypoint
+  internal static class Entrypoint
   {
     /// <summary>
     /// EquipmentEdit's entrypoint function.
     /// </summary>
     [STAThread]
-    static void Main()
+    private static void Main()
     {
       Application.EnableVisualStyles();
-      // We prompt the user for where various files are is before showing a form.
-      // Once the application's been launched once, we can cache this.
-      // If any of the files aren't loaded, then exit.
+      // We prompt the user for where various files are is before showing a form. Once the
+      // application's been launched once, we can cache this. If any of the files aren't loaded,
+      // then exit.
       using (var openDialog = new CommonOpenFileDialog())
       {
         openDialog.IsFolderPicker = true;

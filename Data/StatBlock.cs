@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EO3EquipmentEdit.Data
+﻿namespace EO3EquipmentEdit.Data
 {
   /// <summary>
   /// Represents a block of player stats. Used, for example, in numeric equipment bonuses.

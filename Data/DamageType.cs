@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EO3EquipmentEdit.Data
+﻿namespace EO3EquipmentEdit.Data
 {
   /// <summary>
   /// Represents a weapon's damage type.
@@ -11,8 +6,9 @@ namespace EO3EquipmentEdit.Data
   public class DamageType
   {
     /// <summary>
-    /// Does the weapon not have a damage type? This is true if none of the proper damage types are set.
-    /// Untyped attacks are not reduced by any damage vulnerabilities, but cannot benefit from buffs either.
+    /// Does the weapon not have a damage type? This is true if none of the proper damage types are
+    /// set. Untyped attacks are not reduced by any damage vulnerabilities, but cannot benefit from
+    /// buffs either.
     /// </summary>
     public bool Untyped
     {
@@ -27,6 +23,7 @@ namespace EO3EquipmentEdit.Data
           && Almighty == false;
       }
     }
+
     /// <summary>
     /// Does the weapon deal cut damage?
     /// </summary>
@@ -63,10 +60,10 @@ namespace EO3EquipmentEdit.Data
     public bool Almighty { get; set; }
 
     /// <summary>
-    /// This isn't a proper damage type; rather, it's a flag that's used for HP Cannon in the vanilla game.
-    /// Specifically, what it does is remove the penalty for melee attacks used from the back row, ignore
-    /// the penalty to STR that arm binds incur, and make the attack not benefit from the damage bonus
-    /// that attacking asleep targets gives.
+    /// This isn't a proper damage type; rather, it's a flag that's used for HP Cannon in the
+    /// vanilla game. Specifically, what it does is remove the penalty for melee attacks used from
+    /// the back row, ignore the penalty to STR that arm binds incur, and make the attack not
+    /// benefit from the damage bonus that attacking asleep targets gives.
     /// </summary>
     public bool NoPenalty { get; set; }
 

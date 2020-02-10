@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EO3EquipmentEdit.Data;
+﻿using EO3EquipmentEdit.Data;
 using OriginTablets.Types;
+using System.Collections.Generic;
 using System.IO;
 
 namespace EO3EquipmentEdit
@@ -22,9 +18,9 @@ namespace EO3EquipmentEdit
     /// <param name="equipmentNames">The equipment name table.</param>
     /// <param name="equipmentDescriptions">The equipment description MBM.</param>
     public static void WriteEquipmentData(
-      string directory, 
-      List<Equipment> equipmentData, 
-      Table equipmentNames, 
+      string directory,
+      List<Equipment> equipmentData,
+      Table equipmentNames,
       MBM equipmentDescriptions)
     {
       // Equipment table output.

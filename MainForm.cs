@@ -1,15 +1,14 @@
 ﻿using EO3EquipmentEdit.Data;
 using EO3EquipmentEdit.TextPreview;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using OriginTablets.Types;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace EO3EquipmentEdit
 {
@@ -18,17 +17,17 @@ namespace EO3EquipmentEdit
     /// <summary>
     /// The list of equipment items from the loaded table.
     /// </summary>
-    readonly List<Equipment> EquipmentTable;
+    private readonly List<Equipment> EquipmentTable;
 
     /// <summary>
     /// The Table containing equipment names.
     /// </summary>
-    readonly Table EquipmentNames;
+    private readonly Table EquipmentNames;
 
     /// <summary>
     /// The MBM containing equipment descriptions.
     /// </summary>
-    readonly MBM EquipmentDescriptions;
+    private readonly MBM EquipmentDescriptions;
 
     /// <summary>
     /// What equipment type the filter is currently set to.
@@ -44,16 +43,17 @@ namespace EO3EquipmentEdit
     Equipment SelectedEquipment => equipmentList.SelectedItem as Equipment;
 
     // The fonts.
-    readonly EO3Font Font8px;
-    readonly EO3Font Font10px;
-    readonly EO3Font Font12px;
+    private readonly EO3Font Font8px;
 
-    // Controls that we can't create in Designer go here.
-    // Use camelCase for these, as is standard with Designer controls.
+    private readonly EO3Font Font10px;
+    private readonly EO3Font Font12px;
+
+    // Controls that we can't create in Designer go here. Use camelCase for these, as is standard
+    // with Designer controls.
 #pragma warning disable IDE0069 // Disposable fields should be disposed
-    readonly ItemNamePreview namePreview;
-    readonly ItemDescriptionPreview descriptionPreview;
-    readonly DescriptionRichTextBox descriptionInput;
+    private readonly ItemNamePreview namePreview;
+    private readonly ItemDescriptionPreview descriptionPreview;
+    private readonly DescriptionRichTextBox descriptionInput;
 #pragma warning restore IDE0069 // Disposable fields should be disposed
 
     /// <summary>
@@ -98,8 +98,8 @@ namespace EO3EquipmentEdit
         typeof(EO3Font))
         as EO3Font;
       Font12px.TexturePath = "Resources/Font/Font12x12.eo3font.png";
-      // Create the item name preview. This is done here instead of in Designer because
-      // we need to pass the preview the font it needs at construction time. Safety and all that.
+      // Create the item name preview. This is done here instead of in Designer because we need to
+      // pass the preview the font it needs at construction time. Safety and all that.
       namePreview = new ItemNamePreview(Font10px);
       // Centers the preview in the panel.
       int previewX = (namePreviewPanel.Width / 2) - (namePreview.Width / 2);
@@ -110,8 +110,10 @@ namespace EO3EquipmentEdit
       descriptionPreview = new ItemDescriptionPreview(Font12px);
       descriptionPanel.Controls.Add(descriptionPreview);
       // Eliminate the spacing bug with flow layout panels by inserting a dummy panel.
-      var sizeDummy = new Panel();
-      sizeDummy.Size = new Size(0, 0);
+      var sizeDummy = new Panel
+      {
+        Size = new Size(0, 0)
+      };
       descriptionPanel.Controls.Add(sizeDummy);
       descriptionPanel.SetFlowBreak(sizeDummy, true);
       descriptionInput = new DescriptionRichTextBox();
@@ -467,7 +469,6 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void SetForgeEventHandlers()
     {
-
     }
 
     /// <summary>
@@ -475,7 +476,6 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void RemoveForgeEventHandlers()
     {
-
     }
 
     /// <summary>
@@ -495,9 +495,9 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// This function ensures that, if the equipment name table and/or description file are shorter than
-    /// the actual equipment table, they have dummy entries added to them, to remove the need to check for
-    /// that later in the program.
+    /// This function ensures that, if the equipment name table and/or description file are shorter
+    /// than the actual equipment table, they have dummy entries added to them, to remove the need
+    /// to check for that later in the program.
     /// </summary>
     private void CheckDataLengths()
     {
@@ -574,9 +574,9 @@ namespace EO3EquipmentEdit
     private void PopulateEquipmentList(object sender, EventArgs eventArgs)
     {
       // Cloth armor filtering is intensely annoying to handle due to the fact that Summer Tweed and
-      // Bikini Armor come way before any other equipment in the list. Rather than add a lot of hard-coded
-      // exceptions for that one type, just disable dummy item filtering for cloth armor for now.
-      // Maybe a new solution can be figured out at some point in the future.
+      // Bikini Armor come way before any other equipment in the list. Rather than add a lot of
+      // hard-coded exceptions for that one type, just disable dummy item filtering for cloth armor
+      // for now. Maybe a new solution can be figured out at some point in the future.
       if (FilteredEquipmentType == Equipment.EquipmentTypes.ClothArmor)
       {
         includeDummyItems.Checked = false;
@@ -586,18 +586,18 @@ namespace EO3EquipmentEdit
       {
         includeDummyItems.Enabled = true;
       }
-      // qualifyingEquipment will, at the end of this, be populated only by
-      // equipment that fits the filtered equipment type. We clone EquipmentTable
-      // here, since we perform operations such as clearing out here.
+      // qualifyingEquipment will, at the end of this, be populated only by equipment that fits the
+      // filtered equipment type. We clone EquipmentTable here, since we perform operations such as
+      // clearing out here.
       var qualifyingEquipment = new List<Equipment>(EquipmentTable);
-      // If the filter's index is not Dummy (read: All), then we need to filter to only one equipment type.
-      // Don't run this on the Fist type, since no items with that type exist at the moment.
+      // If the filter's index is not Dummy (read: All), then we need to filter to only one
+      // equipment type. Don't run this on the Fist type, since no items with that type exist at the moment.
       if (FilteredEquipmentType != Equipment.EquipmentTypes.Dummy
         && FilteredEquipmentType != Equipment.EquipmentTypes.Fist)
       {
-        // If "include dummies" is checked, then we need to also check for the dummy type.
-        // It's also prudent to find the first item that isn't of the dummy type or the
-        // selected time, and trim the list to all items before that.
+        // If "include dummies" is checked, then we need to also check for the dummy type. It's also
+        // prudent to find the first item that isn't of the dummy type or the selected time, and
+        // trim the list to all items before that.
         if (includeDummyItems.Checked == true)
         {
           int indexOfFirstSelectedItemType = qualifyingEquipment.IndexOf(
@@ -634,14 +634,14 @@ namespace EO3EquipmentEdit
             .ToList();
         }
       }
-      // If we were asked to filter to the Fist type, then just empty everything out.
-      // This can be changed if Fist is changed to a proper weapon type.
+      // If we were asked to filter to the Fist type, then just empty everything out. This can be
+      // changed if Fist is changed to a proper weapon type.
       else if (FilteredEquipmentType == Equipment.EquipmentTypes.Fist)
       {
         qualifyingEquipment.Clear();
       }
-      // If the "include dummy" checkbox is not checked, we need to filter out weapons
-      // whose name is any of the known dummy names.
+      // If the "include dummy" checkbox is not checked, we need to filter out weapons whose name is
+      // any of the known dummy names.
       var knownDummyNames = new string[] { "NONE", "Dummy", "ダミー" };
       if (includeDummyItems.Checked == false)
       {
@@ -649,8 +649,8 @@ namespace EO3EquipmentEdit
           .Where(item => knownDummyNames.Contains(item.Name) == false)
           .ToList();
       }
-      // Once we've done our filtering, clear out the equipment list, and populate it
-      // with the list we've filtered down to.
+      // Once we've done our filtering, clear out the equipment list, and populate it with the list
+      // we've filtered down to.
       equipmentList.Items.Clear();
       equipmentList.Items.AddRange(qualifyingEquipment.ToArray());
       equipmentList.SelectedIndex = 0;
@@ -690,7 +690,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates both the item's internal name and its game text preview when its name is changed in the text box.
+    /// Updates both the item's internal name and its game text preview when its name is changed in
+    /// the text box.
     /// </summary>
     private void UpdateItemNameAndPreviewOnEquipmentNameChanged(object sender, EventArgs eventArgs)
     {
@@ -725,9 +726,10 @@ namespace EO3EquipmentEdit
         SetItemTypeDropdownEventHandlers();
       }
     }
-    
+
     /// <summary>
-    /// Sets the basic value labels to PATK/MATK or PDEF/MDEF based on if the selected equipment is a weapon or not.
+    /// Sets the basic value labels to PATK/MATK or PDEF/MDEF based on if the selected equipment is
+    /// a weapon or not.
     /// </summary>
     private void SetATKDEFLabelsBasedOnIfEquipmentIsAWeapon(object sender, EventArgs eventArgs)
     {
@@ -1077,7 +1079,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Princesses can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Princesses can equip the current selected item, based on the status
+    /// of its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenPrincessCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1088,7 +1091,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Gladiators can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Gladiators can equip the current selected item, based on the status
+    /// of its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenGladiatorCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1099,7 +1103,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Hoplites can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Hoplites can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenHopliteCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1110,7 +1115,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Buccaneers can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Buccaneers can equip the current selected item, based on the status
+    /// of its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenBuccaneerCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1121,7 +1127,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Ninjas can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Ninjas can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenNinjaCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1143,7 +1150,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Zodiacs can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Zodiacs can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenZodiacCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1154,7 +1162,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Wildlings can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Wildlings can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenWildlingCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1165,7 +1174,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Arbalists can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Arbalists can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenArbalistCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1176,7 +1186,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Farmers can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Farmers can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenFarmerCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1187,7 +1198,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Shoguns can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Shoguns can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenShogunCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1198,7 +1210,8 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// Updates whether or not Yggdroids can equip the current selected item, based on the status of its checkbox.
+    /// Updates whether or not Yggdroids can equip the current selected item, based on the status of
+    /// its checkbox.
     /// </summary>
     private void UpdateEquipmentCanEquipWhenYggdroidCheckedChange(object sender, EventArgs eventArgs)
     {
@@ -1281,7 +1294,7 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
-    /// The event handler for the File -> Save menu item being clicked.
+    /// The event handler for the File -&gt; Save menu item being clicked.
     /// </summary>
     private void FileSaveClicked(object sender, EventArgs eventArgs)
     {
@@ -1424,10 +1437,10 @@ namespace EO3EquipmentEdit
     {
       int numberOfFilledForges = SelectedEquipment.Forges.Where(forge => forge != Equipment.ForgeTypes.None).Count();
       int newMaximum = Equipment.ForgeMaximum - numberOfFilledForges;
-      // Set the forge slot count to the new maximum before actually applying it, if the current one is higher.
+      // Set the forge slot count to the new maximum before actually applying it, if the current one
+      // is higher.
       if (forgeCountEntry.Value > newMaximum) { forgeCountEntry.Value = newMaximum; }
       forgeCountEntry.Maximum = newMaximum;
-
     }
 
     /// <summary>

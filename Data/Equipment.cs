@@ -1,9 +1,6 @@
-﻿using System;
+﻿using OriginTablets.Types;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using OriginTablets.Types;
 
 namespace EO3EquipmentEdit.Data
 {
@@ -15,17 +12,17 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// A pointer to the loaded equipitemnametable.tbl.
     /// </summary>
-    readonly Table EquipmentNames;
+    private readonly Table EquipmentNames;
 
     /// <summary>
     /// A pointer to the loaded equipitemexpbattle.mbm.
     /// </summary>
-    readonly MBM EquipmentDescriptions;
+    private readonly MBM EquipmentDescriptions;
 
     /// <summary>
     /// Where this equipment is in the internal table.
     /// </summary>
-    readonly int Index;
+    private readonly int Index;
 
     /// <summary>
     /// This equipment's name.
@@ -91,11 +88,11 @@ namespace EO3EquipmentEdit.Data
     public int Speed { get; set; }
 
     /// <summary>
-    /// Whether or not the item is a weapon.
-    /// This can be checked by seeing if the item is any of the weapon types.
+    /// Whether or not the item is a weapon. This can be checked by seeing if the item is any of the
+    /// weapon types.
     /// </summary>
     public bool IsWeapon
-    { 
+    {
       get
       {
         return Type == EquipmentTypes.Sword
@@ -137,30 +134,30 @@ namespace EO3EquipmentEdit.Data
     public int Price { get; set; }
 
     /// <summary>
-    /// Represents the different equipment types in EO3. 
-    /// An entry's value is equal to its numeric type in-game.
+    /// Represents the different equipment types in EO3. An entry's value is equal to its numeric
+    /// type in-game.
     /// </summary>
     public enum EquipmentTypes
     {
-      Dummy       = 0x0,
-      Sword       = 0x1,
-      Katana      = 0x2,
-      Dagger      = 0x3,
-      Rapier      = 0x4,
-      Spear       = 0x5,
-      Crossbow    = 0x6,
-      Club        = 0x7,
-      Fist        = 0x8,
-      Book        = 0x9,
-      Gun         = 0xA,
-      HeavyArmor  = 0xB,
-      LightArmor  = 0xC,
-      ClothArmor  = 0xD,
-      Shield      = 0xE,
-      Helmet      = 0xF,
-      Glove       = 0x10,
-      Boot        = 0x11,
-      Accessory   = 0x12
+      Dummy = 0x0,
+      Sword = 0x1,
+      Katana = 0x2,
+      Dagger = 0x3,
+      Rapier = 0x4,
+      Spear = 0x5,
+      Crossbow = 0x6,
+      Club = 0x7,
+      Fist = 0x8,
+      Book = 0x9,
+      Gun = 0xA,
+      HeavyArmor = 0xB,
+      LightArmor = 0xC,
+      ClothArmor = 0xD,
+      Shield = 0xE,
+      Helmet = 0xF,
+      Glove = 0x10,
+      Boot = 0x11,
+      Accessory = 0x12
     }
 
     /// <summary>
@@ -258,39 +255,39 @@ namespace EO3EquipmentEdit.Data
     /// </summary>
     public enum ForgeTypes
     {
-      None      = 0x00,
-      ATK       = 0x01,
-      Hit       = 0x02,
-      Blind     = 0x03,
-      Sleep     = 0x04,
-      STR       = 0x05,
-      TEC       = 0x06,
-      VIT       = 0x07,
-      AGI       = 0x08,
-      LUC       = 0x09,
-      Poison    = 0x0A,
-      Berserk   = 0x0B, // Replaces panic from the vanilla game.
-      Paralyze  = 0x0C,
-      WIS       = 0x0D, // Replaces stun from the vanilla game.
-      Plague    = 0x0E,
-      Curse     = 0x0F,
-      HeadBind  = 0x10,
-      ArmBind   = 0x11,
-      LegBind   = 0x12,
-      Crit      = 0x13,
-      Fire      = 0x14,
-      Ice       = 0x15,
-      Volt      = 0x16,
-      Petrify   = 0x17,
-      Death     = 0x18,
-      Invalid   = 0x19, // Don't use this.
-      HP        = 0x1A,
-      TP        = 0x1B,
-      Cut       = 0x1C,
-      Stab      = 0x1D,
-      Bash      = 0x1E,
-      Speed     = 0x1F,
-      Limit     = 0x20
+      None = 0x00,
+      ATK = 0x01,
+      Hit = 0x02,
+      Blind = 0x03,
+      Sleep = 0x04,
+      STR = 0x05,
+      TEC = 0x06,
+      VIT = 0x07,
+      AGI = 0x08,
+      LUC = 0x09,
+      Poison = 0x0A,
+      Berserk = 0x0B, // Replaces panic from the vanilla game.
+      Paralyze = 0x0C,
+      WIS = 0x0D, // Replaces stun from the vanilla game.
+      Plague = 0x0E,
+      Curse = 0x0F,
+      HeadBind = 0x10,
+      ArmBind = 0x11,
+      LegBind = 0x12,
+      Crit = 0x13,
+      Fire = 0x14,
+      Ice = 0x15,
+      Volt = 0x16,
+      Petrify = 0x17,
+      Death = 0x18,
+      Invalid = 0x19, // Don't use this.
+      HP = 0x1A,
+      TP = 0x1B,
+      Cut = 0x1C,
+      Stab = 0x1D,
+      Bash = 0x1E,
+      Speed = 0x1F,
+      Limit = 0x20
     }
 
     public static readonly Dictionary<ForgeTypes, string> ForgeTypeStrings
@@ -410,7 +407,8 @@ namespace EO3EquipmentEdit.Data
         Starter = (flagsBitfiled & 0x80) == 0x80
       };
       ForgeSlots = input.ReadByte();
-      // Cap forge slots to the game design maximum. This takes care of having to manually adjust vanilla table entries.
+      // Cap forge slots to the game design maximum. This takes care of having to manually adjust
+      // vanilla table entries.
       if (ForgeSlots > ForgeMaximum)
       {
         ForgeSlots = ForgeMaximum;
@@ -420,7 +418,8 @@ namespace EO3EquipmentEdit.Data
       {
         Forges.Add((ForgeTypes)input.ReadByte());
       }
-      // Zero out the final three forge slots, to make sure we don't end up with stray forges from the original data.
+      // Zero out the final three forge slots, to make sure we don't end up with stray forges from
+      // the original data.
       for (int forgeIndex = ForgeMaximum; forgeIndex < ForgeDataMaximum; forgeIndex += 1)
       {
         Forges[forgeIndex] = ForgeTypes.None;
@@ -504,7 +503,7 @@ namespace EO3EquipmentEdit.Data
       }
 
       /// <summary>
-      /// Writes the unlock requirements to a file. To be used when writing equipitemcompound. 
+      /// Writes the unlock requirements to a file. To be used when writing equipitemcompound.
       /// </summary>
       /// <param name="writer"></param>
       public void WriteToFile(BinaryWriter writer)
