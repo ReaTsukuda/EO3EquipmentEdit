@@ -28,7 +28,7 @@ namespace EO3EquipmentEdit
       MBM equipmentDescriptions)
     {
       // Equipment table output.
-      string equipmentTableOutputPath = directory + "/equipitemtable.tbl";
+      string equipmentTableOutputPath = Path.Combine(directory, "equipitemtable.tbl");
       using (var writer = new BinaryWriter(new FileStream(equipmentTableOutputPath, FileMode.Create)))
       {
         foreach (var item in equipmentData)
@@ -37,10 +37,10 @@ namespace EO3EquipmentEdit
         }
       }
       // Names output.
-      string equipmentNameTableOutputPath = directory + "/equipitemnametable.tbl";
+      string equipmentNameTableOutputPath = Path.Combine(directory, "equipitemnametable.tbl");
       equipmentNames.WriteToFile(equipmentNameTableOutputPath, false);
       // Descriptions output.
-      string equipmentDescriptionsOutputPath = directory + "/equipitemexpbattle.mbm";
+      string equipmentDescriptionsOutputPath = Path.Combine(directory, "equipitemexpbattle.mbm");
       equipmentDescriptions.WriteToFile(equipmentDescriptionsOutputPath);
     }
   }
