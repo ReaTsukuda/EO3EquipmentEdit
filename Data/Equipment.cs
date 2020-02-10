@@ -328,6 +328,8 @@ namespace EO3EquipmentEdit.Data
         { ForgeTypes.Limit, "Limit" },
     };
 
+    public UnlockRequirements Requirements { get; }
+
     /// <summary>
     /// The maximum number of forge slots that can be on equipment, data-wise.
     /// </summary>
@@ -345,8 +347,9 @@ namespace EO3EquipmentEdit.Data
     /// <param name="input">The BinaryReader for the input file.</param>
     /// <param name="equipItemNames">The Table object for equipitemnametable.tbl.</param>
     /// <param name="equipItemDescriptions">The MBM object for equipitemexpbattle.mbm.</param>
-    public Equipment(int index, BinaryReader input, Table equipItemNames, MBM equipItemDescriptions)
+    public Equipment(int index, BinaryReader input, Table equipItemNames, MBM equipItemDescriptions, List<UseItem> useItems)
     {
+      Requirements = new UnlockRequirements(useItems);
       Index = index;
       EquipmentNames = equipItemNames;
       EquipmentDescriptions = equipItemDescriptions;
@@ -482,24 +485,24 @@ namespace EO3EquipmentEdit.Data
       /// <summary>
       /// The primary unlock requirement.
       /// </summary>
-      public UnlockRequirement Requirement1 { get; set; }
+      public UnlockRequirement First { get; set; }
 
       /// <summary>
       /// The secondary unlock requirement.
       /// </summary>
-      public UnlockRequirement Requirement2 { get; set; }
+      public UnlockRequirement Second { get; set; }
 
       /// <summary>
       /// The tertiary unlock requirement.
       /// </summary>
-      public UnlockRequirement Requirement3 { get; set; }
+      public UnlockRequirement Third { get; set; }
 
       /// <param name="useItems">The useitemtable object.</param>
       public UnlockRequirements(List<UseItem> useItems)
       {
-        Requirement1 = new UnlockRequirement(useItems);
-        Requirement2 = new UnlockRequirement(useItems);
-        Requirement3 = new UnlockRequirement(useItems);
+        First = new UnlockRequirement(useItems);
+        Second = new UnlockRequirement(useItems);
+        Third = new UnlockRequirement(useItems);
       }
 
       /// <summary>
@@ -508,12 +511,12 @@ namespace EO3EquipmentEdit.Data
       /// <param name="writer"></param>
       public void WriteToFile(BinaryWriter writer)
       {
-        writer.Write((ushort)Requirement1.ItemIndex);
-        writer.Write((ushort)Requirement2.ItemIndex);
-        writer.Write((ushort)Requirement3.ItemIndex);
-        writer.Write((byte)Requirement1.Amount);
-        writer.Write((byte)Requirement2.Amount);
-        writer.Write((byte)Requirement3.Amount);
+        writer.Write((ushort)First.ItemIndex);
+        writer.Write((ushort)Second.ItemIndex);
+        writer.Write((ushort)Third.ItemIndex);
+        writer.Write((byte)First.Amount);
+        writer.Write((byte)Second.Amount);
+        writer.Write((byte)Third.Amount);
         writer.Write((byte)0x0); // Alignment spacer.
       }
     }
@@ -526,7 +529,7 @@ namespace EO3EquipmentEdit.Data
       /// <summary>
       /// The useitemtable object.
       /// </summary>
-      private List<UseItem> UseItems;
+      private readonly List<UseItem> UseItems;
 
       /// <summary>
       /// The index of the target item.
@@ -547,6 +550,11 @@ namespace EO3EquipmentEdit.Data
       public UnlockRequirement(List<UseItem> useItems)
       {
         UseItems = useItems;
+      }
+
+      public override string ToString()
+      {
+        return string.Format("{0} x{1}", Item.Name, Amount);
       }
     }
   }

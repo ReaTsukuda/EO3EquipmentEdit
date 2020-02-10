@@ -30,15 +30,26 @@ namespace EO3EquipmentEdit
           Table equipmentNames = null;
           MBM equipmentDescriptions = null;
           List<Equipment> equipment = null;
+          Table useItemNames = null;
+          List<UseItem> useItems = new List<UseItem>();
           string equipItemDescriptionsLocation = Path.Combine(openDialog.FileName, "equipitemexpbattle.mbm");
           string equipItemNameTableLocation = Path.Combine(openDialog.FileName, "equipitemnametable.tbl");
-          string equipItemTableLocation = Path.Combine(openDialog.FileName, "/equipitemtable.tbl");
+          string equipItemTableLocation = Path.Combine(openDialog.FileName, "equipitemtable.tbl");
+          string equipItemCompoundLocation = Path.Combine(openDialog.FileName, "equipitemcompound.tbl");
+          string useItemNameTableLocation = Path.Combine(openDialog.FileName, "useitemnametable.tbl");
           try
           {
             // Load item names.
             equipmentNames = new Table(equipItemNameTableLocation, false);
             // Load item descriptions
             equipmentDescriptions = new MBM(equipItemDescriptionsLocation);
+            // Load use item names.
+            useItemNames = new Table(useItemNameTableLocation, false);
+            // Create the use item list.
+            for (int index = 0; index < useItemNames.Count; index += 1)
+            {
+              useItems.Add(new UseItem(useItemNames, index));
+            }
             // Create the equipment list.
             equipment = new List<Equipment>();
             using (var reader = new BinaryReader(new FileStream(equipItemTableLocation, FileMode.Open)))
@@ -46,8 +57,22 @@ namespace EO3EquipmentEdit
               int itemIndex = 0;
               while (reader.BaseStream.Position < reader.BaseStream.Length)
               {
-                equipment.Add(new Equipment(itemIndex, reader, equipmentNames, equipmentDescriptions));
+                equipment.Add(new Equipment(itemIndex, reader, equipmentNames, equipmentDescriptions, useItems));
                 itemIndex += 1;
+              }
+            }
+            // Load unlock requirements.
+            using (var reader = new BinaryReader(new FileStream(equipItemCompoundLocation, FileMode.Open)))
+            {
+              foreach (Equipment item in equipment)
+              {
+                item.Requirements.First.ItemIndex = reader.ReadUInt16();
+                item.Requirements.Second.ItemIndex = reader.ReadUInt16();
+                item.Requirements.Third.ItemIndex = reader.ReadUInt16();
+                item.Requirements.First.Amount = reader.ReadByte();
+                item.Requirements.Second.Amount = reader.ReadByte();
+                item.Requirements.Third.Amount = reader.ReadByte();
+                reader.ReadByte(); // Alignment spacer, skip.
               }
             }
           }
@@ -56,7 +81,7 @@ namespace EO3EquipmentEdit
             MessageBox.Show("One or more of the equipment files could not be loaded.", "Fatal error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Environment.Exit(0);
           }
-          Application.Run(new MainForm(equipment, equipmentNames, equipmentDescriptions));
+          Application.Run(new MainForm(equipment, equipmentNames, equipmentDescriptions, useItems));
         }
         else { Environment.Exit(0); }
       }

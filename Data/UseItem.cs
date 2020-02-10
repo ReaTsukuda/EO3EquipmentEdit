@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using OriginTablets.Types;
 
 namespace EO3EquipmentEdit.Data
 {
@@ -10,19 +10,19 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// The useitemnametable.tbl object.
     /// </summary>
-    private List<string> Names;
+    private readonly Table Names;
 
     /// <summary>
     /// The item's position in useitemtable.tbl.
     /// </summary>
-    private int Index = 0;
+    private readonly int Index = 0;
 
     /// <summary>
     /// The item's name.
     /// </summary>
     public string Name => Names[Index];
 
-    public UseItem(List<string> names, int index)
+    public UseItem(Table names, int index)
     {
       Names = names;
       Index = index;

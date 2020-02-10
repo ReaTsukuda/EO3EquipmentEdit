@@ -30,6 +30,11 @@ namespace EO3EquipmentEdit
     private readonly MBM EquipmentDescriptions;
 
     /// <summary>
+    /// The list of use items, for materails.
+    /// </summary>
+    private readonly List<UseItem> UseItems;
+
+    /// <summary>
     /// What equipment type the filter is currently set to.
     /// Note: this will return Dummy if All is selected.
     /// </summary>
@@ -70,13 +75,14 @@ namespace EO3EquipmentEdit
     /// <param name="equipment">The list of equipment items for the loaded table.</param>
     /// <param name="equipmentNames">The Table for equipment names.</param>
     /// <param name="equipmentDescriptions">The MBM for equipment descriptions.</param>
-    public MainForm(List<Equipment> equipment, Table equipmentNames, MBM equipmentDescriptions)
+    public MainForm(List<Equipment> equipment, Table equipmentNames, MBM equipmentDescriptions, List<UseItem> useItems)
     {
       // Data preparation.
       EquipmentTable = equipment;
       EquipmentNames = equipmentNames;
       EquipmentDescriptions = equipmentDescriptions;
       CheckDataLengths();
+      UseItems = useItems;
 
       // Form preparation.
       InitializeComponent();
