@@ -15,7 +15,7 @@ namespace EO3EquipmentEdit.TextPreview
     /// <summary>
     /// The amount of pixels between lines.
     /// </summary>
-    private readonly int LineSpacing = 3;
+    private readonly int LineSpacing = 0;
 
     private string _TexturePath;
     /// <summary>
@@ -118,8 +118,12 @@ namespace EO3EquipmentEdit.TextPreview
       {
         lineMeasurements.Add(width);
       }
-      int longestWidth = lineMeasurements.Max();
+      int longestWidth = 1;
+      if (lineMeasurements.Count > 0) { longestWidth = lineMeasurements.Max(); }
       height = lineMeasurements.Count * (GlyphSize + LineSpacing);
+      // In case we end up with a completely empty string, floor the width and height at 1px.
+      if (longestWidth <= 0) { longestWidth = 1; }
+      if (height <= 0) { height = 1; }
       var result = new Bitmap(longestWidth, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
       // Get the characters, and paste them into the result.
       using (var graphics = Graphics.FromImage(result))
