@@ -474,5 +474,81 @@ namespace EO3EquipmentEdit.Data
     {
       return Name;
     }
+
+    /// <summary>
+    /// The items the player needs to sell to Napier in order to unlock this equipment.
+    /// </summary>
+    public class UnlockRequirements
+    {
+      /// <summary>
+      /// The primary unlock requirement.
+      /// </summary>
+      public UnlockRequirement Requirement1 { get; set; }
+
+      /// <summary>
+      /// The secondary unlock requirement.
+      /// </summary>
+      public UnlockRequirement Requirement2 { get; set; }
+
+      /// <summary>
+      /// The tertiary unlock requirement.
+      /// </summary>
+      public UnlockRequirement Requirement3 { get; set; }
+
+      /// <param name="useItems">The useitemtable object.</param>
+      public UnlockRequirements(List<UseItem> useItems)
+      {
+        Requirement1 = new UnlockRequirement(useItems);
+        Requirement2 = new UnlockRequirement(useItems);
+        Requirement3 = new UnlockRequirement(useItems);
+      }
+
+      /// <summary>
+      /// Writes the unlock requirements to a file. To be used when writing equipitemcompound. 
+      /// </summary>
+      /// <param name="writer"></param>
+      public void WriteToFile(BinaryWriter writer)
+      {
+        writer.Write((ushort)Requirement1.ItemIndex);
+        writer.Write((ushort)Requirement2.ItemIndex);
+        writer.Write((ushort)Requirement3.ItemIndex);
+        writer.Write((byte)Requirement1.Amount);
+        writer.Write((byte)Requirement2.Amount);
+        writer.Write((byte)Requirement3.Amount);
+        writer.Write((byte)0x0); // Alignment spacer.
+      }
+    }
+
+    /// <summary>
+    /// Couples both the item needed for a requirement, and the amount of it that is required, together.
+    /// </summary>
+    public class UnlockRequirement
+    {
+      /// <summary>
+      /// The useitemtable object.
+      /// </summary>
+      private List<UseItem> UseItems;
+
+      /// <summary>
+      /// The index of the target item.
+      /// </summary>
+      public int ItemIndex { get; set; } = 0;
+
+      /// <summary>
+      /// The target item.
+      /// </summary>
+      public UseItem Item => UseItems[ItemIndex];
+
+      /// <summary>
+      /// How many of the target item is needed to fulfill this requirement.
+      /// </summary>
+      public int Amount { get; set; } = 0;
+
+      /// <param name="useItems">The useitemtable object.</param>
+      public UnlockRequirement(List<UseItem> useItems)
+      {
+        UseItems = useItems;
+      }
+    }
   }
 }

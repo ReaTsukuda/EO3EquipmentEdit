@@ -82,6 +82,7 @@
     <Compile Include="Data\Equipment.cs" />
     <Compile Include="Data\PlayerClasses.cs" />
     <Compile Include="Data\StatBlock.cs" />
+    <Compile Include="Data\UseItem.cs" />
     <Compile Include="Entrypoint.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
