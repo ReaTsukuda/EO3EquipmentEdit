@@ -143,6 +143,7 @@ namespace EO3EquipmentEdit
       AddEquipmentTypesToFilter();
       AddEquipmentTypesToTypeDropdown();
       AddForgeTypesToForgeDropdowns();
+      AddUseItemNamesToRequirementDropdowns();
       PopulateEquipmentList(null, null);
     }
 
@@ -178,6 +179,7 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateForgesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateForgeSlotEntryOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateItemDescriptionOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateRequirementDropdownsAndAmountsOnEquipmentChanged;
     }
 
     /// <summary>
@@ -212,6 +214,7 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged -= UpdateForgesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateForgeSlotEntryOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateItemDescriptionOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateRequirementDropdownsAndAmountsOnEquipmentChanged;
     }
 
     /// <summary>
@@ -505,6 +508,22 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Registers the event handlers for the various requirement elements.
+    /// </summary>
+    private void SetRequirementEventHandlers()
+    {
+
+    }
+
+    /// <summary>
+    /// Removes the event handlers for the various requirement elements.
+    /// </summary>
+    private void RemoveRequirementEventHandlers()
+    {
+
+    }
+
+    /// <summary>
     /// This function ensures that, if the equipment name table and/or description file are shorter
     /// than the actual equipment table, they have dummy entries added to them, to remove the need
     /// to check for that later in the program.
@@ -576,6 +595,24 @@ namespace EO3EquipmentEdit
       forge3.SelectedIndex = 0;
       forge4.SelectedIndex = 0;
       forge5.SelectedIndex = 0;
+    }
+
+    /// <summary>
+    /// Adds all of the use item names to the requirement dropdowns.
+    /// </summary>
+    private void AddUseItemNamesToRequirementDropdowns()
+    {
+      foreach (UseItem item in UseItems)
+      {
+        RemoveRequirementEventHandlers();
+        firstRequirement.Items.Add(item.Name);
+        secondRequirement.Items.Add(item.Name);
+        thirdRequirement.Items.Add(item.Name);
+        firstRequirement.SelectedIndex = 0;
+        secondRequirement.SelectedIndex = 0;
+        thirdRequirement.SelectedIndex = 0;
+        SetRequirementEventHandlers();
+      }
     }
 
     /// <summary>
@@ -1475,6 +1512,24 @@ namespace EO3EquipmentEdit
         descriptionPreview.Equipment = SelectedEquipment;
         descriptionInput.Equipment = SelectedEquipment;
         SetDescriptionEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the requirement dropdowns when the selected equipment is changed.
+    /// </summary>
+    private void UpdateRequirementDropdownsAndAmountsOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveRequirementEventHandlers();
+        firstRequirement.SelectedIndex = SelectedEquipment.Requirements.First.ItemIndex;
+        firstRequirementAmount.Value = SelectedEquipment.Requirements.First.Amount;
+        secondRequirement.SelectedIndex = SelectedEquipment.Requirements.Second.ItemIndex;
+        secondRequirementAmount.Value = SelectedEquipment.Requirements.Second.Amount;
+        thirdRequirement.SelectedIndex = SelectedEquipment.Requirements.Third.ItemIndex;
+        thirdRequirementAmount.Value = SelectedEquipment.Requirements.Third.Amount;
+        SetRequirementEventHandlers();
       }
     }
   }

@@ -121,7 +121,7 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// The amount of forge slots the item has.
     /// </summary>
-    public int ForgeSlots { get; }
+    public int ForgeSlots { get; set; }
 
     /// <summary>
     /// The forges the item comes with.
