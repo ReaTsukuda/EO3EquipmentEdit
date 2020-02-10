@@ -30,9 +30,9 @@ namespace EO3EquipmentEdit
           Table equipmentNames = null;
           MBM equipmentDescriptions = null;
           List<Equipment> equipment = null;
-          string equipItemDescriptionsLocation = openDialog.FileName + "/equipitemexpbattle.mbm";
-          string equipItemNameTableLocation = openDialog.FileName + "/equipitemnametable.tbl";
-          string equipItemTableLocation = openDialog.FileName + "/equipitemtable.tbl";
+          string equipItemDescriptionsLocation = Path.Combine(openDialog.FileName, "equipitemexpbattle.mbm");
+          string equipItemNameTableLocation = Path.Combine(openDialog.FileName, "equipitemnametable.tbl");
+          string equipItemTableLocation = Path.Combine(openDialog.FileName, "/equipitemtable.tbl");
           try
           {
             // Load item names.
