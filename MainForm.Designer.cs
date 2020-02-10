@@ -115,12 +115,12 @@
       this.descriptionPanel = new System.Windows.Forms.FlowLayoutPanel();
       this.unlockRequirementsGroupBox = new System.Windows.Forms.GroupBox();
       this.unlockRequirementsPanel = new System.Windows.Forms.TableLayoutPanel();
+      this.thirdRequirementAmount = new System.Windows.Forms.NumericUpDown();
+      this.secondRequirementAmount = new System.Windows.Forms.NumericUpDown();
       this.firstRequirement = new System.Windows.Forms.ComboBox();
       this.secondRequirement = new System.Windows.Forms.ComboBox();
       this.thirdRequirement = new System.Windows.Forms.ComboBox();
       this.firstRequirementAmount = new System.Windows.Forms.NumericUpDown();
-      this.secondRequirementAmount = new System.Windows.Forms.NumericUpDown();
-      this.thirdRequirementAmount = new System.Windows.Forms.NumericUpDown();
       this.menu.SuspendLayout();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
@@ -151,9 +151,9 @@
       this.tableLayoutPanel3.SuspendLayout();
       this.unlockRequirementsGroupBox.SuspendLayout();
       this.unlockRequirementsPanel.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.thirdRequirementAmount)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).BeginInit();
       this.SuspendLayout();
       // 
       // menu
@@ -185,8 +185,9 @@
       // exitToolStripMenuItem
       // 
       this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-      this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
       this.exitToolStripMenuItem.Text = "Exit";
+      this.exitToolStripMenuItem.Click += new System.EventHandler(this.FileExitClicked);
       // 
       // formLayout
       // 
@@ -1203,6 +1204,34 @@
       this.unlockRequirementsPanel.Size = new System.Drawing.Size(231, 81);
       this.unlockRequirementsPanel.TabIndex = 0;
       // 
+      // thirdRequirementAmount
+      // 
+      this.thirdRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.thirdRequirementAmount.Location = new System.Drawing.Point(187, 57);
+      this.thirdRequirementAmount.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+      this.thirdRequirementAmount.Name = "thirdRequirementAmount";
+      this.thirdRequirementAmount.Size = new System.Drawing.Size(41, 20);
+      this.thirdRequirementAmount.TabIndex = 5;
+      this.thirdRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
+      // secondRequirementAmount
+      // 
+      this.secondRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.secondRequirementAmount.Location = new System.Drawing.Point(187, 30);
+      this.secondRequirementAmount.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+      this.secondRequirementAmount.Name = "secondRequirementAmount";
+      this.secondRequirementAmount.Size = new System.Drawing.Size(41, 20);
+      this.secondRequirementAmount.TabIndex = 4;
+      this.secondRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
       // firstRequirement
       // 
       this.firstRequirement.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1247,34 +1276,6 @@
       this.firstRequirementAmount.TabIndex = 3;
       this.firstRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
-      // secondRequirementAmount
-      // 
-      this.secondRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.secondRequirementAmount.Location = new System.Drawing.Point(187, 30);
-      this.secondRequirementAmount.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-      this.secondRequirementAmount.Name = "secondRequirementAmount";
-      this.secondRequirementAmount.Size = new System.Drawing.Size(41, 20);
-      this.secondRequirementAmount.TabIndex = 4;
-      this.secondRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-      // 
-      // thirdRequirementAmount
-      // 
-      this.thirdRequirementAmount.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.thirdRequirementAmount.Location = new System.Drawing.Point(187, 57);
-      this.thirdRequirementAmount.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-      this.thirdRequirementAmount.Name = "thirdRequirementAmount";
-      this.thirdRequirementAmount.Size = new System.Drawing.Size(41, 20);
-      this.thirdRequirementAmount.TabIndex = 5;
-      this.thirdRequirementAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1286,7 +1287,7 @@
       this.Controls.Add(this.menu);
       this.MainMenuStrip = this.menu;
       this.Name = "MainForm";
-      this.Text = "MainForm";
+      this.Text = "EO3 Equipment Editor";
       this.menu.ResumeLayout(false);
       this.menu.PerformLayout();
       this.formLayout.ResumeLayout(false);
@@ -1327,9 +1328,9 @@
       this.tableLayoutPanel3.ResumeLayout(false);
       this.unlockRequirementsGroupBox.ResumeLayout(false);
       this.unlockRequirementsPanel.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.thirdRequirementAmount)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.secondRequirementAmount)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.firstRequirementAmount)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

@@ -1532,5 +1532,10 @@ namespace EO3EquipmentEdit
         SetRequirementEventHandlers();
       }
     }
+
+    private void FileExitClicked(object sender, EventArgs eventArgs)
+    {
+      Environment.Exit(0);
+    }
   }
 }
