@@ -52,6 +52,8 @@ namespace EO3EquipmentEdit
     // Use camelCase for these, as is standard with Designer controls.
 #pragma warning disable IDE0069 // Disposable fields should be disposed
     readonly ItemNamePreview namePreview;
+    readonly ItemDescriptionPreview descriptionPreview;
+    readonly DescriptionRichTextBox descriptionInput;
 #pragma warning restore IDE0069 // Disposable fields should be disposed
 
     /// <summary>
@@ -78,17 +80,8 @@ namespace EO3EquipmentEdit
 
       // Form preparation.
       InitializeComponent();
-      // Assign event handlers to various form element events.
-      SetIncludeDummyCheckboxEventHandlers();
-      SetEquipmentTypeFilterEventHandlers();
-      SetEquipmentListEventHandlers();
-      SetItemNameEntryEventHandlers();
-      SetItemTypeDropdownEventHandlers();
-      SetATKDEFEntryEventHandlers();
-      SetStatBonusEventHandlers();
-      SetPriceEntryEventHandlers();
-      SetCanEquipEventHandlers();
-      SetAccuracyEventHandlers();
+      // Cap forge amounts to whatever is set as the game design limit.
+      forgeCountEntry.Maximum = Equipment.ForgeMaximum;
       // Load the fonts.
       Font8px = Newtonsoft.Json.JsonConvert.DeserializeObject(
         string.Join("", File.ReadAllLines("Resources/Font/Font8x8.eo3font.json")),
@@ -113,9 +106,33 @@ namespace EO3EquipmentEdit
       int previewY = (namePreviewPanel.Height / 2) - (namePreview.Height / 2);
       namePreview.Location = new Point(previewX, previewY);
       namePreviewPanel.Controls.Add(namePreview);
+      // Create the item description preview.
+      descriptionPreview = new ItemDescriptionPreview(Font12px);
+      descriptionPanel.Controls.Add(descriptionPreview);
+      // Eliminate the spacing bug with flow layout panels by inserting a dummy panel.
+      var sizeDummy = new Panel();
+      sizeDummy.Size = new Size(0, 0);
+      descriptionPanel.Controls.Add(sizeDummy);
+      descriptionPanel.SetFlowBreak(sizeDummy, true);
+      descriptionInput = new DescriptionRichTextBox();
+      descriptionPanel.Controls.Add(descriptionInput);
+      // Assign event handlers to various form element events.
+      SetIncludeDummyCheckboxEventHandlers();
+      SetEquipmentTypeFilterEventHandlers();
+      SetEquipmentListEventHandlers();
+      SetItemNameEntryEventHandlers();
+      SetItemTypeDropdownEventHandlers();
+      SetATKDEFEntryEventHandlers();
+      SetStatBonusEventHandlers();
+      SetPriceEntryEventHandlers();
+      SetCanEquipEventHandlers();
+      SetAccuracyEventHandlers();
+      SetForgeEventHandlers();
+      SetDescriptionEventHandlers();
       // Further form preparation.
       AddEquipmentTypesToFilter();
       AddEquipmentTypesToTypeDropdown();
+      AddForgeTypesToForgeDropdowns();
       PopulateEquipmentList(null, null);
     }
 
@@ -146,6 +163,11 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateGoldIconOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateStarterEquipmentOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateAccuracyEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateDamageTypesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += DisableOrEnableWeaponOnlyElements;
+      equipmentList.SelectedIndexChanged += UpdateForgesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateForgeSlotEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateItemDescriptionOnEquipmentChanged;
     }
 
     /// <summary>
@@ -175,6 +197,11 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged -= UpdateGoldIconOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateStarterEquipmentOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateAccuracyEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateDamageTypesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= DisableOrEnableWeaponOnlyElements;
+      equipmentList.SelectedIndexChanged -= UpdateForgesOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateForgeSlotEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateItemDescriptionOnEquipmentChanged;
     }
 
     /// <summary>
@@ -380,6 +407,94 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Registers the event handlers for damage type checkboxes.
+    /// </summary>
+    private void SetDamageTypeEventHandlers()
+    {
+      cut.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      stab.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      bash.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      fire.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      ice.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      volt.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      almighty.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      noPenalty.CheckedChanged += UpdateEquipmentDamageTypeOnCheckboxesChanged;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for damage type checkboxes.
+    /// </summary>
+    private void RemoveDamageTypeEventHandlers()
+    {
+      cut.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      stab.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      bash.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      fire.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      ice.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      volt.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      almighty.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+      noPenalty.CheckedChanged -= UpdateEquipmentDamageTypeOnCheckboxesChanged;
+    }
+
+    /// <summary>
+    /// Registers the event handlers for the forge amount entry.
+    /// </summary>
+    private void SetForgeAmountEventHandlers()
+    {
+      forge0.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+      forge1.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+      forge2.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+      forge3.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+      forge4.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+      forge5.SelectedIndexChanged += SetEquipmentForgesOnDropdownChanged;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for the forge amount entry.
+    /// </summary>
+    private void RemoveForgeAmountEventHandlers()
+    {
+      forge0.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+      forge1.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+      forge2.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+      forge3.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+      forge4.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+      forge5.SelectedIndexChanged -= SetEquipmentForgesOnDropdownChanged;
+    }
+
+    /// <summary>
+    /// Registers the event handlers for the forge dropdowns.
+    /// </summary>
+    private void SetForgeEventHandlers()
+    {
+
+    }
+
+    /// <summary>
+    /// Removes the event handlers for the forge dropdowns.
+    /// </summary>
+    private void RemoveForgeEventHandlers()
+    {
+
+    }
+
+    /// <summary>
+    /// Registers the event handlers for the various components of the description editor.
+    /// </summary>
+    private void SetDescriptionEventHandlers()
+    {
+      descriptionInput.TextChanged += descriptionPreview.RefreshDescription;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for the various components of the description editor.
+    /// </summary>
+    private void RemoveDescriptionEventHandlers()
+    {
+      descriptionInput.TextChanged -= descriptionPreview.RefreshDescription;
+    }
+
+    /// <summary>
     /// This function ensures that, if the equipment name table and/or description file are shorter than
     /// the actual equipment table, they have dummy entries added to them, to remove the need to check for
     /// that later in the program.
@@ -429,6 +544,28 @@ namespace EO3EquipmentEdit
         itemType.Items.Add(singularName);
       }
       itemType.SelectedIndex = 0;
+    }
+
+    /// <summary>
+    /// Adds all of the forge types to the forge dropdowns.
+    /// </summary>
+    private void AddForgeTypesToForgeDropdowns()
+    {
+      foreach (string forgeTypeName in Equipment.ForgeTypeStrings.Values)
+      {
+        forge0.Items.Add(forgeTypeName);
+        forge1.Items.Add(forgeTypeName);
+        forge2.Items.Add(forgeTypeName);
+        forge3.Items.Add(forgeTypeName);
+        forge4.Items.Add(forgeTypeName);
+        forge5.Items.Add(forgeTypeName);
+      }
+      forge0.SelectedIndex = 0;
+      forge1.SelectedIndex = 0;
+      forge2.SelectedIndex = 0;
+      forge3.SelectedIndex = 0;
+      forge4.SelectedIndex = 0;
+      forge5.SelectedIndex = 0;
     }
 
     /// <summary>
@@ -540,6 +677,7 @@ namespace EO3EquipmentEdit
     {
       if (equipmentList.SelectedItem != null)
       {
+        RemoveItemNameEntryEventHandlers();
         // Disable handlers for itemName's text being changed, so we don't trip it.
         itemName.TextChanged -= UpdateItemNameAndPreviewOnEquipmentNameChanged;
         string equipmentName = SelectedEquipment.Name;
@@ -547,6 +685,7 @@ namespace EO3EquipmentEdit
         namePreview.Text = equipmentName;
         // Re-enable handlers we disabled above.
         itemName.TextChanged += UpdateItemNameAndPreviewOnEquipmentNameChanged;
+        SetItemNameEntryEventHandlers();
       }
     }
 
@@ -617,13 +756,13 @@ namespace EO3EquipmentEdit
         RemoveATKDEFEntryEventHandlers();
         if (SelectedEquipment.IsWeapon == true)
         {
-          physicalEntry.Value = SelectedEquipment.ATK;
-          magicEntry.Value = SelectedEquipment.MAT;
+          physicalEntry.Value = SelectedEquipment.PATK;
+          magicEntry.Value = SelectedEquipment.MATK;
         }
         else
         {
-          physicalEntry.Value = SelectedEquipment.DEF;
-          magicEntry.Value = SelectedEquipment.MDF;
+          physicalEntry.Value = SelectedEquipment.PDEF;
+          magicEntry.Value = SelectedEquipment.MDEF;
         }
         SetATKDEFEntryEventHandlers();
       }
@@ -638,13 +777,13 @@ namespace EO3EquipmentEdit
       {
         if (SelectedEquipment.IsWeapon == true)
         {
-          SelectedEquipment.ATK = (int)physicalEntry.Value;
-          SelectedEquipment.MAT = (int)magicEntry.Value;
+          SelectedEquipment.PATK = (int)physicalEntry.Value;
+          SelectedEquipment.MATK = (int)magicEntry.Value;
         }
         else
         {
-          SelectedEquipment.DEF = (int)physicalEntry.Value;
-          SelectedEquipment.MDF = (int)magicEntry.Value;
+          SelectedEquipment.PDEF = (int)physicalEntry.Value;
+          SelectedEquipment.MDEF = (int)magicEntry.Value;
         }
       }
     }
@@ -1178,6 +1317,130 @@ namespace EO3EquipmentEdit
       if (SelectedEquipment != null)
       {
         SelectedEquipment.Accuracy = (int)accuracyEntry.Value;
+      }
+    }
+
+    /// <summary>
+    /// Updates the damage type checkboxes when the selected equipment is changed.
+    /// </summary>
+    private void UpdateDamageTypesOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveDamageTypeEventHandlers();
+        cut.Checked = SelectedEquipment.DamageType.Cut;
+        stab.Checked = SelectedEquipment.DamageType.Stab;
+        bash.Checked = SelectedEquipment.DamageType.Bash;
+        fire.Checked = SelectedEquipment.DamageType.Fire;
+        ice.Checked = SelectedEquipment.DamageType.Ice;
+        volt.Checked = SelectedEquipment.DamageType.Volt;
+        almighty.Checked = SelectedEquipment.DamageType.Almighty;
+        noPenalty.Checked = SelectedEquipment.DamageType.NoPenalty;
+        SetDamageTypeEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's damage type when any of the damage type checkboxes are changed.
+    /// </summary>
+    private void UpdateEquipmentDamageTypeOnCheckboxesChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.DamageType.Cut = cut.Checked;
+        SelectedEquipment.DamageType.Stab = stab.Checked;
+        SelectedEquipment.DamageType.Bash = bash.Checked;
+        SelectedEquipment.DamageType.Fire = fire.Checked;
+        SelectedEquipment.DamageType.Ice = ice.Checked;
+        SelectedEquipment.DamageType.Volt = volt.Checked;
+        SelectedEquipment.DamageType.Almighty = almighty.Checked;
+        SelectedEquipment.DamageType.NoPenalty = noPenalty.Checked;
+      }
+    }
+
+    /// <summary>
+    /// Disables or enables certain controls based on whether or not the current equipment is a weapon.
+    /// </summary>
+    private void DisableOrEnableWeaponOnlyElements(object sender, EventArgs eventArgs)
+    {
+      accuracyLabel.Enabled = SelectedEquipment.IsWeapon;
+      accuracyEntry.Enabled = SelectedEquipment.IsWeapon;
+      damageTypePanel.Enabled = SelectedEquipment.IsWeapon;
+    }
+
+    /// <summary>
+    /// Updates the forge slot entry when the selected equipment is changed.
+    /// </summary>
+    private void UpdateForgeSlotEntryOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveForgeAmountEventHandlers();
+        forgeCountEntry.Value = SelectedEquipment.ForgeSlots;
+        SetForgeAmountEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the forge dropdowns when the selected equipment is changed.
+    /// </summary>
+    private void UpdateForgesOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveForgeEventHandlers();
+        forge0.SelectedIndex = (int)SelectedEquipment.Forges[0];
+        forge1.SelectedIndex = (int)SelectedEquipment.Forges[1];
+        forge2.SelectedIndex = (int)SelectedEquipment.Forges[2];
+        forge3.SelectedIndex = (int)SelectedEquipment.Forges[3];
+        forge4.SelectedIndex = (int)SelectedEquipment.Forges[4];
+        forge5.SelectedIndex = (int)SelectedEquipment.Forges[5];
+        SetForgeEventHandlers();
+        SetForgeEntryMaximum();
+      }
+    }
+
+    /// <summary>
+    /// Sets the selected equipment's forges when any of the dropdowns are changed.
+    /// </summary>
+    private void SetEquipmentForgesOnDropdownChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Forges[0] = (Equipment.ForgeTypes)forge0.SelectedIndex;
+        SelectedEquipment.Forges[1] = (Equipment.ForgeTypes)forge1.SelectedIndex;
+        SelectedEquipment.Forges[2] = (Equipment.ForgeTypes)forge2.SelectedIndex;
+        SelectedEquipment.Forges[3] = (Equipment.ForgeTypes)forge3.SelectedIndex;
+        SelectedEquipment.Forges[4] = (Equipment.ForgeTypes)forge4.SelectedIndex;
+        SelectedEquipment.Forges[5] = (Equipment.ForgeTypes)forge5.SelectedIndex;
+        SetForgeEntryMaximum();
+      }
+    }
+
+    /// <summary>
+    /// Updates the forge count entry's maximum based on how many forge slots are already filled.
+    /// </summary>
+    private void SetForgeEntryMaximum()
+    {
+      int numberOfFilledForges = SelectedEquipment.Forges.Where(forge => forge != Equipment.ForgeTypes.None).Count();
+      int newMaximum = Equipment.ForgeMaximum - numberOfFilledForges;
+      // Set the forge slot count to the new maximum before actually applying it, if the current one is higher.
+      if (forgeCountEntry.Value > newMaximum) { forgeCountEntry.Value = newMaximum; }
+      forgeCountEntry.Maximum = newMaximum;
+
+    }
+
+    /// <summary>
+    /// Updates the item description input and the preview's equipment pointer when the equipment is changed.
+    /// </summary>
+    private void UpdateItemDescriptionOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveDescriptionEventHandlers();
+        descriptionPreview.Equipment = SelectedEquipment;
+        descriptionInput.Equipment = SelectedEquipment;
+        SetDescriptionEventHandlers();
       }
     }
   }

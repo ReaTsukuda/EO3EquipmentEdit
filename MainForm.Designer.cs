@@ -38,12 +38,13 @@
       this.equipmentList = new System.Windows.Forms.ListBox();
       this.equipmentTypeFilter = new System.Windows.Forms.ComboBox();
       this.includeDummyItems = new System.Windows.Forms.CheckBox();
+      this.sizeDummy1 = new System.Windows.Forms.Panel();
       this.nameLayout = new System.Windows.Forms.TableLayoutPanel();
       this.nameLabel = new System.Windows.Forms.Label();
       this.itemName = new System.Windows.Forms.TextBox();
       this.namePreviewPanel = new System.Windows.Forms.Panel();
       this.nameAndTypeLayout = new System.Windows.Forms.TableLayoutPanel();
-      this.label1 = new System.Windows.Forms.Label();
+      this.accuracyLabel = new System.Windows.Forms.Label();
       this.typeLabel = new System.Windows.Forms.Label();
       this.itemType = new System.Windows.Forms.ComboBox();
       this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +56,8 @@
       this.magicEntry = new System.Windows.Forms.NumericUpDown();
       this.priceLabel = new System.Windows.Forms.Label();
       this.priceEntry = new System.Windows.Forms.NumericUpDown();
+      this.label1 = new System.Windows.Forms.Label();
+      this.forgeCountEntry = new System.Windows.Forms.NumericUpDown();
       this.statBonusGroup = new System.Windows.Forms.GroupBox();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.LUCEntry = new System.Windows.Forms.NumericUpDown();
@@ -101,6 +104,15 @@
       this.consumesMaterials = new System.Windows.Forms.CheckBox();
       this.goldIcon = new System.Windows.Forms.CheckBox();
       this.starterEquipment = new System.Windows.Forms.CheckBox();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+      this.forge0 = new System.Windows.Forms.ComboBox();
+      this.forge1 = new System.Windows.Forms.ComboBox();
+      this.forge2 = new System.Windows.Forms.ComboBox();
+      this.forge3 = new System.Windows.Forms.ComboBox();
+      this.forge4 = new System.Windows.Forms.ComboBox();
+      this.forge5 = new System.Windows.Forms.ComboBox();
+      this.descriptionPanel = new System.Windows.Forms.FlowLayoutPanel();
       this.menu.SuspendLayout();
       this.formLayout.SuspendLayout();
       this.equipmentSelectionControls.SuspendLayout();
@@ -111,6 +123,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.physicalEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.magicEntry)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.forgeCountEntry)).BeginInit();
       this.statBonusGroup.SuspendLayout();
       this.tableLayoutPanel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LUCEntry)).BeginInit();
@@ -126,6 +139,8 @@
       this.classGroup.SuspendLayout();
       this.flowLayoutPanel1.SuspendLayout();
       this.flags.SuspendLayout();
+      this.groupBox1.SuspendLayout();
+      this.tableLayoutPanel3.SuspendLayout();
       this.SuspendLayout();
       // 
       // menu
@@ -162,7 +177,9 @@
       // 
       // formLayout
       // 
+      this.formLayout.AutoSize = true;
       this.formLayout.Controls.Add(this.equipmentSelectionControls);
+      this.formLayout.Controls.Add(this.sizeDummy1);
       this.formLayout.Controls.Add(this.nameLayout);
       this.formLayout.Controls.Add(this.namePreviewPanel);
       this.formLayout.Controls.Add(this.nameAndTypeLayout);
@@ -170,11 +187,13 @@
       this.formLayout.Controls.Add(this.damageTypePanel);
       this.formLayout.Controls.Add(this.classGroup);
       this.formLayout.Controls.Add(this.flags);
+      this.formLayout.Controls.Add(this.groupBox1);
+      this.formLayout.Controls.Add(this.descriptionPanel);
       this.formLayout.Dock = System.Windows.Forms.DockStyle.Fill;
       this.formLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.formLayout.Location = new System.Drawing.Point(0, 24);
       this.formLayout.Name = "formLayout";
-      this.formLayout.Size = new System.Drawing.Size(800, 454);
+      this.formLayout.Size = new System.Drawing.Size(800, 487);
       this.formLayout.TabIndex = 5;
       // 
       // equipmentSelectionControls
@@ -185,22 +204,23 @@
       this.equipmentSelectionControls.Controls.Add(this.equipmentList, 0, 2);
       this.equipmentSelectionControls.Controls.Add(this.equipmentTypeFilter, 0, 0);
       this.equipmentSelectionControls.Controls.Add(this.includeDummyItems, 0, 1);
-      this.formLayout.SetFlowBreak(this.equipmentSelectionControls, true);
+      this.equipmentSelectionControls.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.equipmentSelectionControls.Location = new System.Drawing.Point(3, 3);
       this.equipmentSelectionControls.Name = "equipmentSelectionControls";
       this.equipmentSelectionControls.RowCount = 3;
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.equipmentSelectionControls.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-      this.equipmentSelectionControls.Size = new System.Drawing.Size(131, 450);
+      this.equipmentSelectionControls.Size = new System.Drawing.Size(131, 463);
       this.equipmentSelectionControls.TabIndex = 1;
       // 
       // equipmentList
       // 
+      this.equipmentList.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
       this.equipmentList.FormattingEnabled = true;
       this.equipmentList.Location = new System.Drawing.Point(3, 53);
       this.equipmentList.Name = "equipmentList";
-      this.equipmentList.Size = new System.Drawing.Size(124, 394);
+      this.equipmentList.Size = new System.Drawing.Size(124, 407);
       this.equipmentList.TabIndex = 8;
       // 
       // equipmentTypeFilter
@@ -221,6 +241,14 @@
       this.includeDummyItems.TabIndex = 7;
       this.includeDummyItems.Text = "Include dummy items";
       this.includeDummyItems.UseVisualStyleBackColor = true;
+      // 
+      // sizeDummy1
+      // 
+      this.formLayout.SetFlowBreak(this.sizeDummy1, true);
+      this.sizeDummy1.Location = new System.Drawing.Point(3, 472);
+      this.sizeDummy1.Name = "sizeDummy1";
+      this.sizeDummy1.Size = new System.Drawing.Size(0, 0);
+      this.sizeDummy1.TabIndex = 12;
       // 
       // nameLayout
       // 
@@ -258,7 +286,7 @@
       // 
       this.namePreviewPanel.Location = new System.Drawing.Point(140, 33);
       this.namePreviewPanel.Name = "namePreviewPanel";
-      this.namePreviewPanel.Size = new System.Drawing.Size(123, 20);
+      this.namePreviewPanel.Size = new System.Drawing.Size(123, 14);
       this.namePreviewPanel.TabIndex = 3;
       // 
       // nameAndTypeLayout
@@ -266,7 +294,7 @@
       this.nameAndTypeLayout.ColumnCount = 2;
       this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
       this.nameAndTypeLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.nameAndTypeLayout.Controls.Add(this.label1, 0, 2);
+      this.nameAndTypeLayout.Controls.Add(this.accuracyLabel, 0, 2);
       this.nameAndTypeLayout.Controls.Add(this.typeLabel, 0, 1);
       this.nameAndTypeLayout.Controls.Add(this.itemType, 1, 1);
       this.nameAndTypeLayout.Controls.Add(this.label2, 0, 3);
@@ -278,29 +306,32 @@
       this.nameAndTypeLayout.Controls.Add(this.magicEntry, 1, 5);
       this.nameAndTypeLayout.Controls.Add(this.priceLabel, 0, 6);
       this.nameAndTypeLayout.Controls.Add(this.priceEntry, 1, 6);
-      this.nameAndTypeLayout.Location = new System.Drawing.Point(140, 59);
+      this.nameAndTypeLayout.Controls.Add(this.label1, 0, 7);
+      this.nameAndTypeLayout.Controls.Add(this.forgeCountEntry, 1, 7);
+      this.nameAndTypeLayout.Location = new System.Drawing.Point(140, 53);
       this.nameAndTypeLayout.Name = "nameAndTypeLayout";
-      this.nameAndTypeLayout.RowCount = 7;
+      this.nameAndTypeLayout.RowCount = 8;
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.nameAndTypeLayout.Size = new System.Drawing.Size(123, 156);
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.nameAndTypeLayout.Size = new System.Drawing.Size(123, 184);
       this.nameAndTypeLayout.TabIndex = 2;
       // 
-      // label1
+      // accuracyLabel
       // 
-      this.label1.AutoSize = true;
-      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label1.Location = new System.Drawing.Point(3, 27);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(38, 26);
-      this.label1.TabIndex = 4;
-      this.label1.Text = "Acc.";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.accuracyLabel.AutoSize = true;
+      this.accuracyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.accuracyLabel.Location = new System.Drawing.Point(3, 27);
+      this.accuracyLabel.Name = "accuracyLabel";
+      this.accuracyLabel.Size = new System.Drawing.Size(39, 26);
+      this.accuracyLabel.TabIndex = 4;
+      this.accuracyLabel.Text = "Acc.";
+      this.accuracyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // typeLabel
       // 
@@ -308,7 +339,7 @@
       this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.typeLabel.Location = new System.Drawing.Point(3, 0);
       this.typeLabel.Name = "typeLabel";
-      this.typeLabel.Size = new System.Drawing.Size(38, 27);
+      this.typeLabel.Size = new System.Drawing.Size(39, 27);
       this.typeLabel.TabIndex = 2;
       this.typeLabel.Text = "Type";
       this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,11 +347,10 @@
       // itemType
       // 
       this.itemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      this.itemType.Enabled = false;
       this.itemType.FormattingEnabled = true;
-      this.itemType.Location = new System.Drawing.Point(47, 3);
+      this.itemType.Location = new System.Drawing.Point(48, 3);
       this.itemType.Name = "itemType";
-      this.itemType.Size = new System.Drawing.Size(75, 21);
+      this.itemType.Size = new System.Drawing.Size(73, 21);
       this.itemType.TabIndex = 3;
       // 
       // label2
@@ -329,7 +359,7 @@
       this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label2.Location = new System.Drawing.Point(3, 53);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(38, 26);
+      this.label2.Size = new System.Drawing.Size(39, 26);
       this.label2.TabIndex = 6;
       this.label2.Text = "Speed";
       this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,7 +367,7 @@
       // accuracyEntry
       // 
       this.accuracyEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.accuracyEntry.Location = new System.Drawing.Point(47, 30);
+      this.accuracyEntry.Location = new System.Drawing.Point(48, 30);
       this.accuracyEntry.Maximum = new decimal(new int[] {
             255,
             0,
@@ -351,7 +381,7 @@
       // speedEntry
       // 
       this.speedEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.speedEntry.Location = new System.Drawing.Point(47, 56);
+      this.speedEntry.Location = new System.Drawing.Point(48, 56);
       this.speedEntry.Maximum = new decimal(new int[] {
             127,
             0,
@@ -373,7 +403,7 @@
       this.physicalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.physicalLabel.Location = new System.Drawing.Point(3, 79);
       this.physicalLabel.Name = "physicalLabel";
-      this.physicalLabel.Size = new System.Drawing.Size(38, 26);
+      this.physicalLabel.Size = new System.Drawing.Size(39, 26);
       this.physicalLabel.TabIndex = 8;
       this.physicalLabel.Text = "PATK";
       this.physicalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -384,7 +414,7 @@
       this.magicLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.magicLabel.Location = new System.Drawing.Point(3, 105);
       this.magicLabel.Name = "magicLabel";
-      this.magicLabel.Size = new System.Drawing.Size(38, 26);
+      this.magicLabel.Size = new System.Drawing.Size(39, 26);
       this.magicLabel.TabIndex = 9;
       this.magicLabel.Text = "MATK";
       this.magicLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -392,7 +422,7 @@
       // physicalEntry
       // 
       this.physicalEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.physicalEntry.Location = new System.Drawing.Point(47, 82);
+      this.physicalEntry.Location = new System.Drawing.Point(48, 82);
       this.physicalEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -406,7 +436,7 @@
       // magicEntry
       // 
       this.magicEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.magicEntry.Location = new System.Drawing.Point(47, 108);
+      this.magicEntry.Location = new System.Drawing.Point(48, 108);
       this.magicEntry.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -423,7 +453,7 @@
       this.priceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.priceLabel.Location = new System.Drawing.Point(3, 131);
       this.priceLabel.Name = "priceLabel";
-      this.priceLabel.Size = new System.Drawing.Size(38, 25);
+      this.priceLabel.Size = new System.Drawing.Size(39, 26);
       this.priceLabel.TabIndex = 12;
       this.priceLabel.Text = "Price";
       this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -431,7 +461,7 @@
       // priceEntry
       // 
       this.priceEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.priceEntry.Location = new System.Drawing.Point(47, 134);
+      this.priceEntry.Location = new System.Drawing.Point(48, 134);
       this.priceEntry.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -442,11 +472,36 @@
       this.priceEntry.TabIndex = 13;
       this.priceEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
       // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.label1.Location = new System.Drawing.Point(3, 157);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(39, 27);
+      this.label1.TabIndex = 14;
+      this.label1.Text = "Forges";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // forgeCountEntry
+      // 
+      this.forgeCountEntry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.forgeCountEntry.Location = new System.Drawing.Point(48, 160);
+      this.forgeCountEntry.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+      this.forgeCountEntry.Name = "forgeCountEntry";
+      this.forgeCountEntry.Size = new System.Drawing.Size(73, 20);
+      this.forgeCountEntry.TabIndex = 15;
+      this.forgeCountEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      // 
       // statBonusGroup
       // 
       this.statBonusGroup.Controls.Add(this.tableLayoutPanel1);
-      this.statBonusGroup.Enabled = false;
-      this.statBonusGroup.Location = new System.Drawing.Point(140, 221);
+      this.formLayout.SetFlowBreak(this.statBonusGroup, true);
+      this.statBonusGroup.Location = new System.Drawing.Point(140, 243);
       this.statBonusGroup.Name = "statBonusGroup";
       this.statBonusGroup.Size = new System.Drawing.Size(123, 228);
       this.statBonusGroup.TabIndex = 5;
@@ -1009,11 +1064,107 @@
       this.starterEquipment.Text = "Starter equipment";
       this.starterEquipment.UseVisualStyleBackColor = true;
       // 
+      // groupBox1
+      // 
+      this.groupBox1.Controls.Add(this.tableLayoutPanel3);
+      this.formLayout.SetFlowBreak(this.groupBox1, true);
+      this.groupBox1.Location = new System.Drawing.Point(269, 343);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(164, 101);
+      this.groupBox1.TabIndex = 13;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Forges";
+      // 
+      // tableLayoutPanel3
+      // 
+      this.tableLayoutPanel3.ColumnCount = 2;
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel3.Controls.Add(this.forge4, 0, 2);
+      this.tableLayoutPanel3.Controls.Add(this.forge5, 1, 2);
+      this.tableLayoutPanel3.Controls.Add(this.forge2, 0, 1);
+      this.tableLayoutPanel3.Controls.Add(this.forge3, 1, 1);
+      this.tableLayoutPanel3.Controls.Add(this.forge0, 0, 0);
+      this.tableLayoutPanel3.Controls.Add(this.forge1, 1, 0);
+      this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+      this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+      this.tableLayoutPanel3.RowCount = 3;
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(158, 82);
+      this.tableLayoutPanel3.TabIndex = 0;
+      // 
+      // forge0
+      // 
+      this.forge0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge0.FormattingEnabled = true;
+      this.forge0.Location = new System.Drawing.Point(3, 3);
+      this.forge0.Name = "forge0";
+      this.forge0.Size = new System.Drawing.Size(73, 21);
+      this.forge0.TabIndex = 2;
+      // 
+      // forge1
+      // 
+      this.forge1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge1.FormattingEnabled = true;
+      this.forge1.Location = new System.Drawing.Point(82, 3);
+      this.forge1.Name = "forge1";
+      this.forge1.Size = new System.Drawing.Size(73, 21);
+      this.forge1.TabIndex = 3;
+      // 
+      // forge2
+      // 
+      this.forge2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge2.FormattingEnabled = true;
+      this.forge2.Location = new System.Drawing.Point(3, 30);
+      this.forge2.Name = "forge2";
+      this.forge2.Size = new System.Drawing.Size(73, 21);
+      this.forge2.TabIndex = 4;
+      // 
+      // forge3
+      // 
+      this.forge3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge3.FormattingEnabled = true;
+      this.forge3.Location = new System.Drawing.Point(82, 30);
+      this.forge3.Name = "forge3";
+      this.forge3.Size = new System.Drawing.Size(73, 21);
+      this.forge3.TabIndex = 5;
+      // 
+      // forge4
+      // 
+      this.forge4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge4.FormattingEnabled = true;
+      this.forge4.Location = new System.Drawing.Point(3, 57);
+      this.forge4.Name = "forge4";
+      this.forge4.Size = new System.Drawing.Size(73, 21);
+      this.forge4.TabIndex = 6;
+      // 
+      // forge5
+      // 
+      this.forge5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.forge5.FormattingEnabled = true;
+      this.forge5.Location = new System.Drawing.Point(82, 57);
+      this.forge5.Name = "forge5";
+      this.forge5.Size = new System.Drawing.Size(73, 21);
+      this.forge5.TabIndex = 7;
+      // 
+      // descriptionPanel
+      // 
+      this.descriptionPanel.AutoSize = true;
+      this.descriptionPanel.Location = new System.Drawing.Point(439, 3);
+      this.descriptionPanel.Name = "descriptionPanel";
+      this.descriptionPanel.Size = new System.Drawing.Size(0, 0);
+      this.descriptionPanel.TabIndex = 14;
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 478);
+      this.AutoSize = true;
+      this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.ClientSize = new System.Drawing.Size(800, 511);
       this.Controls.Add(this.formLayout);
       this.Controls.Add(this.menu);
       this.MainMenuStrip = this.menu;
@@ -1034,6 +1185,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.physicalEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.magicEntry)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.priceEntry)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.forgeCountEntry)).EndInit();
       this.statBonusGroup.ResumeLayout(false);
       this.tableLayoutPanel1.ResumeLayout(false);
       this.tableLayoutPanel1.PerformLayout();
@@ -1054,6 +1206,8 @@
       this.flowLayoutPanel1.PerformLayout();
       this.flags.ResumeLayout(false);
       this.flags.PerformLayout();
+      this.groupBox1.ResumeLayout(false);
+      this.tableLayoutPanel3.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1110,7 +1264,7 @@
     private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label accuracyLabel;
     private System.Windows.Forms.NumericUpDown accuracyEntry;
     private System.Windows.Forms.TableLayoutPanel nameLayout;
     private System.Windows.Forms.Label nameLabel;
@@ -1133,5 +1287,17 @@
     private System.Windows.Forms.CheckBox noPenalty;
     private System.Windows.Forms.NumericUpDown priceEntry;
     private System.Windows.Forms.Label priceLabel;
+    private System.Windows.Forms.Panel sizeDummy1;
+    private System.Windows.Forms.NumericUpDown forgeCountEntry;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.GroupBox groupBox1;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+    private System.Windows.Forms.ComboBox forge4;
+    private System.Windows.Forms.ComboBox forge5;
+    private System.Windows.Forms.ComboBox forge2;
+    private System.Windows.Forms.ComboBox forge3;
+    private System.Windows.Forms.ComboBox forge0;
+    private System.Windows.Forms.ComboBox forge1;
+    private System.Windows.Forms.FlowLayoutPanel descriptionPanel;
   }
 }
