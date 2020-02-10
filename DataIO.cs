@@ -23,13 +23,16 @@ namespace EO3EquipmentEdit
       Table equipmentNames,
       MBM equipmentDescriptions)
     {
-      // Equipment table output.
+      // Equipment table and requirements output.
       string equipmentTableOutputPath = Path.Combine(directory, "equipitemtable.tbl");
+      string equipmentUnlockRequirementsOutputPath = Path.Combine(directory, "equipitemcompound.tbl");
       using (var writer = new BinaryWriter(new FileStream(equipmentTableOutputPath, FileMode.Create)))
+      using (var requirementsWriter = new BinaryWriter(new FileStream(equipmentUnlockRequirementsOutputPath, FileMode.Create)))
       {
         foreach (var item in equipmentData)
         {
           item.WriteToFile(writer);
+          item.Requirements.WriteToFile(requirementsWriter);
         }
       }
       // Names output.
