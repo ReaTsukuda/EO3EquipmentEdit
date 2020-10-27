@@ -22,7 +22,7 @@ namespace EO3EquipmentEdit.Data
     /// <summary>
     /// Where this equipment is in the internal table.
     /// </summary>
-    private readonly int Index;
+    public readonly int Index;
 
     /// <summary>
     /// This equipment's name.
@@ -134,6 +134,11 @@ namespace EO3EquipmentEdit.Data
     public int Price { get; set; }
 
     /// <summary>
+    /// An unused field that represents a sell price for the item. For the sake of consistency, load and save this value.
+    /// </summary>
+    public int SellPrice { get; set; }
+
+    /// <summary>
     /// Represents the different equipment types in EO3. An entry's value is equal to its numeric
     /// type in-game.
     /// </summary>
@@ -224,15 +229,45 @@ namespace EO3EquipmentEdit.Data
       /// </summary>
       public bool CanSellOut { get; set; }
 
+      ///<summary>
+      /// 0x2. Unknown.
+      /// </summary>
+      public bool UnknownBit0x2 { get; set; }
+
+      ///<summary>
+      /// 0x4. Unknown.
+      /// </summary>
+      public bool UnknownBit0x4 { get; set; }
+
+      ///<summary>
+      /// 0x8. Unknown.
+      /// </summary>
+      public bool UnknownBit0x8 { get; set; }
+
+      ///<summary>
+      /// 0x10. Unknown.
+      /// </summary>
+      public bool UnknownBit0x10 { get; set; }
+
       /// <summary>
       /// 0x20. Whether or not the item's icon is gold.
       /// </summary>
       public bool Rare { get; set; }
 
+      ///<summary>
+      /// 0x40. Unknown.
+      /// </summary>
+      public bool UnknownBit0x40 { get; set; }
+
       /// <summary>
       /// 0x80. Whether or not the item is stocked at Napier's Firm at the start of the game.
       /// </summary>
       public bool Starter { get; set; }
+
+      ///<summary>
+      /// 0x100. Unknown.
+      /// </summary>
+      public bool UnknownBit0x100 { get; set; }
 
       /// <summary>
       /// The bitfield representation of these flags.
@@ -243,8 +278,14 @@ namespace EO3EquipmentEdit.Data
         {
           ushort result = 0;
           result += (ushort)(CanSellOut == true ? 0x1 : 0x0);
+          result += (ushort)(UnknownBit0x2 == true ? 0x2 : 0x0);
+          result += (ushort)(UnknownBit0x4 == true ? 0x4 : 0x0);
+          result += (ushort)(UnknownBit0x8 == true ? 0x4 : 0x0);
+          result += (ushort)(UnknownBit0x10 == true ? 0x10 : 0x0);
           result += (ushort)(Rare == true ? 0x20 : 0x0);
+          result += (ushort)(UnknownBit0x40 == true ? 0x40 : 0x0);
           result += (ushort)(Starter == true ? 0x80 : 0x0);
+          result += (ushort)(UnknownBit0x100 == true ? 0x100 : 0x0);
           return result;
         }
       }
@@ -284,8 +325,8 @@ namespace EO3EquipmentEdit.Data
       HP = 0x1A,
       TP = 0x1B,
       Cut = 0x1C,
-      Stab = 0x1D,
-      Bash = 0x1E,
+      Bash = 0x1D,
+      Stab = 0x1E,
       Speed = 0x1F,
       Limit = 0x20
     }
@@ -322,8 +363,8 @@ namespace EO3EquipmentEdit.Data
         { ForgeTypes.HP, "HP" },
         { ForgeTypes.TP, "TP" },
         { ForgeTypes.Cut, "Cut" },
-        { ForgeTypes.Stab, "Stab" },
         { ForgeTypes.Bash, "Bash" },
+        { ForgeTypes.Stab, "Stab" },
         { ForgeTypes.Speed, "Speed" },
         { ForgeTypes.Limit, "Limit" },
     };
@@ -389,25 +430,31 @@ namespace EO3EquipmentEdit.Data
       int classBitfield = input.ReadUInt16();
       ClassesThatCanEquip = new PlayerClasses()
       {
-        Princess = (classBitfield & 1) == 1,
-        Gladiator = (classBitfield & 2) == 2,
-        Hoplite = (classBitfield & 4) == 4,
-        Buccaneer = (classBitfield & 8) == 8,
-        Ninja = (classBitfield & 16) == 16,
-        Monk = (classBitfield & 32) == 32,
-        Zodiac = (classBitfield & 64) == 64,
-        Wildling = (classBitfield & 128) == 128,
-        Arbalist = (classBitfield & 256) == 256,
-        Farmer = (classBitfield & 512) == 512,
-        Shogun = (classBitfield & 1024) == 1024,
-        Yggdroid = (classBitfield & 2048) == 2048,
+        Princess = (classBitfield & 0x1) == 0x1,
+        Gladiator = (classBitfield & 0x2) == 0x2,
+        Hoplite = (classBitfield & 0x4) == 0x4,
+        Buccaneer = (classBitfield & 0x8) == 0x8,
+        Ninja = (classBitfield & 0x10) == 0x10,
+        Monk = (classBitfield & 0x20) == 0x20,
+        Zodiac = (classBitfield & 0x40) == 0x40,
+        Wildling = (classBitfield & 0x80) == 0x80,
+        Arbalist = (classBitfield & 0x100) == 0x100,
+        Farmer = (classBitfield & 0x200) == 0x200,
+        Shogun = (classBitfield & 0x400) == 0x400,
+        Yggdroid = (classBitfield & 0x800) == 0x800,
       };
-      int flagsBitfiled = input.ReadUInt16();
+      int flagsBitfield = input.ReadUInt16();
       Flags = new EquipmentFlags()
       {
-        CanSellOut = (flagsBitfiled & 0x1) == 0x1,
-        Rare = (flagsBitfiled & 0x20) == 0x20,
-        Starter = (flagsBitfiled & 0x80) == 0x80
+        CanSellOut = (flagsBitfield & 0x1) == 0x1,
+        UnknownBit0x2 = (flagsBitfield & 0x2) == 0x2,
+        UnknownBit0x4 = (flagsBitfield & 0x4) == 0x4,
+        UnknownBit0x8 = (flagsBitfield & 0x8) == 0x8,
+        UnknownBit0x10 = (flagsBitfield & 0x10) == 0x10,
+        Rare = (flagsBitfield & 0x20) == 0x20,
+        UnknownBit0x40 = (flagsBitfield & 0x40) == 0x40,
+        Starter = (flagsBitfield & 0x80) == 0x80,
+        UnknownBit0x100 = (flagsBitfield & 0x100) == 0x100
       };
       ForgeSlots = input.ReadByte();
       // Cap forge slots to the game design maximum. This takes care of having to manually adjust
@@ -428,7 +475,7 @@ namespace EO3EquipmentEdit.Data
         Forges[forgeIndex] = ForgeTypes.None;
       }
       Price = input.ReadInt32();
-      input.ReadInt32(); // "Sell price." Dummy column in EO3.
+      SellPrice = input.ReadInt32(); // "Sell price." Dummy column in EO3.
     }
 
     /// <summary>
@@ -468,8 +515,8 @@ namespace EO3EquipmentEdit.Data
         writer.Write((byte)forge);
       }
       writer.Write(Price);
-      // Dummied-out sell price.
-      writer.Write(0x0);
+      // Dummied-out sell price. Defaults to 0xA in the files.
+      writer.Write(SellPrice);
     }
 
     public override string ToString()
