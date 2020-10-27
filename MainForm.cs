@@ -137,6 +137,7 @@ namespace EO3EquipmentEdit
       SetPriceEntryEventHandlers();
       SetCanEquipEventHandlers();
       SetAccuracyEventHandlers();
+      SetSpeedEventHandlers();
       SetForgeEventHandlers();
       SetDescriptionEventHandlers();
       // Further form preparation.
@@ -174,12 +175,14 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged += UpdateGoldIconOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateStarterEquipmentOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateAccuracyEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateSpeedEntryOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateDamageTypesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += DisableOrEnableWeaponOnlyElements;
       equipmentList.SelectedIndexChanged += UpdateForgesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateForgeSlotEntryOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateItemDescriptionOnEquipmentChanged;
       equipmentList.SelectedIndexChanged += UpdateRequirementDropdownsAndAmountsOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged += UpdateItemIDDisplayOnEquipmentChanged;
     }
 
     /// <summary>
@@ -209,6 +212,7 @@ namespace EO3EquipmentEdit
       equipmentList.SelectedIndexChanged -= UpdateGoldIconOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateStarterEquipmentOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateAccuracyEntryOnEquipmentChanged;
+      equipmentList.SelectedIndexChanged -= UpdateSpeedEntryOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= UpdateDamageTypesOnEquipmentChanged;
       equipmentList.SelectedIndexChanged -= DisableOrEnableWeaponOnlyElements;
       equipmentList.SelectedIndexChanged -= UpdateForgesOnEquipmentChanged;
@@ -420,6 +424,22 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Registers the event handlers for speed stuff.
+    /// </summary>
+    private void SetSpeedEventHandlers()
+    {
+      speedEntry.ValueChanged += UpdateEquipmentSpeedOnEntryChanged;
+    }
+
+    /// <summary>
+    /// Removes the event handlers for speed stuff.
+    /// </summary>
+    private void RemoveSpeedEventHandlers()
+    {
+      speedEntry.ValueChanged -= UpdateEquipmentSpeedOnEntryChanged;
+    }
+
+    /// <summary>
     /// Registers the event handlers for damage type checkboxes.
     /// </summary>
     private void SetDamageTypeEventHandlers()
@@ -512,7 +532,12 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void SetRequirementEventHandlers()
     {
-
+      firstRequirement.SelectedIndexChanged += SetRequirementOnDropdownChanged;
+      secondRequirement.SelectedIndexChanged += SetRequirementOnDropdownChanged;
+      thirdRequirement.SelectedIndexChanged += SetRequirementOnDropdownChanged;
+      firstRequirementAmount.ValueChanged += SetRequirementAmountOnValueChanged;
+      secondRequirementAmount.ValueChanged += SetRequirementAmountOnValueChanged;
+      thirdRequirementAmount.ValueChanged += SetRequirementAmountOnValueChanged;
     }
 
     /// <summary>
@@ -520,7 +545,12 @@ namespace EO3EquipmentEdit
     /// </summary>
     private void RemoveRequirementEventHandlers()
     {
-
+      firstRequirement.SelectedIndexChanged -= SetRequirementOnDropdownChanged;
+      secondRequirement.SelectedIndexChanged -= SetRequirementOnDropdownChanged;
+      thirdRequirement.SelectedIndexChanged -= SetRequirementOnDropdownChanged;
+      firstRequirementAmount.ValueChanged -= SetRequirementAmountOnValueChanged;
+      secondRequirementAmount.ValueChanged -= SetRequirementAmountOnValueChanged;
+      thirdRequirementAmount.ValueChanged -= SetRequirementAmountOnValueChanged;
     }
 
     /// <summary>
@@ -612,6 +642,7 @@ namespace EO3EquipmentEdit
         secondRequirement.SelectedIndex = 0;
         thirdRequirement.SelectedIndex = 0;
         SetRequirementEventHandlers();
+
       }
     }
 
@@ -700,7 +731,11 @@ namespace EO3EquipmentEdit
       // we've filtered down to.
       equipmentList.Items.Clear();
       equipmentList.Items.AddRange(qualifyingEquipment.ToArray());
-      equipmentList.SelectedIndex = 0;
+      // This is a quick fix to prevent the program from crashing if I accidentally select the Fist type.
+      if (equipmentList.Items.Count > 0)
+      {
+        equipmentList.SelectedIndex = 0;
+      }
     }
 
     /// <summary>
@@ -1381,6 +1416,30 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Updates the speed entry's value to the selected equipment's speed.
+    /// </summary>
+    private void UpdateSpeedEntryOnEquipmentChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        RemoveSpeedEventHandlers();
+        speedEntry.Value = SelectedEquipment.Speed;
+        SetSpeedEventHandlers();
+      }
+    }
+
+    /// <summary>
+    /// Updates the selected equipment's speed value when the entry is speed.
+    /// </summary>
+    private void UpdateEquipmentSpeedOnEntryChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Speed = (int)speedEntry.Value;
+      }
+    }
+
+    /// <summary>
     /// Updates the damage type checkboxes when the selected equipment is changed.
     /// </summary>
     private void UpdateDamageTypesOnEquipmentChanged(object sender, EventArgs eventArgs)
@@ -1502,6 +1561,32 @@ namespace EO3EquipmentEdit
     }
 
     /// <summary>
+    /// Sets the selected equipment's requirements when any of the dropdowns are changed.
+    /// </summary>
+    private void SetRequirementOnDropdownChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Requirements.First.ItemIndex = firstRequirement.SelectedIndex;
+        SelectedEquipment.Requirements.Second.ItemIndex = secondRequirement.SelectedIndex;
+        SelectedEquipment.Requirements.Third.ItemIndex = thirdRequirement.SelectedIndex;
+      }
+    }
+
+    /// <summary>
+    /// Sets the selected equipment's requirements when any of the dropdowns are changed.
+    /// </summary>
+    private void SetRequirementAmountOnValueChanged(object sender, EventArgs eventArgs)
+    {
+      if (SelectedEquipment != null)
+      {
+        SelectedEquipment.Requirements.First.Amount = (int)firstRequirementAmount.Value;
+        SelectedEquipment.Requirements.Second.ItemIndex = (int)secondRequirementAmount.Value;
+        SelectedEquipment.Requirements.Third.ItemIndex = (int)thirdRequirementAmount.Value;
+      }
+    }
+
+    /// <summary>
     /// Updates the item description input and the preview's equipment pointer when the equipment is changed.
     /// </summary>
     private void UpdateItemDescriptionOnEquipmentChanged(object sender, EventArgs eventArgs)
@@ -1532,7 +1617,10 @@ namespace EO3EquipmentEdit
         SetRequirementEventHandlers();
       }
     }
-
+    private void UpdateItemIDDisplayOnEquipmentChanged(object sender, EventArgs eventArgs)
+      {
+        itemID.Text = SelectedEquipment.Index.ToString("X");
+      }
     private void FileExitClicked(object sender, EventArgs eventArgs)
     {
       Environment.Exit(0);
